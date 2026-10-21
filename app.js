@@ -67,23 +67,23 @@ const translations = {
     "backTop": "Back to top",
     "inquiryLabel": "PRODUCT & SUPPLY ENQUIRY",
     "inquiryTitle": "Tell us what you need.",
-    "inquiryDescription": "Build a product brief to share with your DUNE contact. Add the details you have; product-specific fields are optional.",
+    "inquiryDescription": "Prepare a product enquiry for DUNE. Add the details you have; product-specific fields are optional.",
     "nameLabel": "Your name",
     "companyLabel": "Company",
     "emailLabel": "Work email",
     "interestLabel": "Product category",
     "messageLabel": "Application & additional requirements",
-    "formNote": "Your details stay in this browser session. Nothing is sent from this page.",
+    "formNote": "Prepare your enquiry here, then send it through your email app. The form does not send automatically.",
     "prepareInquiry": "Prepare my enquiry",
     "inquiryReady": "Your product enquiry is ready.",
-    "inquiryReadyBody": "Check your brief, then copy or download it to share through your existing contact channel.",
+    "inquiryReadyBody": "Review your enquiry, then open an email draft to info@energydune.com. You can also copy or download the enquiry.",
     "copyInquiry": "Copy enquiry",
     "downloadInquiry": "Download .txt",
     "editInquiry": "← Edit enquiry",
-    "copySuccess": "Copied. Your inquiry is ready to share.",
+    "copySuccess": "Copied. You can paste the enquiry into your email to info@energydune.com.",
     "copyFailure": "Automatic copying is unavailable. Select the text above or download the .txt file.",
     "privacyTitle": "Your privacy.",
-    "privacyBody": "This website does not use analytics, advertising trackers or third-party fonts. Your language preference is stored on your device. Inquiry details remain in the current browser session and are only exported when you choose to copy or download them. They are not submitted to a server. The hosting provider may process standard access logs under its own policy.",
+    "privacyBody": "This website does not use analytics, advertising trackers or third-party fonts. Your language preference is stored on your device. Inquiry details remain in the current browser session until you choose to copy, download or open an email draft. Opening a draft passes the included details to your email app; you choose whether to send it. The form does not submit to a website server. The hosting provider may process standard access logs under its own policy.",
     "privacyAdvice": "Please do not include confidential commercial information in your initial inquiry.",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
@@ -161,7 +161,12 @@ const translations = {
     "product6Tag": "GRADE · VOLUME",
     "productListLabel": "Product categories",
     "productScrollPrevious": "Previous product categories",
-    "productScrollNext": "Next product categories"
+    "productScrollNext": "Next product categories",
+    "contactEmailLabel": "Product enquiries",
+    "emailInquiry": "Open email draft",
+    "emailSubject": "Product enquiry | DUNE ENERGY GLOBAL INC.",
+    "emailDraftNote": "Your email app will open with the enquiry filled in. Review it and send it there.",
+    "emailLongNote": "Your enquiry is long. Copy the full enquiry into your email, or attach the downloaded .txt file. The draft includes the recipient and subject."
   },
   "zh": {
     "skip": "跳至正文",
@@ -230,23 +235,23 @@ const translations = {
     "backTop": "返回顶部",
     "inquiryLabel": "产品与供应询盘",
     "inquiryTitle": "告诉我们你的需求。",
-    "inquiryDescription": "整理一份可分享给 DUNE 联系人的产品需求简报。产品细节为选填，可先填写你已知的信息。",
+    "inquiryDescription": "整理一份发给 DUNE 的产品询盘。产品细节为选填，可先填写你已知的信息。",
     "nameLabel": "你的姓名",
     "companyLabel": "公司名称",
     "emailLabel": "工作邮箱",
     "interestLabel": "产品类别",
     "messageLabel": "实际应用与其他需求",
-    "formNote": "填写内容仅保留在当前浏览器会话中，本页面不会发送任何信息。",
+    "formNote": "先在这里整理询盘，再通过你的邮件应用发送。本表单不会自动发送。",
     "prepareInquiry": "生成产品询盘",
     "inquiryReady": "产品询盘已准备好。",
-    "inquiryReadyBody": "核对内容后，复制或下载简报，通过你已有的联系方式分享。",
+    "inquiryReadyBody": "核对询盘后，打开邮件草稿，发送至 info@energydune.com。你也可以复制或下载询盘。",
     "copyInquiry": "复制询盘",
     "downloadInquiry": "下载 .txt",
     "editInquiry": "← 返回编辑",
-    "copySuccess": "已复制，可以分享你的询盘了。",
+    "copySuccess": "已复制，可粘贴到发往 info@energydune.com 的邮件中。",
     "copyFailure": "当前无法自动复制，请选择上方文字手动复制，或下载 .txt 文件。",
     "privacyTitle": "关于你的隐私。",
-    "privacyBody": "本网站不使用访问统计、广告追踪或第三方字体。语言偏好保存在你的设备上。询盘内容仅保留在当前浏览器会话中，只有你选择复制或下载时才会导出，不会提交到服务器。网站托管服务商可能依据其自身政策处理常规访问日志。",
+    "privacyBody": "本网站不使用访问统计、广告追踪或第三方字体。语言偏好保存在你的设备上。询盘内容保留在当前浏览器会话中，直到你选择复制、下载或打开邮件草稿。打开草稿时，其中包含的内容将交给你的邮件应用，由你决定是否发送。表单不会向网站服务器提交内容。网站托管服务商可能依据其自身政策处理常规访问日志。",
     "privacyAdvice": "初次询盘请勿包含商业机密或其他敏感信息。",
     "menuOpen": "打开菜单",
     "menuClose": "关闭菜单",
@@ -324,7 +329,12 @@ const translations = {
     "product6Tag": "产品品级 · 采购数量",
     "productListLabel": "产品类别",
     "productScrollPrevious": "浏览前面的产品类别",
-    "productScrollNext": "浏览后面的产品类别"
+    "productScrollNext": "浏览后面的产品类别",
+    "contactEmailLabel": "产品咨询",
+    "emailInquiry": "打开邮件草稿",
+    "emailSubject": "产品询盘 | DUNE ENERGY GLOBAL INC.",
+    "emailDraftNote": "将打开你的邮件应用并预填询盘，请核对后在邮件应用中发送。",
+    "emailLongNote": "询盘内容较长，请将完整询盘复制到邮件正文，或将下载的 .txt 文件作为附件。草稿已填好收件人和主题。"
   }
 };
 
@@ -339,6 +349,9 @@ const result = document.querySelector('#inquiry-result');
 const preview = document.querySelector('#inquiry-preview');
 const status = document.querySelector('#copy-status');
 let inquiryText = '';
+const inquiryEmail = 'info@energydune.com';
+const emailDraft = document.querySelector('#email-inquiry');
+const emailDraftNote = document.querySelector('#email-draft-note');
 
 function setMenu(open) {
   menuButton.setAttribute('aria-expanded', String(open));
@@ -354,6 +367,17 @@ function formatInquiry() {
     return `${t[label]}: ${value || t.notSpecified}`;
   });
   return `DUNE ENERGY GLOBAL INC.\n${t.inquiryDocumentTitle}\n\n${lines.join('\n')}\n\n${t.messageLabel}:\n${String(data.get('message') || '').trim()}`;
+}
+function updateInquiryEmail() {
+  if (!emailDraft) return;
+  const t = translations[language];
+  const base = `mailto:${inquiryEmail}?subject=${encodeURIComponent(t.emailSubject)}`;
+  const fullDraft = `${base}&body=${encodeURIComponent(inquiryText.replace(/\n/g, '\r\n'))}`;
+  // Long mailto URLs are truncated by some mail apps; keep the complete brief available to copy or attach.
+  const includeBody = fullDraft.length <= 1800;
+  emailDraft.href = includeBody ? fullDraft : base;
+  emailDraftNote.textContent = t[includeBody ? 'emailDraftNote' : 'emailLongNote'];
+  emailDraftNote.dataset.manualCopy = String(!includeBody);
 }
 let activeFilter = 'all';
 const productList = document.querySelector('#product-list');
@@ -419,7 +443,7 @@ function setLanguage(nextLanguage) {
   document.querySelector('.visual-card a').setAttribute('aria-label', t.approachLink);
   menuButton.setAttribute('aria-label', t[mobileNav.hidden ? 'menuOpen' : 'menuClose']);
   status.textContent = '';
-  if (!result.hidden) { inquiryText = formatInquiry(); preview.textContent = inquiryText; }
+  if (!result.hidden) { inquiryText = formatInquiry(); preview.textContent = inquiryText; updateInquiryEmail(); }
   try { localStorage.setItem('dune-language', language); } catch { /* Storage is optional. */ }
 }
 document.querySelector('.language-switch').addEventListener('click', () => setLanguage(language === 'en' ? 'zh' : 'en'));
@@ -462,6 +486,7 @@ form.addEventListener('submit', event => {
   }
   inquiryText = formatInquiry();
   preview.textContent = inquiryText;
+  updateInquiryEmail();
   form.hidden = true;
   result.hidden = false;
   status.textContent = '';
