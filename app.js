@@ -109,7 +109,7 @@ const translations = {
     "filterEnergy": "Energy",
     "filterLabel": "Filter product categories",
     "productCount": "Showing {n} product categories",
-    "productQuote": "Enquire about this category",
+    "productQuote": "Product enquiry",
     "productsNote": "Product availability, specifications, manufacturer approvals, pack sizes and lead times are confirmed in each quotation.",
     "brandsLabel": "MULTI-BRAND ENQUIRIES",
     "brandsTitle": "Your preferred brand.",
@@ -142,23 +142,26 @@ const translations = {
     "notSpecified": "Not specified",
     "inquiryDocumentTitle": "Product and supply enquiry",
     "product1Title": "Passenger car engine oils",
-    "product1Body": "Engine oils for passenger cars and light-duty applications. Start with the vehicle manufacturer’s viscosity and performance requirements.",
+    "product1Body": "Engine oils for passenger cars, selected to vehicle requirements.",
     "product1Tag": "SAE · API / ACEA",
     "product2Title": "Heavy-duty diesel engine oils",
-    "product2Body": "Engine oils for commercial vehicles, fleets and off-highway equipment. Specify the engine, operating conditions and required performance category.",
-    "product2Tag": "SAE · ENGINE REQUIREMENTS",
+    "product2Body": "Diesel engine oils for commercial fleets and off-highway equipment.",
+    "product2Tag": "SAE · API / OEM",
     "product3Title": "Industrial lubricants",
-    "product3Body": "Hydraulic oils, industrial gear oils and compressor oils. Identify equipment, operating conditions and the specified ISO viscosity grade.",
-    "product3Tag": "ISO VG · EQUIPMENT REQUIREMENTS",
+    "product3Body": "Hydraulic, industrial gear and compressor oils for your equipment.",
+    "product3Tag": "ISO VG · OEM",
     "product4Title": "Transmission & gear fluids",
-    "product4Body": "Automatic and manual transmission fluids, automotive gear oils and axle fluids. Confirm the exact application and required OEM specification.",
+    "product4Body": "Transmission, automotive gear and axle fluids to OEM requirements.",
     "product4Tag": "ATF / MTF · OEM REQUIREMENTS",
     "product5Title": "Lubricating greases",
-    "product5Body": "Bearing, multipurpose and application-specific greases. Include the required NLGI grade, thickener type and service conditions.",
-    "product5Tag": "NLGI · APPLICATION REQUIREMENTS",
+    "product5Body": "Bearing and multipurpose greases, specified by grade and application.",
+    "product5Tag": "NLGI · APPLICATION",
     "product6Title": "Energy products",
-    "product6Body": "Enquiries for energy products, defined by your requirements. Set out the product name, specification, volume, destination and delivery schedule for commercial review.",
-    "product6Tag": "PRODUCT GRADE · VOLUME & DESTINATION"
+    "product6Body": "Specify the energy product, grade, volume and destination you need.",
+    "product6Tag": "GRADE · VOLUME",
+    "productListLabel": "Product categories",
+    "productScrollPrevious": "Previous product categories",
+    "productScrollNext": "Next product categories"
   },
   "zh": {
     "skip": "跳至正文",
@@ -269,7 +272,7 @@ const translations = {
     "filterEnergy": "能源",
     "filterLabel": "筛选产品类别",
     "productCount": "显示 {n} 个产品类别",
-    "productQuote": "咨询此类产品",
+    "productQuote": "产品询价",
     "productsNote": "具体产品的可供情况、技术规格、制造商批准、包装及交期，以逐项报价确认为准。",
     "brandsLabel": "多品牌产品询盘",
     "brandsTitle": "你需要的品牌，",
@@ -302,23 +305,26 @@ const translations = {
     "notSpecified": "未提供",
     "inquiryDocumentTitle": "产品与供应询盘",
     "product1Title": "乘用车发动机油",
-    "product1Body": "面向乘用车及轻型车辆应用的发动机油，按车辆制造商要求核对黏度与性能规范。",
+    "product1Body": "面向乘用车，按车辆制造商要求选择黏度与性能等级。",
     "product1Tag": "SAE · API / ACEA",
     "product2Title": "重负荷柴油机油",
-    "product2Body": "面向商用车辆、车队及非道路设备的柴油机油，按发动机、运行工况与性能类别要求询价。",
-    "product2Tag": "SAE · 发动机要求",
+    "product2Body": "适用于商用车队及非道路设备，明确发动机与工况要求。",
+    "product2Tag": "SAE · API / OEM",
     "product3Title": "工业润滑油",
-    "product3Body": "涵盖液压油、工业齿轮油与压缩机油，结合设备、工况及规定的 ISO 黏度等级提出需求。",
-    "product3Tag": "ISO VG · 设备要求",
+    "product3Body": "液压油、工业齿轮油及压缩机油，按设备要求核对规格。",
+    "product3Tag": "ISO VG · OEM",
     "product4Title": "变速箱与车用齿轮油",
-    "product4Body": "涵盖自动与手动变速箱油、车用齿轮油及驱动桥油，按准确应用与所需 OEM 规范核对。",
+    "product4Body": "变速箱油、车用齿轮油及车桥油，核对具体用途与 OEM 规范。",
     "product4Tag": "ATF / MTF · OEM 要求",
     "product5Title": "润滑脂",
-    "product5Body": "涵盖轴承、多用途及特定工况润滑脂，询盘时注明 NLGI 稠度等级、稠化剂类型与使用条件。",
-    "product5Tag": "NLGI · 应用要求",
+    "product5Body": "轴承及多用途润滑脂，结合 NLGI 稠度、稠化剂与工况选型。",
+    "product5Tag": "NLGI · 实际应用",
     "product6Title": "能源产品",
-    "product6Body": "按具体能源产品需求询价，列明产品名称、规格、数量、目的地与期望交付时间，逐项确认商务条件。",
-    "product6Tag": "品类规格 · 数量与目的地"
+    "product6Body": "提供能源产品名称、品级、采购数量与交付目的地。",
+    "product6Tag": "产品品级 · 采购数量",
+    "productListLabel": "产品类别",
+    "productScrollPrevious": "浏览前面的产品类别",
+    "productScrollNext": "浏览后面的产品类别"
   }
 };
 
@@ -350,6 +356,31 @@ function formatInquiry() {
   return `DUNE ENERGY GLOBAL INC.\n${t.inquiryDocumentTitle}\n\n${lines.join('\n')}\n\n${t.messageLabel}:\n${String(data.get('message') || '').trim()}`;
 }
 let activeFilter = 'all';
+const productList = document.querySelector('#product-list');
+const productScrollControls = document.querySelector('.product-scroll-controls');
+const productScrollButtons = [...document.querySelectorAll('[data-scroll-products]')];
+function updateProductScrollControls() {
+  const maxScroll = productList.scrollWidth - productList.clientWidth;
+  productScrollControls.hidden = maxScroll <= 2;
+  productScrollButtons[0].disabled = productList.scrollLeft <= 1;
+  productScrollButtons[1].disabled = productList.scrollLeft >= maxScroll - 2;
+}
+productScrollButtons.forEach(button => button.addEventListener('click', () => {
+  const card = productList.querySelector('[data-product]:not([hidden])');
+  if (!card) return;
+  productList.scrollBy({
+    left: Number(button.dataset.scrollProducts) * card.getBoundingClientRect().width,
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
+}));
+productList.addEventListener('scroll', updateProductScrollControls, { passive: true });
+productList.addEventListener('focusin', event => {
+  const card = event.target.closest('[data-product]');
+  if (card && event.target.matches(':focus-visible')) {
+    card.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'auto' });
+  }
+});
+window.addEventListener('resize', updateProductScrollControls);
 function updateProductFilter(nextFilter = activeFilter) {
   activeFilter = nextFilter;
   let count = 0;
@@ -359,6 +390,8 @@ function updateProductFilter(nextFilter = activeFilter) {
   });
   document.querySelectorAll('[data-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === nextFilter)));
   document.querySelector('.product-count').textContent = translations[language].productCount.replace('{n}', count);
+  productList.scrollLeft = 0;
+  updateProductScrollControls();
 }
 function setLanguage(nextLanguage) {
   language = nextLanguage;
@@ -369,6 +402,9 @@ function setLanguage(nextLanguage) {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t[el.dataset.i18n]; });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => el.placeholder = t[el.dataset.i18nPlaceholder]);
   document.querySelector('.filter-group').setAttribute('aria-label', t.filterLabel);
+  productList.setAttribute('aria-label', t.productListLabel);
+  productScrollButtons[0].setAttribute('aria-label', t.productScrollPrevious);
+  productScrollButtons[1].setAttribute('aria-label', t.productScrollNext);
   document.querySelectorAll('[data-brand]').forEach(el => el.setAttribute('aria-label', t.brandAsk.replace('{brand}', el.dataset.brand)));
   updateProductFilter();
   document.querySelector('.language-current').textContent = language === 'zh' ? '中文' : 'EN';
