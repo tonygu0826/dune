@@ -1,14 +1,16 @@
-/* DUNE ENERGY GLOBAL — warm, direct and industrial. */
+/* DUNE ENERGY GLOBAL — graphite, cool white and a restrained lime accent. */
 :root {
-  --ink: #142a35;
-  --paper: #f5f1e9;
-  --surface: #fffdf9;
-  --sand: #c69a5a;
-  --sand-light: #dfc69f;
-  --muted: #626765;
-  --line: #d9d3c8;
-  --line-dark: #3c4e56;
-  --sans: Arial, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ink: #242b2d;
+  --paper: #f7f9f7;
+  --surface: #ffffff;
+  --accent: #c5ea70;
+  --accent-light: #daf4aa;
+  --accent-ink: #425f26;
+  --quiet: #eaf0eb;
+  --muted: #606965;
+  --line: #d8dfd9;
+  --line-dark: #46504b;
+  --sans: Arial, 'Helvetica Neue', Helvetica, system-ui, sans-serif;
 }
 
 /* Foundations */
@@ -76,14 +78,14 @@ button:focus-visible,
 a:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid #75532b;
+  outline: 3px solid var(--accent-ink);
   outline-offset: 5px;
 }
 
 .site-header :focus-visible,
 .hero :focus-visible,
 .site-footer :focus-visible {
-  outline-color: var(--sand-light);
+  outline-color: var(--accent-light);
 }
 
 .contact :focus-visible {
@@ -111,7 +113,7 @@ em {
 }
 
 ::selection {
-  background: var(--sand);
+  background: var(--accent);
   color: var(--ink);
 }
 
@@ -244,7 +246,7 @@ em {
   min-height: 51px;
   padding: 13px 24px;
   border: 1px solid transparent;
-  background: var(--sand);
+  background: var(--accent);
   color: var(--ink);
   font-size: 13px;
   font-weight: 700;
@@ -254,7 +256,7 @@ em {
 }
 
 .button:hover {
-  background: var(--sand-light);
+  background: var(--accent-light);
 }
 
 .button-dark,
@@ -267,7 +269,7 @@ em {
 .button-dark:hover,
 .form-submit:hover,
 .result-actions .button-green:hover {
-  background: #29434f;
+  background: #3b4540;
 }
 
 .button-outline {
@@ -339,13 +341,14 @@ em {
   align-items: center;
   gap: 14px;
   width: fit-content;
-  color: var(--sand);
+  color: var(--paper);
 }
 
 .brand-symbol {
   flex-shrink: 0;
   width: 48px;
   height: 48px;
+  color: var(--accent);
 }
 
 .brand-name {
@@ -382,7 +385,7 @@ em {
 }
 
 .desktop-nav a:hover {
-  color: var(--sand-light);
+  color: var(--accent-light);
 }
 
 .header-actions {
@@ -405,12 +408,12 @@ em {
 }
 
 .language-current {
-  color: var(--sand-light);
+  color: var(--accent-light);
 }
 
 .language-divider,
 .language-next {
-  color: #c7ccc9;
+  color: #c8d0cb;
 }
 
 .header-contact {
@@ -419,7 +422,7 @@ em {
   gap: 24px;
   min-height: 43px;
   padding: 10px 18px;
-  border: 1px solid #aeb6b7;
+  border: 1px solid #aeb9b3;
   background: transparent;
   color: var(--paper);
   font-size: 12px;
@@ -428,8 +431,8 @@ em {
 }
 
 .header-contact:hover {
-  border-color: var(--sand);
-  color: var(--sand-light);
+  border-color: var(--accent);
+  color: var(--accent-light);
 }
 
 .header-contact .arrow-icon {
@@ -486,7 +489,7 @@ em {
   position: relative;
   isolation: isolate;
   min-height: 720px;
-  background: #0d1c24;
+  background: #161a18;
   color: var(--paper);
 }
 
@@ -494,7 +497,7 @@ em {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(90deg, rgb(9 24 31 / 88%) 0%, rgb(12 27 34 / 74%) 28%, rgb(12 27 34 / 26%) 59%, rgb(12 27 34 / 4%) 100%);
+  background: linear-gradient(90deg, rgb(17 21 18 / 88%) 0%, rgb(20 24 21 / 74%) 28%, rgb(20 24 21 / 26%) 59%, rgb(20 24 21 / 4%) 100%);
   content: '';
 }
 
@@ -523,7 +526,7 @@ em {
 
 .hero .eyebrow {
   margin-bottom: 28px;
-  color: var(--sand-light);
+  color: var(--accent-light);
   font-size: 11px;
   letter-spacing: 2.15px;
 }
@@ -544,7 +547,7 @@ em {
 .hero-description {
   max-width: 400px;
   margin: 26px 0 0;
-  color: #e2e2d9;
+  color: #e4e9e3;
   font-size: 16px;
   line-height: 1.65;
 }
@@ -566,7 +569,7 @@ em {
 }
 
 .hero-actions .button-outline {
-  border-color: #c5c9c3;
+  border-color: #c7d0c8;
   color: var(--paper);
 }
 
@@ -584,7 +587,7 @@ em {
   place-items: center;
   width: 40px;
   height: 40px;
-  color: var(--sand-light);
+  color: var(--accent-light);
   font-size: 24px;
   transform: translateX(-50%);
 }
@@ -641,7 +644,7 @@ em {
 
 .filter-button:hover,
 .filter-button[aria-pressed='true'] {
-  border-bottom-color: var(--sand);
+  border-bottom-color: var(--accent-ink);
   color: var(--ink);
 }
 
@@ -680,7 +683,7 @@ em {
 }
 
 .product-scroll-button:disabled {
-  color: #a5a59c;
+  color: #9ca79e;
 }
 
 .product-grid {
@@ -695,7 +698,7 @@ em {
   scroll-padding-inline: 4px;
   scroll-snap-type: inline proximity;
   scrollbar-width: thin;
-  scrollbar-color: var(--sand) transparent;
+  scrollbar-color: var(--accent) transparent;
 }
 
 .product-grid:focus-visible {
@@ -707,7 +710,7 @@ em {
 }
 
 .product-grid::-webkit-scrollbar-thumb {
-  background: var(--sand);
+  background: var(--accent);
 }
 
 .product-card {
@@ -731,7 +734,7 @@ em {
 
 .product-category {
   margin-bottom: 19px;
-  color: #75532b;
+  color: var(--accent-ink);
   font-size: 10px;
   letter-spacing: 1.4px;
 }
@@ -789,7 +792,7 @@ em {
 .brands {
   padding-block: 64px;
   border-block: 1px solid var(--line);
-  background: #eee9df;
+  background: #eff3ef;
 }
 
 .brands-heading {
@@ -834,7 +837,7 @@ em {
 }
 
 .brand-option > span:last-child {
-  color: #75532b;
+  color: var(--accent-ink);
 }
 
 .brand-option .arrow-icon {
@@ -843,7 +846,7 @@ em {
 }
 
 .brand-option:hover {
-  color: #75532b;
+  color: var(--accent-ink);
 }
 
 .brand-note {
@@ -866,7 +869,7 @@ em {
 /* A short company introduction */
 .about > .eyebrow {
   margin-bottom: 27px;
-  color: #75532b;
+  color: var(--accent-ink);
 }
 
 .about-grid {
@@ -891,7 +894,7 @@ em {
 /* One clear contact invitation */
 .contact {
   padding-block: 64px;
-  background: var(--sand);
+  background: var(--quiet);
   color: var(--ink);
 }
 
@@ -924,7 +927,7 @@ em {
 .contact-email {
   display: inline-block;
   padding-bottom: 2px;
-  border-bottom: 1px solid rgb(20 42 53 / 45%);
+  border-bottom: 1px solid rgb(36 43 45 / 45%);
   font-size: 18px;
   line-height: 1.5;
 }
@@ -970,7 +973,7 @@ em {
 
 .footer-summary {
   margin-left: auto;
-  color: #c7cdc9;
+  color: #cad2cc;
   font-size: 13px;
   line-height: 1.75;
   white-space: pre-line;
@@ -994,8 +997,8 @@ em {
 
 .footer-links .text-link {
   padding-bottom: 1px;
-  border-bottom-color: #708087;
-  color: #c7cdc9;
+  border-bottom-color: #75867a;
+  color: #cad2cc;
   font-size: 12px;
   font-weight: 400;
 }
@@ -1006,7 +1009,7 @@ em {
   gap: 24px;
   padding-top: 21px;
   border-top: 1px solid var(--line-dark);
-  color: #b9c2c1;
+  color: #bdc9bf;
   font-size: 11px;
   line-height: 1.7;
 }
@@ -1033,7 +1036,7 @@ em {
 .footer-link:hover,
 .back-top:hover,
 .footer-email:hover {
-  color: var(--sand-light);
+  color: var(--accent-light);
 }
 
 /* Native enquiry and privacy dialogs */
@@ -1052,7 +1055,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgb(7 21 29 / 74%);
+  background: rgb(17 23 19 / 74%);
 }
 
 .dialog-inner {
@@ -1083,7 +1086,7 @@ dialog::backdrop {
 
 .dialog-inner > .eyebrow {
   max-width: calc(100% - 20px);
-  color: #75532b;
+  color: var(--accent-ink);
   font-size: 10px;
 }
 
@@ -1154,7 +1157,7 @@ dialog::backdrop {
   min-width: 0;
   min-height: 44px;
   padding: 10px 12px;
-  border: 1px solid #c9c8bf;
+  border: 1px solid #c8d1c9;
   background: var(--surface);
   color: var(--ink);
   font-size: 14px;
@@ -1169,7 +1172,7 @@ dialog::backdrop {
 
 #inquiry-form input::placeholder,
 #inquiry-form textarea::placeholder {
-  color: #737872;
+  color: #717a72;
   opacity: 1;
 }
 
@@ -1183,7 +1186,7 @@ dialog::backdrop {
 
 .form-section-label {
   margin: 6px 0 -3px;
-  color: #75532b;
+  color: var(--accent-ink);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -1392,7 +1395,7 @@ dialog::backdrop {
   }
 
   .hero::after {
-    background: linear-gradient(90deg, rgb(9 24 31 / 90%), rgb(12 27 34 / 71%) 42%, rgb(12 27 34 / 22%));
+    background: linear-gradient(90deg, rgb(17 21 18 / 90%), rgb(20 24 21 / 71%) 42%, rgb(20 24 21 / 22%));
   }
 
   .hero-image {
@@ -1514,7 +1517,7 @@ dialog::backdrop {
   }
 
   .hero::after {
-    background: linear-gradient(90deg, rgb(9 24 31 / 91%) 0%, rgb(12 27 34 / 76%) 50%, rgb(12 27 34 / 36%) 100%);
+    background: linear-gradient(90deg, rgb(17 21 18 / 91%) 0%, rgb(20 24 21 / 76%) 50%, rgb(20 24 21 / 36%) 100%);
   }
 
   .hero-copy {
@@ -1901,21 +1904,53 @@ dialog::backdrop {
   }
 }
 
-/* Chinese uses the same upright, compact typographic hierarchy. */
-html[lang='zh-CN'] .hero h1 {
-  line-height: 1.22;
-  letter-spacing: -1.4px;
+/* French labels can run longer; allow natural wrapping at every width. */
+html[lang='fr'] .hero-copy {
+  width: 760px;
 }
 
-html[lang='zh-CN'] .section-title,
-html[lang='zh-CN'] .contact h2 {
-  line-height: 1.3;
-  letter-spacing: -.6px;
+html[lang='fr'] .hero h1 {
+  font-size: clamp(56px, 5.5vw, 80px);
+  letter-spacing: -2.7px;
 }
 
-html[lang='zh-CN'] .product-card h3 {
-  line-height: 1.45;
-  letter-spacing: 0;
+html[lang='fr'] .product-card h3 {
+  font-size: 18px;
+  line-height: 1.32;
+}
+
+html[lang='fr'] .button,
+html[lang='fr'] .header-contact {
+  white-space: normal;
+}
+
+@media (max-width: 680px) {
+  html[lang='fr'] .hero-copy {
+    width: 100%;
+  }
+
+  html[lang='fr'] .hero h1 {
+    font-size: clamp(38px, 10.1vw, 60px);
+    line-height: 1.14;
+    letter-spacing: -1.5px;
+  }
+
+  html[lang='fr'] .product-card h3 {
+    font-size: 20px;
+  }
+
+  html[lang='fr'] .hero-actions {
+    gap: 14px;
+  }
+
+  html[lang='fr'] .hero-actions .button {
+    gap: 18px;
+    padding-inline: 17px;
+  }
+
+  html[lang='fr'] .footer-summary {
+    max-width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

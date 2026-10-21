@@ -45,7 +45,7 @@ const translations = {
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
     "close": "Close dialog",
-    "switchLanguage": "Switch to Chinese",
+    "switchLanguage": "Switch to French",
     "home": "DUNE ENERGY GLOBAL — home",
     "navLabel": "Main navigation",
     "mobileNavLabel": "Mobile navigation",
@@ -61,7 +61,7 @@ const translations = {
     "filterIndustrial": "Industrial",
     "filterEnergy": "Energy",
     "filterLabel": "Filter product categories",
-    "productCount": "{n} categories",
+    "productCount": "Categories: {n}",
     "productQuote": "Enquire",
     "productsNote": "Availability and specifications confirmed by quotation.",
     "brandsTitle": "Your preferred brands.",
@@ -111,125 +111,137 @@ const translations = {
     "emailDraftNote": "Your email app will open with the enquiry filled in. Review it and send it there.",
     "emailLongNote": "Your enquiry is long. Copy the full enquiry into your email, or attach the downloaded .txt file. The draft includes the recipient and subject.",
     "brandNoteLabel": "Brand information",
-    "moreSpecifications": "Additional specifications"
+    "moreSpecifications": "Additional specifications",
+    "requiredField": "Please complete this field.",
+    "invalidEmail": "Please enter a valid email address.",
+    "categoryIndustrial": "INDUSTRIAL",
+    "categoryDriveline": "DRIVELINE",
+    "categoryGrease": "GREASES",
+    "categoryEnergy": "ENERGY"
   },
-  "zh": {
-    "skip": "跳至正文",
-    "navAbout": "关于我们",
-    "navExpertise": "产品类别",
-    "getInTouch": "产品询价",
-    "heroEyebrow": "能源产品 · 多品牌润滑油",
-    "heroTitle": "能源产品，",
-    "heroTitleItalic": "多元选择。",
-    "heroDescription": "多品牌润滑油，服务车用、商用与工业采购。",
-    "explore": "浏览产品",
-    "meetDune": "联系我们",
+  "fr": {
+    "skip": "Aller au contenu",
+    "navAbout": "À propos",
+    "navExpertise": "Produits",
+    "getInTouch": "Demander un prix",
+    "heroEyebrow": "ÉNERGIE & LUBRIFIANTS MULTIMARQUES",
+    "heroTitle": "Énergie &",
+    "heroTitleItalic": "lubrifiants.",
+    "heroDescription": "Des produits multimarques pour l’automobile, l’industrie et l’énergie.",
+    "explore": "Voir les produits",
+    "meetDune": "Nous joindre",
     "aboutLabel": "DUNE ENERGY GLOBAL",
-    "aboutTitle": "专注能源与润滑，",
-    "aboutTitleItalic": "连接多元需求。",
-    "aboutLead": "我们专注能源产品与多品牌润滑油销售，围绕品牌、规格、数量和交付需求，为车用、商用车及工业采购提供对接。",
-    "contactLabel": "联系",
-    "contactTitle": "从产品需求开始。",
-    "startConversation": "填写询价",
-    "footerTagline": "能源产品 · 多品牌润滑油",
-    "downloadLogo": "下载品牌 Logo",
-    "rights": "保留所有权利。",
-    "privacy": "隐私说明",
-    "backTop": "返回顶部",
-    "inquiryTitle": "产品询价",
-    "inquiryDescription": "告诉我们你需要的产品与数量。",
-    "nameLabel": "姓名",
-    "companyLabel": "公司名称",
-    "emailLabel": "邮箱",
-    "interestLabel": "产品类别",
-    "messageLabel": "采购需求",
-    "formNote": "生成草稿后，请在你的邮件应用中确认发送。",
-    "prepareInquiry": "生成邮件草稿",
-    "inquiryReady": "产品询盘已准备好。",
-    "inquiryReadyBody": "核对询盘后，发送至 info@energydune.com。",
-    "copyInquiry": "复制询盘",
-    "downloadInquiry": "下载 .txt",
-    "editInquiry": "← 返回编辑",
-    "copySuccess": "已复制，可粘贴到发往 info@energydune.com 的邮件中。",
-    "copyFailure": "当前无法自动复制，请选择上方文字手动复制，或下载 .txt 文件。",
-    "privacyTitle": "关于你的隐私。",
-    "privacyBody": "本网站不使用访问统计、广告追踪或第三方字体。语言偏好保存在你的设备上。询盘内容保留在当前浏览器会话中，直到你选择复制、下载或打开邮件草稿。打开草稿时，其中包含的内容将交给你的邮件应用，由你决定是否发送。表单不会向网站服务器提交内容。网站托管服务商可能依据其自身政策处理常规访问日志。",
-    "privacyAdvice": "初次询盘请勿包含商业机密或其他敏感信息。",
-    "menuOpen": "打开菜单",
-    "menuClose": "关闭菜单",
-    "close": "关闭弹窗",
-    "switchLanguage": "Switch to English",
-    "home": "DUNE ENERGY GLOBAL — 首页",
-    "navLabel": "主导航",
-    "mobileNavLabel": "手机导航",
-    "heroAlt": "冷色工业背景中，精密钢制齿轮与流动的琥珀色润滑油",
-    "pageTitle": "DUNE ENERGY GLOBAL — 能源产品与润滑油",
-    "metaDescription": "DUNE ENERGY GLOBAL 专注能源产品与多品牌润滑油销售，服务车用、商用车及工业采购需求。",
-    "navBrands": "品牌询盘",
-    "productsTitle": "产品系列",
-    "productsIntro": "车用 · 商用 · 工业",
-    "filterAll": "全部产品",
-    "filterAutomotive": "车用",
-    "filterCommercial": "商用",
-    "filterIndustrial": "工业",
-    "filterEnergy": "能源",
-    "filterLabel": "筛选产品类别",
-    "productCount": "{n} 类产品",
-    "productQuote": "询价",
-    "productsNote": "具体可供产品与规格，以报价确认为准。",
-    "brandsTitle": "多品牌，多种选择。",
-    "brandsBody": "选择品牌，开始询价。",
-    "brandsNote": "品牌名称用于产品询价，不表示授权经销。具体可供情况以报价确认为准。",
-    "brandAsk": "填写 {brand} 产品询盘",
-    "brandLabel": "品牌",
-    "referenceLabel": "产品／型号",
-    "viscosityLabel": "黏度／稠度等级",
-    "specificationLabel": "性能规范／OEM 要求",
-    "quantityLabel": "数量／包装",
-    "destinationLabel": "交付目的地",
-    "documentsLabel": "技术文件",
-    "optional": "选填",
-    "brandPlaceholder": "意向品牌",
-    "referencePlaceholder": "产品名称或型号",
-    "viscosityPlaceholder": "SAE 5W-30／ISO VG 46／NLGI 2",
-    "specificationPlaceholder": "API／ACEA／OEM 要求",
-    "quantityPlaceholder": "采购数量与包装",
-    "destinationPlaceholder": "城市、国家",
-    "messagePlaceholder": "产品、数量与交付需求",
-    "notSpecified": "未提供",
-    "inquiryDocumentTitle": "产品与供应询盘",
-    "product1Title": "乘用车发动机油",
-    "product1Body": "按车型与规格匹配产品。",
+    "aboutTitle": "Un partenaire à l’écoute.",
+    "aboutTitleItalic": "Un choix élargi.",
+    "aboutLead": "DUNE ENERGY GLOBAL propose des produits énergétiques et des lubrifiants multimarques pour les véhicules légers, les poids lourds et l’industrie. Chaque demande tient compte de vos marques, spécifications, quantités et besoins de livraison.",
+    "contactLabel": "CONTACT",
+    "contactTitle": "Parlons de vos besoins.",
+    "startConversation": "Demander un prix",
+    "footerTagline": "Produits énergétiques. Lubrifiants multimarques.",
+    "downloadLogo": "Télécharger le logo",
+    "rights": "Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "backTop": "Haut de page",
+    "inquiryTitle": "Votre demande de prix.",
+    "inquiryDescription": "Précisez le produit et la quantité souhaités.",
+    "nameLabel": "Nom",
+    "companyLabel": "Entreprise",
+    "emailLabel": "Courriel",
+    "interestLabel": "Catégorie de produits",
+    "messageLabel": "Vos besoins",
+    "formNote": "Préparez un brouillon, puis envoyez-le dans votre application de messagerie.",
+    "prepareInquiry": "Préparer le brouillon",
+    "inquiryReady": "Votre demande est prête.",
+    "inquiryReadyBody": "Vérifiez votre demande et envoyez-la à info@energydune.com.",
+    "copyInquiry": "Copier la demande",
+    "downloadInquiry": "Télécharger .txt",
+    "editInquiry": "← Modifier la demande",
+    "copySuccess": "Copié. Collez la demande dans un courriel adressé à info@energydune.com.",
+    "copyFailure": "La copie automatique est indisponible. Sélectionnez le texte ci-dessus ou téléchargez le fichier .txt.",
+    "privacyTitle": "Votre vie privée.",
+    "privacyBody": "Ce site n’utilise ni outil d’analyse d’audience, ni traceur publicitaire, ni police tierce. Votre préférence de langue est enregistrée sur votre appareil. Les renseignements de votre demande restent dans la session actuelle du navigateur jusqu’à ce que vous choisissiez de les copier, de les télécharger ou d’ouvrir un brouillon de courriel. L’ouverture du brouillon transmet les renseignements inclus à votre application de messagerie ; vous décidez de l’envoyer ou non. Le formulaire ne transmet rien au serveur du site. Le fournisseur d’hébergement peut traiter les journaux d’accès habituels conformément à sa propre politique.",
+    "privacyAdvice": "N’incluez pas de renseignements commerciaux confidentiels dans votre première demande.",
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu",
+    "close": "Fermer la fenêtre",
+    "switchLanguage": "Passer à l’anglais",
+    "home": "DUNE ENERGY GLOBAL — accueil",
+    "navLabel": "Navigation principale",
+    "mobileNavLabel": "Navigation mobile",
+    "heroAlt": "Engrenages en acier de précision et ruban d’huile lubrifiante ambrée sur fond industriel aux tons froids",
+    "pageTitle": "DUNE ENERGY GLOBAL — Énergie et lubrifiants",
+    "metaDescription": "Produits énergétiques et lubrifiants multimarques pour véhicules légers, poids lourds et industrie. Demandez un prix à DUNE ENERGY GLOBAL.",
+    "navBrands": "Marques",
+    "productsTitle": "Nos produits.",
+    "productsIntro": "Automobile. Poids lourds. Industrie.",
+    "filterAll": "Tous les produits",
+    "filterAutomotive": "Automobile",
+    "filterCommercial": "Poids lourds",
+    "filterIndustrial": "Industrie",
+    "filterEnergy": "Énergie",
+    "filterLabel": "Filtrer les catégories de produits",
+    "productCount": "Catégories : {n}",
+    "productQuote": "Demander un prix",
+    "productsNote": "Disponibilité et spécifications confirmées par devis.",
+    "brandsTitle": "Vos marques préférées.",
+    "brandsBody": "Choisissez une marque pour votre demande.",
+    "brandsNote": "Les marques identifient les produits demandés et n’impliquent pas de distribution agréée. Disponibilité confirmée par devis.",
+    "brandAsk": "Préparer une demande pour {brand}",
+    "brandLabel": "Marque",
+    "referenceLabel": "Produit / référence",
+    "viscosityLabel": "Grade de viscosité / consistance",
+    "specificationLabel": "Norme / homologation",
+    "quantityLabel": "Quantité / emballage",
+    "destinationLabel": "Destination",
+    "documentsLabel": "Documents",
+    "optional": "Facultatif",
+    "brandPlaceholder": "Nom de la marque",
+    "referencePlaceholder": "Nom ou référence du produit",
+    "viscosityPlaceholder": "SAE 5W-30 / ISO VG 46 / NLGI 2",
+    "specificationPlaceholder": "API / ACEA / exigence OEM",
+    "quantityPlaceholder": "Quantité et format",
+    "destinationPlaceholder": "Ville, pays",
+    "messagePlaceholder": "Produit, quantité et livraison souhaitée",
+    "notSpecified": "Non précisé",
+    "inquiryDocumentTitle": "Demande de produits et d’approvisionnement",
+    "product1Title": "Huiles moteur véhicules légers",
+    "product1Body": "Selon les exigences du véhicule.",
     "product1Tag": "SAE · API / ACEA",
-    "product2Title": "重负荷柴油机油",
-    "product2Body": "面向商用车与非道路设备。",
+    "product2Title": "Huiles moteur poids lourds",
+    "product2Body": "Pour véhicules commerciaux et équipements hors route.",
     "product2Tag": "SAE · API / OEM",
-    "product3Title": "工业润滑油",
-    "product3Body": "液压油、齿轮油与压缩机油。",
+    "product3Title": "Lubrifiants industriels",
+    "product3Body": "Huiles hydrauliques, pour engrenages et compresseurs.",
     "product3Tag": "ISO VG",
-    "product4Title": "传动系统用油",
-    "product4Body": "变速箱油与车用齿轮油。",
+    "product4Title": "Huiles de transmission",
+    "product4Body": "ATF, CVT, DCT et huiles d’engrenages automobiles.",
     "product4Tag": "ATF / MTF · OEM",
-    "product5Title": "润滑脂",
-    "product5Body": "轴承与多用途润滑脂。",
+    "product5Title": "Graisses lubrifiantes",
+    "product5Body": "Graisses polyvalentes et pour roulements.",
     "product5Tag": "NLGI",
-    "product6Title": "能源产品",
-    "product6Body": "按产品、规格与目的地询价。",
-    "product6Tag": "产品品级／采购数量",
-    "productListLabel": "产品类别",
-    "productScrollPrevious": "浏览前面的产品类别",
-    "productScrollNext": "浏览后面的产品类别",
-    "emailInquiry": "打开邮件草稿",
-    "emailSubject": "产品询盘 | DUNE ENERGY GLOBAL",
-    "emailDraftNote": "将打开你的邮件应用并预填询盘，请核对后在邮件应用中发送。",
-    "emailLongNote": "询盘内容较长，请将完整询盘复制到邮件正文，或将下载的 .txt 文件作为附件。草稿已填好收件人和主题。",
-    "brandNoteLabel": "品牌说明",
-    "moreSpecifications": "补充技术规格"
+    "product6Title": "Produits énergétiques",
+    "product6Body": "Demandes par produit, spécification et destination.",
+    "product6Tag": "SPÉC. / VOLUME",
+    "productListLabel": "Catégories de produits",
+    "productScrollPrevious": "Catégories précédentes",
+    "productScrollNext": "Catégories suivantes",
+    "emailInquiry": "Ouvrir le brouillon",
+    "emailSubject": "Demande de prix | DUNE ENERGY GLOBAL",
+    "emailDraftNote": "Votre application de messagerie s’ouvrira avec la demande préremplie. Vérifiez-la, puis envoyez-la depuis cette application.",
+    "emailLongNote": "Votre demande est longue. Copiez-la en entier dans votre courriel ou joignez le fichier .txt téléchargé. Le brouillon contient le destinataire et l’objet.",
+    "brandNoteLabel": "À propos des marques",
+    "moreSpecifications": "Autres spécifications",
+    "requiredField": "Veuillez remplir ce champ.",
+    "categoryIndustrial": "INDUSTRIE",
+    "categoryDriveline": "TRANSMISSION",
+    "categoryGrease": "GRAISSES",
+    "categoryEnergy": "ÉNERGIE",
+    "invalidEmail": "Veuillez saisir une adresse courriel valide."
   }
 };
 
 let language = 'en';
-try { language = localStorage.getItem('dune-language') === 'zh' ? 'zh' : 'en'; } catch { /* Storage is optional. */ }
+try { language = localStorage.getItem('dune-language') === 'fr' ? 'fr' : 'en'; } catch { /* Storage is optional. */ }
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
 const inquiryDialog = document.querySelector('#inquiry-dialog');
@@ -308,11 +320,13 @@ function updateProductFilter(nextFilter = activeFilter) {
   updateProductScrollControls();
 }
 function setLanguage(nextLanguage) {
-  language = nextLanguage;
+  language = nextLanguage === 'fr' ? 'fr' : 'en';
   const t = translations[language];
-  document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+  document.documentElement.lang = language;
   document.title = t.pageTitle;
   document.querySelector('meta[name="description"]').content = t.metaDescription;
+  document.querySelector('meta[property="og:title"]').content = t.pageTitle;
+  document.querySelector('meta[property="og:description"]').content = t.metaDescription;
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t[el.dataset.i18n]; });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => el.placeholder = t[el.dataset.i18nPlaceholder]);
   document.querySelector('.filter-group').setAttribute('aria-label', t.filterLabel);
@@ -321,8 +335,8 @@ function setLanguage(nextLanguage) {
   productScrollButtons[1].setAttribute('aria-label', t.productScrollNext);
   document.querySelectorAll('[data-brand]').forEach(el => el.setAttribute('aria-label', t.brandAsk.replace('{brand}', el.dataset.brand)));
   updateProductFilter();
-  document.querySelector('.language-current').textContent = language === 'zh' ? '中文' : 'EN';
-  document.querySelector('.language-next').textContent = language === 'zh' ? 'EN' : '中文';
+  document.querySelector('.language-current').textContent = language === 'fr' ? 'FR' : 'EN';
+  document.querySelector('.language-next').textContent = language === 'fr' ? 'EN' : 'FR';
   document.querySelector('.language-switch').setAttribute('aria-label', t.switchLanguage);
   document.querySelectorAll('.brand').forEach(el => el.setAttribute('aria-label', t.home));
   document.querySelectorAll('[data-close-dialog]').forEach(el => el.setAttribute('aria-label', t.close));
@@ -332,10 +346,11 @@ function setLanguage(nextLanguage) {
   document.querySelector('.hero-scroll').setAttribute('aria-label', t.explore);
   menuButton.setAttribute('aria-label', t[mobileNav.hidden ? 'menuOpen' : 'menuClose']);
   status.textContent = '';
+  form.querySelectorAll('input, textarea').forEach(input => input.setCustomValidity(''));
   if (!result.hidden) { inquiryText = formatInquiry(); preview.textContent = inquiryText; updateInquiryEmail(); }
   try { localStorage.setItem('dune-language', language); } catch { /* Storage is optional. */ }
 }
-document.querySelector('.language-switch').addEventListener('click', () => setLanguage(language === 'en' ? 'zh' : 'en'));
+document.querySelector('.language-switch').addEventListener('click', () => setLanguage(language === 'en' ? 'fr' : 'en'));
 menuButton.addEventListener('click', () => setMenu(mobileNav.hidden));
 mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
@@ -368,10 +383,15 @@ document.querySelectorAll('dialog').forEach(dialog => {
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
   });
 });
+form.addEventListener('invalid', event => {
+  const input = event.target;
+  if (!input.value.trim()) input.setCustomValidity(translations[language].requiredField);
+  else if (input.type === 'email' && input.validity.typeMismatch) input.setCustomValidity(translations[language].invalidEmail);
+}, true);
 form.addEventListener('submit', event => {
   event.preventDefault();
   for (const input of form.querySelectorAll('input[required], textarea[required]')) {
-    if (!input.value.trim()) { input.setCustomValidity(language === 'zh' ? '请填写此项。' : 'Please complete this field.'); input.reportValidity(); return; }
+    if (!input.value.trim()) { input.setCustomValidity(translations[language].requiredField); input.reportValidity(); return; }
   }
   inquiryText = formatInquiry();
   preview.textContent = inquiryText;
