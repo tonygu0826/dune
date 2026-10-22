@@ -350,7 +350,7 @@ em {
 .brand-logo {
   display: block;
   flex-shrink: 0;
-  width: 216px;
+  width: 184px;
   height: auto;
 }
 
@@ -952,7 +952,7 @@ em {
 }
 
 .footer-top .brand-logo {
-  width: 204px;
+  width: 176px;
 }
 
 .footer-summary {
@@ -1444,7 +1444,7 @@ dialog::backdrop {
   }
 
   .brand-logo {
-    width: 184px;
+    width: 160px;
   }
 
   .desktop-nav {
@@ -1696,7 +1696,7 @@ dialog::backdrop {
   }
 
   .footer-top .brand-logo {
-    width: 204px;
+    width: 176px;
   }
 
   .footer-summary {
@@ -1812,7 +1812,7 @@ dialog::backdrop {
   }
 
   .brand-logo {
-    width: 176px;
+    width: 152px;
   }
 
   .header-actions {
