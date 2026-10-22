@@ -343,34 +343,15 @@ em {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
-  gap: 14px;
   width: fit-content;
-  color: var(--surface);
+  color: #f2a171;
 }
 
-.brand-symbol {
+.brand-logo {
+  display: block;
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  color: var(--accent);
-}
-
-.brand-name {
-  display: block;
-  font-size: 35px;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: 3px;
-}
-
-.brand-name > span {
-  display: block;
-  margin-top: 8px;
-  font-size: 9px;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: 2.45px;
-  white-space: nowrap;
+  width: 216px;
+  height: auto;
 }
 
 .desktop-nav {
@@ -970,19 +951,8 @@ em {
   padding-bottom: 37px;
 }
 
-.footer-top .brand-symbol {
-  width: 43px;
-  height: 43px;
-}
-
-.footer-top .brand-name {
-  font-size: 31px;
-}
-
-.footer-top .brand-name > span {
-  margin-top: 7px;
-  font-size: 8px;
-  letter-spacing: 2.15px;
+.footer-top .brand-logo {
+  width: 204px;
 }
 
 .footer-summary {
@@ -1473,24 +1443,8 @@ dialog::backdrop {
     min-height: 81px;
   }
 
-  .brand {
-    gap: 10px;
-  }
-
-  .brand-symbol {
-    width: 38px;
-    height: 38px;
-  }
-
-  .brand-name {
-    font-size: 29px;
-    letter-spacing: 3px;
-  }
-
-  .brand-name > span {
-    margin-top: 6px;
-    font-size: 8px;
-    letter-spacing: 1.8px;
+  .brand-logo {
+    width: 184px;
   }
 
   .desktop-nav {
@@ -1741,18 +1695,8 @@ dialog::backdrop {
     padding-bottom: 28px;
   }
 
-  .footer-top .brand-symbol {
-    width: 38px;
-    height: 38px;
-  }
-
-  .footer-top .brand-name {
-    font-size: 29px;
-  }
-
-  .footer-top .brand-name > span {
-    font-size: 8px;
-    letter-spacing: 1.8px;
+  .footer-top .brand-logo {
+    width: 204px;
   }
 
   .footer-summary {
@@ -1867,23 +1811,8 @@ dialog::backdrop {
     gap: 10px;
   }
 
-  .brand-symbol {
-    width: 32px;
-    height: 32px;
-  }
-
-  .brand {
-    gap: 8px;
-  }
-
-  .brand-name {
-    font-size: 25px;
-    letter-spacing: 2.7px;
-  }
-
-  .brand-name > span {
-    font-size: 7px;
-    letter-spacing: 1.65px;
+  .brand-logo {
+    width: 176px;
   }
 
   .header-actions {
