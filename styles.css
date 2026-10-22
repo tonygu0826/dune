@@ -1,15 +1,17 @@
-/* DUNE ENERGY GLOBAL — graphite, cool white and a restrained lime accent. */
+/* DUNE ENERGY GLOBAL — deep petrol, flame orange and clear white. */
 :root {
-  --ink: #242b2d;
-  --paper: #f7f9f7;
+  --ink: #092c34;
+  --paper: #f5f6f4;
   --surface: #ffffff;
-  --accent: #c5ea70;
-  --accent-light: #daf4aa;
-  --accent-ink: #425f26;
-  --quiet: #eaf0eb;
-  --muted: #606965;
-  --line: #d8dfd9;
-  --line-dark: #46504b;
+  --accent: #f5683a;
+  --accent-light: #ffb08a;
+  --accent-hover: #ff8b61;
+  --accent-ink: #a83a1c;
+  --brand-surface: #123f46;
+  --muted: #536166;
+  --on-dark-muted: #bfd0d4;
+  --line: #ccd5d5;
+  --line-dark: #35545b;
   --sans: Arial, 'Helvetica Neue', Helvetica, system-ui, sans-serif;
 }
 
@@ -84,6 +86,8 @@ summary:focus-visible,
 
 .site-header :focus-visible,
 .hero :focus-visible,
+.brands :focus-visible,
+.about :focus-visible,
 .site-footer :focus-visible {
   outline-color: var(--accent-light);
 }
@@ -256,20 +260,20 @@ em {
 }
 
 .button:hover {
-  background: var(--accent-light);
+  background: var(--accent-hover);
 }
 
 .button-dark,
 .form-submit,
 .result-actions .button-green {
   background: var(--ink);
-  color: var(--paper);
+  color: var(--surface);
 }
 
 .button-dark:hover,
 .form-submit:hover,
 .result-actions .button-green:hover {
-  background: #3b4540;
+  background: var(--brand-surface);
 }
 
 .button-outline {
@@ -324,7 +328,7 @@ em {
   position: relative;
   z-index: 10;
   background: var(--ink);
-  color: var(--paper);
+  color: var(--surface);
 }
 
 .header-inner {
@@ -341,7 +345,7 @@ em {
   align-items: center;
   gap: 14px;
   width: fit-content;
-  color: var(--paper);
+  color: var(--surface);
 }
 
 .brand-symbol {
@@ -413,7 +417,7 @@ em {
 
 .language-divider,
 .language-next {
-  color: #c8d0cb;
+  color: var(--on-dark-muted);
 }
 
 .header-contact {
@@ -422,17 +426,17 @@ em {
   gap: 24px;
   min-height: 43px;
   padding: 10px 18px;
-  border: 1px solid #aeb9b3;
-  background: transparent;
-  color: var(--paper);
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--ink);
   font-size: 12px;
   font-weight: 600;
-  transition: border-color 160ms ease, color 160ms ease;
+  transition: background-color 160ms ease, border-color 160ms ease;
 }
 
 .header-contact:hover {
-  border-color: var(--accent);
-  color: var(--accent-light);
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
 }
 
 .header-contact .arrow-icon {
@@ -489,15 +493,15 @@ em {
   position: relative;
   isolation: isolate;
   min-height: 720px;
-  background: #161a18;
-  color: var(--paper);
+  background: var(--ink);
+  color: var(--surface);
 }
 
 .hero::after {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(90deg, rgb(17 21 18 / 88%) 0%, rgb(20 24 21 / 74%) 28%, rgb(20 24 21 / 26%) 59%, rgb(20 24 21 / 4%) 100%);
+  background: linear-gradient(90deg, rgb(9 44 52 / 94%) 0%, rgb(9 44 52 / 80%) 28%, rgb(9 44 52 / 30%) 59%, rgb(9 44 52 / 6%) 100%);
   content: '';
 }
 
@@ -547,7 +551,7 @@ em {
 .hero-description {
   max-width: 400px;
   margin: 26px 0 0;
-  color: #e4e9e3;
+  color: #e1ebed;
   font-size: 16px;
   line-height: 1.65;
 }
@@ -561,7 +565,7 @@ em {
 }
 
 .hero-actions .text-link {
-  color: var(--paper);
+  color: var(--surface);
 }
 
 .hero-actions .button {
@@ -569,13 +573,13 @@ em {
 }
 
 .hero-actions .button-outline {
-  border-color: #c7d0c8;
-  color: var(--paper);
+  border-color: var(--on-dark-muted);
+  color: var(--surface);
 }
 
 .hero-actions .button-outline:hover {
-  border-color: var(--paper);
-  background: var(--paper);
+  border-color: var(--surface);
+  background: var(--surface);
   color: var(--ink);
 }
 
@@ -683,7 +687,7 @@ em {
 }
 
 .product-scroll-button:disabled {
-  color: #9ca79e;
+  color: #849398;
 }
 
 .product-grid {
@@ -788,11 +792,12 @@ em {
   line-height: 1.7;
 }
 
-/* Quiet, text-only brand links */
+/* Strong brand band, with text-only brand links. */
 .brands {
   padding-block: 64px;
-  border-block: 1px solid var(--line);
-  background: #eff3ef;
+  border-bottom: 1px solid var(--line-dark);
+  background: var(--brand-surface);
+  color: var(--surface);
 }
 
 .brands-heading {
@@ -809,7 +814,7 @@ em {
 
 .brands-heading p {
   margin: 0 0 2px;
-  color: var(--muted);
+  color: var(--on-dark-muted);
   font-size: 14px;
 }
 
@@ -837,7 +842,7 @@ em {
 }
 
 .brand-option > span:last-child {
-  color: var(--accent-ink);
+  color: var(--accent-light);
 }
 
 .brand-option .arrow-icon {
@@ -846,12 +851,12 @@ em {
 }
 
 .brand-option:hover {
-  color: var(--accent-ink);
+  color: var(--accent-light);
 }
 
 .brand-note {
   margin-top: 25px;
-  color: var(--muted);
+  color: var(--on-dark-muted);
   font-size: 12px;
   line-height: 1.65;
 }
@@ -867,9 +872,18 @@ em {
 }
 
 /* A short company introduction */
-.about > .eyebrow {
+.about {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.about .eyebrow {
   margin-bottom: 27px;
-  color: var(--accent-ink);
+  color: var(--accent-light);
+}
+
+.about .title-secondary {
+  color: var(--accent-light);
 }
 
 .about-grid {
@@ -886,7 +900,7 @@ em {
 .about-copy p {
   max-width: 510px;
   margin: 0;
-  color: var(--muted);
+  color: var(--on-dark-muted);
   font-size: 17px;
   line-height: 1.85;
 }
@@ -894,7 +908,7 @@ em {
 /* One clear contact invitation */
 .contact {
   padding-block: 64px;
-  background: var(--quiet);
+  background: var(--accent);
   color: var(--ink);
 }
 
@@ -927,7 +941,7 @@ em {
 .contact-email {
   display: inline-block;
   padding-bottom: 2px;
-  border-bottom: 1px solid rgb(36 43 45 / 45%);
+  border-bottom: 1px solid currentColor;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -945,7 +959,7 @@ em {
 .site-footer {
   padding-block: 46px 24px;
   background: var(--ink);
-  color: var(--paper);
+  color: var(--surface);
 }
 
 .footer-top {
@@ -973,7 +987,7 @@ em {
 
 .footer-summary {
   margin-left: auto;
-  color: #cad2cc;
+  color: var(--on-dark-muted);
   font-size: 13px;
   line-height: 1.75;
   white-space: pre-line;
@@ -997,8 +1011,8 @@ em {
 
 .footer-links .text-link {
   padding-bottom: 1px;
-  border-bottom-color: #75867a;
-  color: #cad2cc;
+  border-bottom-color: var(--on-dark-muted);
+  color: var(--on-dark-muted);
   font-size: 12px;
   font-weight: 400;
 }
@@ -1009,7 +1023,7 @@ em {
   gap: 24px;
   padding-top: 21px;
   border-top: 1px solid var(--line-dark);
-  color: #bdc9bf;
+  color: var(--on-dark-muted);
   font-size: 11px;
   line-height: 1.7;
 }
@@ -1055,7 +1069,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgb(17 23 19 / 74%);
+  background: rgb(9 44 52 / 78%);
 }
 
 .dialog-inner {
@@ -1157,7 +1171,7 @@ dialog::backdrop {
   min-width: 0;
   min-height: 44px;
   padding: 10px 12px;
-  border: 1px solid #c8d1c9;
+  border: 1px solid #b2c1c5;
   background: var(--surface);
   color: var(--ink);
   font-size: 14px;
@@ -1172,7 +1186,7 @@ dialog::backdrop {
 
 #inquiry-form input::placeholder,
 #inquiry-form textarea::placeholder {
-  color: #717a72;
+  color: #677479;
   opacity: 1;
 }
 
@@ -1395,7 +1409,7 @@ dialog::backdrop {
   }
 
   .hero::after {
-    background: linear-gradient(90deg, rgb(17 21 18 / 90%), rgb(20 24 21 / 71%) 42%, rgb(20 24 21 / 22%));
+    background: linear-gradient(90deg, rgb(9 44 52 / 95%), rgb(9 44 52 / 81%) 42%, rgb(9 44 52 / 28%));
   }
 
   .hero-image {
@@ -1517,7 +1531,7 @@ dialog::backdrop {
   }
 
   .hero::after {
-    background: linear-gradient(90deg, rgb(17 21 18 / 91%) 0%, rgb(20 24 21 / 76%) 50%, rgb(20 24 21 / 36%) 100%);
+    background: linear-gradient(90deg, rgb(9 44 52 / 96%) 0%, rgb(9 44 52 / 85%) 50%, rgb(9 44 52 / 44%) 100%);
   }
 
   .hero-copy {
