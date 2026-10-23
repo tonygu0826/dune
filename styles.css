@@ -1039,6 +1039,7 @@ em {
 
 .footer-bottom {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 24px;
   padding-top: 21px;
@@ -1050,8 +1051,9 @@ em {
 
 .footer-bottom > div {
   display: flex;
-  flex-shrink: 0;
-  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 10px 24px;
 }
 
 .footer-link {
@@ -1073,7 +1075,7 @@ em {
   color: var(--accent-light);
 }
 
-/* Native enquiry and privacy dialogs */
+/* Native enquiry dialog */
 dialog {
   width: min(720px, calc(100% - 40px));
   max-width: none;
@@ -1132,8 +1134,7 @@ dialog::backdrop {
   letter-spacing: -1px;
 }
 
-.dialog-description,
-.privacy-dialog .dialog-inner > p:not(.eyebrow) {
+.dialog-description {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.75;
@@ -1380,10 +1381,6 @@ dialog::backdrop {
 
 #edit-inquiry {
   margin-top: 8px;
-}
-
-.privacy-dialog {
-  width: min(620px, calc(100% - 40px));
 }
 
 /* Tablet: product categories remain in one scrolling row. */
@@ -1798,11 +1795,10 @@ dialog::backdrop {
 
   .footer-bottom > div {
     justify-content: space-between;
-    gap: 24px;
+    gap: 10px 24px;
   }
 
-  dialog,
-  .privacy-dialog {
+  dialog {
     width: calc(100% - 24px);
     max-height: calc(100dvh - 24px);
   }

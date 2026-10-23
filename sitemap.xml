@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://energydune.com/</loc>
+  </url>
+  <url>
+    <loc>https://energydune.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/privacy-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://energydune.com/privacy-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/privacy-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://energydune.com/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/terms-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/terms.html"/>
+  </url>
+  <url>
+    <loc>https://energydune.com/terms-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/terms-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/terms.html"/>
   </url>
 </urlset>

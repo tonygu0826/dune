@@ -21,7 +21,8 @@ const translations = {
     "footerTagline": "Energy products. Multi-brand lubricants.",
     "downloadLogo": "Download our logo",
     "rights": "All rights reserved.",
-    "privacy": "Privacy",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
     "backTop": "Back to top",
     "inquiryTitle": "Your product enquiry.",
     "inquiryDescription": "Tell us the product and quantity you need.",
@@ -39,9 +40,6 @@ const translations = {
     "editInquiry": "← Edit enquiry",
     "copySuccess": "Copied. You can paste the enquiry into your email to info@energydune.com.",
     "copyFailure": "Automatic copying is unavailable. Select the text above or download the .txt file.",
-    "privacyTitle": "Your privacy.",
-    "privacyBody": "This website does not use analytics, advertising trackers or third-party fonts. Your language preference is stored on your device. Inquiry details remain in the current browser session until you choose to copy, download or open an email draft. Opening a draft passes the included details to your email app; you choose whether to send it. The form does not submit to a website server. The hosting provider may process standard access logs under its own policy.",
-    "privacyAdvice": "Please do not include confidential commercial information in your initial inquiry.",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
     "close": "Close dialog",
@@ -140,7 +138,8 @@ const translations = {
     "footerTagline": "Produits énergétiques. Lubrifiants multimarques.",
     "downloadLogo": "Télécharger le logo",
     "rights": "Tous droits réservés.",
-    "privacy": "Confidentialité",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d’utilisation",
     "backTop": "Haut de page",
     "inquiryTitle": "Votre demande de prix.",
     "inquiryDescription": "Précisez le produit et la quantité souhaités.",
@@ -158,9 +157,6 @@ const translations = {
     "editInquiry": "← Modifier la demande",
     "copySuccess": "Copié. Collez la demande dans un courriel adressé à info@energydune.com.",
     "copyFailure": "La copie automatique est indisponible. Sélectionnez le texte ci-dessus ou téléchargez le fichier .txt.",
-    "privacyTitle": "Votre vie privée.",
-    "privacyBody": "Ce site n’utilise ni outil d’analyse d’audience, ni traceur publicitaire, ni police tierce. Votre préférence de langue est enregistrée sur votre appareil. Les renseignements de votre demande restent dans la session actuelle du navigateur jusqu’à ce que vous choisissiez de les copier, de les télécharger ou d’ouvrir un brouillon de courriel. L’ouverture du brouillon transmet les renseignements inclus à votre application de messagerie ; vous décidez de l’envoyer ou non. Le formulaire ne transmet rien au serveur du site. Le fournisseur d’hébergement peut traiter les journaux d’accès habituels conformément à sa propre politique.",
-    "privacyAdvice": "N’incluez pas de renseignements commerciaux confidentiels dans votre première demande.",
     "menuOpen": "Ouvrir le menu",
     "menuClose": "Fermer le menu",
     "close": "Fermer la fenêtre",
@@ -242,10 +238,11 @@ const translations = {
 
 let language = 'en';
 try { language = localStorage.getItem('dune-language') === 'fr' ? 'fr' : 'en'; } catch { /* Storage is optional. */ }
+const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
+if (requestedLanguage === 'en' || requestedLanguage === 'fr') language = requestedLanguage;
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
 const inquiryDialog = document.querySelector('#inquiry-dialog');
-const privacyDialog = document.querySelector('#privacy-dialog');
 const form = document.querySelector('#inquiry-form');
 const result = document.querySelector('#inquiry-result');
 const preview = document.querySelector('#inquiry-preview');
@@ -321,6 +318,13 @@ function updateProductFilter(nextFilter = activeFilter) {
 }
 function setLanguage(nextLanguage) {
   language = nextLanguage === 'fr' ? 'fr' : 'en';
+  try {
+    const pageUrl = new URL(window.location.href);
+    if (pageUrl.searchParams.has('lang')) {
+      pageUrl.searchParams.set('lang', language);
+      window.history.replaceState(window.history.state, '', pageUrl);
+    }
+  } catch { /* URL updates are optional. */ }
   const t = translations[language];
   document.documentElement.lang = language;
   document.title = t.pageTitle;
@@ -334,6 +338,7 @@ function setLanguage(nextLanguage) {
   productScrollButtons[0].setAttribute('aria-label', t.productScrollPrevious);
   productScrollButtons[1].setAttribute('aria-label', t.productScrollNext);
   document.querySelectorAll('[data-brand]').forEach(el => el.setAttribute('aria-label', t.brandAsk.replace('{brand}', el.dataset.brand)));
+  document.querySelectorAll('[data-legal-page]').forEach(link => link.setAttribute('href', `${link.dataset.legalPage}${language === 'fr' ? '-fr' : ''}.html`));
   updateProductFilter();
   document.querySelector('.language-current').textContent = language === 'fr' ? 'FR' : 'EN';
   document.querySelector('.language-next').textContent = language === 'fr' ? 'EN' : 'FR';
@@ -373,7 +378,6 @@ document.querySelectorAll('[data-inquiry]').forEach(button => button.addEventLis
   }
   openDialog(inquiryDialog);
 }));
-document.querySelector('[data-privacy]').addEventListener('click', () => openDialog(privacyDialog));
 document.querySelectorAll('dialog').forEach(dialog => {
   dialog.querySelector('[data-close-dialog]').addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
