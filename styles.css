@@ -1,17 +1,22 @@
-/* DUNE ENERGY GLOBAL — deep petrol, flame orange and clear white. */
+/* DUNE ENERGY GLOBAL — deep petrol and controlled oil-amber accents. */
 :root {
   --ink: #092c34;
   --paper: #f5f6f4;
   --surface: #ffffff;
-  --accent: #f5683a;
-  --accent-light: #ffb08a;
-  --accent-hover: #ff8b61;
-  --accent-ink: #a83a1c;
+  --accent: #bf8738;
+  --accent-light: #d5ae69;
+  --accent-hover: #dbb36e;
+  --accent-ink: #885017;
+  --accent-soft: #f4ead7;
+  --accent-gradient: linear-gradient(35deg, #bf8738 0%, #c9994d 55%, #dbb36e 86%, #d2a45c 100%);
+  --accent-gradient-hover: linear-gradient(35deg, #c99549 0%, #d4aa63 55%, #e1bd7c 86%, #dbb36e 100%);
+  --accent-line-gradient: linear-gradient(90deg, #885017, #b67f35);
   --brand-surface: #123f46;
   --muted: #536166;
   --on-dark-muted: #bfd0d4;
   --line: #ccd5d5;
   --line-dark: #35545b;
+  --field-line: #829396;
   --sans: Arial, 'Helvetica Neue', Helvetica, system-ui, sans-serif;
 }
 
@@ -88,18 +93,15 @@ summary:focus-visible,
 .hero :focus-visible,
 .brands :focus-visible,
 .about :focus-visible,
+.contact :focus-visible,
 .site-footer :focus-visible {
   outline-color: var(--accent-light);
-}
-
-.contact :focus-visible {
-  outline-color: var(--ink);
 }
 
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--accent-ink);
   outline-offset: 3px;
 }
 
@@ -117,7 +119,7 @@ em {
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--accent-hover);
   color: var(--ink);
 }
 
@@ -250,7 +252,7 @@ em {
   min-height: 51px;
   padding: 13px 24px;
   border: 1px solid transparent;
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: var(--ink);
   font-size: 13px;
   font-weight: 700;
@@ -260,31 +262,40 @@ em {
 }
 
 .button:hover {
-  background: var(--accent-hover);
+  background: var(--accent-gradient-hover);
 }
 
-.button-dark,
-.form-submit,
-.result-actions .button-green {
+.button-dark {
   background: var(--ink);
   color: var(--surface);
 }
 
-.button-dark:hover,
-.form-submit:hover,
-.result-actions .button-green:hover {
+.button-dark:hover {
   background: var(--brand-surface);
 }
 
+.form-submit,
+.result-actions .button-dark,
+.result-actions .button-green {
+  background: var(--accent-gradient);
+  color: var(--ink);
+}
+
+.form-submit:hover,
+.result-actions .button-dark:hover,
+.result-actions .button-green:hover {
+  background: var(--accent-gradient-hover);
+}
+
 .button-outline {
-  border-color: var(--line);
+  border-color: var(--field-line);
   background: transparent;
   color: var(--ink);
 }
 
 .button-outline:hover {
-  border-color: var(--ink);
-  background: var(--paper);
+  border-color: var(--accent-ink);
+  background: var(--accent-soft);
 }
 
 .text-link {
@@ -297,15 +308,16 @@ em {
   border: 0;
   border-bottom: 1px solid currentColor;
   background: none;
+  color: var(--accent-ink);
   font-size: 13px;
   font-weight: 600;
   line-height: 1.5;
   text-align: left;
-  transition: opacity 160ms ease;
+  transition: color 160ms ease, border-color 160ms ease;
 }
 
 .text-link:hover {
-  opacity: .7;
+  color: var(--ink);
 }
 
 .skip-link {
@@ -344,13 +356,13 @@ em {
   flex-shrink: 0;
   align-items: center;
   width: fit-content;
-  color: #f2a171;
+  color: var(--accent-light);
 }
 
 .brand-logo {
   display: block;
   flex-shrink: 0;
-  width: 184px;
+  width: 260px;
   height: auto;
 }
 
@@ -408,7 +420,7 @@ em {
   min-height: 43px;
   padding: 10px 18px;
   border: 1px solid var(--accent);
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: var(--ink);
   font-size: 12px;
   font-weight: 600;
@@ -417,7 +429,7 @@ em {
 
 .header-contact:hover {
   border-color: var(--accent-hover);
-  background: var(--accent-hover);
+  background: var(--accent-gradient-hover);
 }
 
 .header-contact .arrow-icon {
@@ -467,6 +479,10 @@ em {
   padding: 13px 0;
   border-bottom: 1px solid var(--line-dark);
   font-size: 15px;
+}
+
+.mobile-nav a:hover {
+  color: var(--accent-light);
 }
 
 /* Full-width photographic hero */
@@ -549,6 +565,10 @@ em {
   color: var(--surface);
 }
 
+.hero-actions .text-link:hover {
+  color: var(--accent-light);
+}
+
 .hero-actions .button {
   min-width: 185px;
 }
@@ -627,10 +647,15 @@ em {
   line-height: 1.5;
 }
 
-.filter-button:hover,
-.filter-button[aria-pressed='true'] {
+.filter-button:hover {
   border-bottom-color: var(--accent-ink);
-  color: var(--ink);
+  color: var(--accent-ink);
+}
+
+.filter-button[aria-pressed='true'] {
+  border-bottom-color: transparent;
+  background: var(--accent-line-gradient) left bottom / 100% 2px no-repeat;
+  color: var(--accent-ink);
 }
 
 .product-toolbar-end {
@@ -663,8 +688,9 @@ em {
 }
 
 .product-scroll-button:hover:not(:disabled) {
-  border-color: var(--ink);
-  background: var(--surface);
+  border-color: var(--accent-ink);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
 }
 
 .product-scroll-button:disabled {
@@ -683,7 +709,7 @@ em {
   scroll-padding-inline: 4px;
   scroll-snap-type: inline proximity;
   scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
+  scrollbar-color: var(--accent-ink) transparent;
 }
 
 .product-grid:focus-visible {
@@ -695,7 +721,7 @@ em {
 }
 
 .product-grid::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: var(--accent-ink);
 }
 
 .product-card {
@@ -847,6 +873,11 @@ em {
   cursor: pointer;
 }
 
+.brand-note summary:hover,
+.brand-note[open] summary {
+  color: var(--accent-light);
+}
+
 .brand-note p {
   max-width: 830px;
   margin: 10px 0 0;
@@ -889,8 +920,8 @@ em {
 /* One clear contact invitation */
 .contact {
   padding-block: 64px;
-  background: var(--accent);
-  color: var(--ink);
+  background: linear-gradient(110deg, #5b3a1f 0%, #303c35 52%, #0b3039 100%);
+  color: #f6efe2;
 }
 
 .contact-inner {
@@ -902,7 +933,7 @@ em {
 
 .contact .eyebrow {
   margin-bottom: 14px;
-  color: var(--ink);
+  color: var(--accent-light);
   font-size: 10px;
 }
 
@@ -923,17 +954,25 @@ em {
   display: inline-block;
   padding-bottom: 2px;
   border-bottom: 1px solid currentColor;
+  color: #e9d5b1;
   font-size: 18px;
   line-height: 1.5;
 }
 
 .contact-email:hover {
-  border-bottom-color: var(--ink);
+  color: var(--accent-light);
+  border-bottom-color: currentColor;
 }
 
 .contact .button {
   flex-shrink: 0;
   min-width: 190px;
+  background: var(--accent-gradient);
+  color: var(--ink);
+}
+
+.contact .button:hover {
+  background: var(--accent-gradient-hover);
 }
 
 /* Footer */
@@ -952,7 +991,7 @@ em {
 }
 
 .footer-top .brand-logo {
-  width: 176px;
+  width: 248px;
 }
 
 .footer-summary {
@@ -985,6 +1024,11 @@ em {
   color: var(--on-dark-muted);
   font-size: 12px;
   font-weight: 400;
+}
+
+.footer-links .text-link:hover {
+  border-bottom-color: var(--accent-light);
+  color: var(--accent-light);
 }
 
 .footer-bottom {
@@ -1110,8 +1154,13 @@ dialog::backdrop {
 }
 
 .inquiry-contact a {
+  color: var(--accent-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.inquiry-contact a:hover {
+  color: var(--ink);
 }
 
 #inquiry-form {
@@ -1141,7 +1190,7 @@ dialog::backdrop {
   min-width: 0;
   min-height: 44px;
   padding: 10px 12px;
-  border: 1px solid #b2c1c5;
+  border: 1px solid var(--field-line);
   background: var(--surface);
   color: var(--ink);
   font-size: 14px;
@@ -1152,6 +1201,25 @@ dialog::backdrop {
 #inquiry-form textarea {
   min-height: 104px;
   resize: vertical;
+}
+
+#inquiry-form input:not([type='checkbox']):hover,
+#inquiry-form select:hover,
+#inquiry-form textarea:hover {
+  border-color: var(--accent-ink);
+}
+
+#inquiry-form input:not([type='checkbox']):focus-visible,
+#inquiry-form select:focus-visible,
+#inquiry-form textarea:focus-visible {
+  border-color: var(--accent-ink);
+}
+
+#inquiry-form input:user-invalid,
+#inquiry-form select:user-invalid,
+#inquiry-form textarea:user-invalid {
+  border-color: var(--accent-ink);
+  background: #fbf3e6;
 }
 
 #inquiry-form input::placeholder,
@@ -1189,8 +1257,13 @@ dialog::backdrop {
   font-weight: 600;
 }
 
+.inquiry-specs > summary:hover {
+  color: var(--accent-ink);
+}
+
 .inquiry-specs[open] > summary {
   margin-bottom: 17px;
+  color: var(--accent-ink);
 }
 
 .inquiry-specs > .form-row,
@@ -1239,7 +1312,7 @@ dialog::backdrop {
   width: 16px;
   height: 16px;
   margin: 0;
-  accent-color: var(--ink);
+  accent-color: var(--accent-ink);
 }
 
 .form-note {
@@ -1353,6 +1426,10 @@ dialog::backdrop {
     min-height: 84px;
   }
 
+  .brand-logo {
+    width: 240px;
+  }
+
   .desktop-nav {
     gap: 20px;
   }
@@ -1444,7 +1521,7 @@ dialog::backdrop {
   }
 
   .brand-logo {
-    width: 160px;
+    width: clamp(176px, 52vw, 226px);
   }
 
   .desktop-nav {
@@ -1696,7 +1773,7 @@ dialog::backdrop {
   }
 
   .footer-top .brand-logo {
-    width: 176px;
+    width: 226px;
   }
 
   .footer-summary {
@@ -1812,7 +1889,7 @@ dialog::backdrop {
   }
 
   .brand-logo {
-    width: 152px;
+    width: 180px;
   }
 
   .header-actions {
