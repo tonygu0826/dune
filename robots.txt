@@ -1,0 +1,10 @@
+User-agent: Meta-WebIndexer
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://energydune.com/sitemap.xml
