@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://energydune.com/">
   <meta property="og:image" content="https://energydune.com/assets/lubricants-hero.png">
   <link rel="icon" type="image/svg+xml" href="assets/dune-symbol.svg?v=oil-amber-1">
-  <link rel="stylesheet" href="styles.css?v=oil-amber-1">
+  <link rel="stylesheet" href="styles.css?v=brands-1">
   <script src="app.js?v=oil-amber-1" defer></script>
 </head>
 <body>
@@ -113,13 +113,10 @@
           <h2 class="section-title" id="brands-title" data-i18n="brandsTitle">Your preferred brands.</h2>
           <p data-i18n="brandsBody">Select a brand to enquire.</p>
         </div>
-        <div class="brand-grid"><button class="brand-option" type="button" data-inquiry data-brand="Shell"><span>Shell</span><span aria-hidden="true">↗</span></button>
-<button class="brand-option" type="button" data-inquiry data-brand="Mobil"><span>Mobil</span><span aria-hidden="true">↗</span></button>
-<button class="brand-option" type="button" data-inquiry data-brand="TotalEnergies"><span>TotalEnergies</span><span aria-hidden="true">↗</span></button>
-<button class="brand-option" type="button" data-inquiry data-brand="Chevron"><span>Chevron</span><span aria-hidden="true">↗</span></button>
-<button class="brand-option" type="button" data-inquiry data-brand="ENEOS"><span>ENEOS</span><span aria-hidden="true">↗</span></button>
-<button class="brand-option" type="button" data-inquiry data-brand="Eni"><span>Eni</span><span aria-hidden="true">↗</span></button>
-<button class="brand-option" type="button" data-inquiry data-brand="Kunlun"><span>Kunlun</span><span aria-hidden="true">↗</span></button></div>
+        <div class="brand-grid">
+          <button class="brand-option" type="button" data-inquiry data-brand="SINOPEC"><img class="brand-mark brand-mark-sinopec" src="assets/sinopec-logo.png?v=brands-1" width="200" height="50" alt="SINOPEC" decoding="async" loading="lazy"></button>
+          <button class="brand-option" type="button" data-inquiry data-brand="Great Wall Lubricants"><img class="brand-mark brand-mark-great-wall" src="assets/great-wall-lubricants-logo.png?v=brands-1" width="394" height="40" alt="Great Wall Lubricants" decoding="async" loading="lazy"></button>
+        </div>
         <details class="brand-note"><summary data-i18n="brandNoteLabel">Brand information</summary><p data-i18n="brandsNote">Brand names identify requested products, not authorised distribution. Availability is confirmed by quotation.</p></details>
       </div>
     </section>
@@ -169,7 +166,7 @@
         <div class="form-row"><label><span><span data-i18n="nameLabel">Name</span></span><input type="text" name="name" autocomplete="name" maxlength="254" required></label><label><span><span data-i18n="companyLabel">Company</span></span><input type="text" name="company" autocomplete="organization" maxlength="254" required></label></div>
         <div class="form-row"><label><span><span data-i18n="emailLabel">Email</span></span><input type="email" name="email" autocomplete="email" maxlength="254" required></label><label><span data-i18n="interestLabel">Product category</span><select name="interest" required><option value="passenger" data-i18n="product1Title">Passenger car engine oils</option><option value="commercial" data-i18n="product2Title">Heavy-duty diesel engine oils</option><option value="industrial" data-i18n="product3Title">Industrial lubricants</option><option value="driveline" data-i18n="product4Title">Transmission &amp; gear oils</option><option value="grease" data-i18n="product5Title">Lubricating greases</option><option value="energy" data-i18n="product6Title">Energy products</option></select></label></div>
         <div class="form-row"><label><span><span data-i18n="brandLabel">Brand</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="preferredBrand" autocomplete="off" maxlength="254" data-i18n-placeholder="brandPlaceholder" placeholder="Brand name" list="brand-options"></label><label><span><span data-i18n="referenceLabel">Product / reference</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="productReference" autocomplete="off" maxlength="254" data-i18n-placeholder="referencePlaceholder" placeholder="Product name or reference"></label></div>
-        <datalist id="brand-options"><option value="Shell"></option><option value="Mobil"></option><option value="TotalEnergies"></option><option value="Chevron"></option><option value="ENEOS"></option><option value="Eni"></option><option value="Kunlun"></option></datalist>
+        <datalist id="brand-options"><option value="SINOPEC"></option><option value="Great Wall Lubricants"></option></datalist>
         <label><span data-i18n="messageLabel">Your requirements</span><textarea name="message" rows="3" maxlength="5000" data-i18n-placeholder="messagePlaceholder" placeholder="Product, quantity and delivery requirements" required></textarea></label>
         <details class="inquiry-specs">
           <summary data-i18n="moreSpecifications">Additional specifications</summary>

@@ -799,7 +799,7 @@ em {
   line-height: 1.7;
 }
 
-/* Strong brand band, with text-only brand links. */
+/* Official brand marks, displayed together without altering their colours. */
 .brands {
   padding-block: 64px;
   border-bottom: 1px solid var(--line-dark);
@@ -826,39 +826,45 @@ em {
 }
 
 .brand-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 880px;
+  margin-inline: auto;
+  gap: 24px;
 }
 
 .brand-option {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  min-height: 44px;
-  padding: 2px 0;
-  border: 0;
-  background: none;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: -.3px;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 164px;
+  padding: 26px;
+  border: 1px solid #e1e6e4;
+  border-radius: 3px;
+  background: #fff;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-.brand-option > span:last-child {
-  color: var(--accent-light);
+.brand-mark {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.brand-option .arrow-icon {
-  width: 13px;
-  height: 13px;
+.brand-mark-sinopec {
+  width: 200px;
+}
+
+.brand-mark-great-wall {
+  width: 340px;
 }
 
 .brand-option:hover {
-  color: var(--accent-light);
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 2px var(--accent-light);
 }
 
 .brand-note {
@@ -1415,10 +1421,6 @@ dialog::backdrop {
     font-size: 20px;
   }
 
-  .brand-grid {
-    justify-content: flex-start;
-    gap: 20px 42px;
-  }
 }
 
 @media (max-width: 1023px) {
@@ -1703,22 +1705,16 @@ dialog::backdrop {
   }
 
   .brand-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 10px 28px;
+    gap: 14px;
   }
 
   .brand-option {
-    gap: 10px;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 43px;
-    font-size: 18px;
+    min-height: 124px;
+    padding: 18px;
   }
 
-  .brand-option .arrow-icon {
-    width: 12px;
-    height: 12px;
+  .brand-mark-sinopec {
+    width: 160px;
   }
 
   .brand-note {
@@ -1914,13 +1910,24 @@ dialog::backdrop {
     padding-inline: 17px;
   }
 
-  .brand-option {
-    gap: 7px;
-    font-size: 16px;
+  .brand-grid {
+    gap: 12px;
   }
 
+  .brand-option {
+    padding: 14px;
+  }
+}
+
+/* Keep the complete Great Wall lockup readable on narrow screens. */
+@media (max-width: 480px) {
   .brand-grid {
-    gap: 8px 20px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .brand-option {
+    min-height: 104px;
+    padding: 22px;
   }
 }
 
