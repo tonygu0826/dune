@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation — DUNE ENERGY GLOBAL MCP</title>
+<meta name="description" content="MCP category retrieval, enquiry field validation and draft-only email preparation for DUNE ENERGY GLOBAL INC.">
+<link rel="canonical" href="{{SERVICE_ORIGIN}}/docs">
+<style>*{box-sizing:border-box}html{color-scheme:light;scroll-padding-top:24px}body{margin:0;background:#fff;color:#092c34;font-family:Arial,Helvetica,system-ui,sans-serif;font-size:16px;line-height:1.7}a{color:inherit;text-underline-offset:4px;overflow-wrap:anywhere}a:hover{text-decoration-color:#bf8738}a:focus-visible{outline:2px solid #bf8738;outline-offset:4px}.site-header{border-bottom:1px solid #dce3e1}.header-inner,main,footer{width:min(calc(100% - 40px),900px);margin-inline:auto}.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-block:23px}.brand{text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.12em}.brand span{color:#885017;letter-spacing:.04em}.nav{display:flex;flex-wrap:wrap;gap:10px 20px;font-size:13px}main{padding-block:48px 32px}h1{font-size:clamp(31px,5vw,44px);line-height:1.15;letter-spacing:-.035em;margin:0 0 18px;text-wrap:balance}h2{font-size:23px;line-height:1.3;margin:38px 0 12px;letter-spacing:-.02em}h3{font-size:18px;line-height:1.4;margin:27px 0 10px}p{margin:0 0 17px}.intro{max-width:760px;color:#41565b;font-size:18px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#536166;margin-bottom:13px}.eyebrow:before{content:"";display:inline-block;width:24px;height:2px;background:#bf8738;vertical-align:middle;margin-right:10px}.connection{border:1px solid #dce3e1;border-left:3px solid #bf8738;padding:19px 22px;margin:26px 0}.connection p:last-child{margin-bottom:0}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.88em;overflow-wrap:anywhere}pre{margin:16px 0 22px;padding:18px;background:#f4f6f4;border:1px solid #dce3e1;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;font-size:14px}.muted,.updated{color:#536166;font-size:13px}.tool{border-top:1px solid #dce3e1;padding-top:2px;margin-top:26px}.tool h3 code{font-size:.94em}.tag{display:inline-block;border:1px solid #dce3e1;padding:2px 8px;margin-left:7px;font-size:11px;font-weight:400;vertical-align:middle;letter-spacing:.02em}.tag.draft{border-color:#bf8738;color:#885017}ul,ol{padding-left:23px;margin:0 0 20px}li{margin-bottom:7px}li::marker{color:#885017}.category-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:18px 0 24px}.category-list div{padding-bottom:12px;border-bottom:1px solid #dce3e1}.category-list dt{font-weight:600}.category-list dd{margin:3px 0 0;color:#536166;font-size:14px}footer{border-top:1px solid #dce3e1;padding-block:24px 35px;color:#536166;font-size:12px}footer .nav{margin-bottom:13px;color:#092c34}.skip{position:absolute;top:10px;left:12px;padding:8px 12px;background:#092c34;color:#fff;transform:translateY(-180%)}.skip:focus{transform:translateY(0)}.callout{padding:17px 20px;background:#f4ead7;border-left:3px solid #bf8738}main,section,.tool{min-width:0;overflow-wrap:break-word}@media(max-width:560px){.header-inner{gap:13px}.nav{gap:9px 15px}main{padding-top:32px}.intro{font-size:17px}.category-list{grid-template-columns:1fr}.connection{padding:16px}h2{font-size:22px}pre{padding:13px;font-size:12px}.tool h3 code{overflow-wrap:anywhere}}@media print{.site-header,.skip,footer .nav{display:none}main,footer{width:100%}main{padding-top:0}h2,h3{break-after:avoid}body{font-size:11pt}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="/docs">DUNE ENERGY GLOBAL <span>/ MCP</span></a><nav class="nav" aria-label="Service navigation"><a href="/docs">Documentation</a><a href="/privacy">MCP privacy</a><a href="/llms.txt">llms.txt</a><a href="https://energydune.com/">Website</a></nav></div></header>
+<main id="main"><div class="eyebrow">MCP service documentation</div>
+<h1>Category search.<br>Structured enquiry drafts.</h1>
+<p class="intro">A public MCP interface for DUNE ENERGY GLOBAL INC. Retrieve published product categories, check enquiry fields and prepare an email draft for your own review.</p>
+<div class="connection">
+<p><strong>MCP endpoint</strong><br><code>{{MCP_ENDPOINT}}</code></p>
+<p><strong>Service origin</strong><br><code>{{SERVICE_ORIGIN}}</code></p>
+<p class="muted">Stateless Streamable HTTP · Authentication: none · English and French responses</p>
+</div>
+<p>This service provides category-level information. It has no SKU catalogue, price list, live stock, confirmed lead times or product-performance comparisons. <strong>Availability and specifications confirmed by quotation.</strong></p>
+<p>Brand names identify requested products, not authorised distribution. SINOPEC and Great Wall Lubricants are enquiry preferences; their inclusion does not establish product availability or affiliation.</p>
+<h2>What the tools add</h2>
+<p>Product terms and application filters retrieve relevant category records. Requirements are returned as structured field definitions, and draft inputs are validated before a summary and complete email body are returned. The tools do more than link to website pages, but they do not send an enquiry or complete a transaction.</p>
+<h2>Six published categories</h2>
+<dl class="category-list">
+<div><dt><code>pcmo</code> · Passenger car engine oils</dt><dd>Automotive · SAE · API / ACEA</dd></div>
+<div><dt><code>hdeo</code> · Heavy-duty diesel engine oils</dt><dd>Commercial · SAE · API / OEM</dd></div>
+<div><dt><code>industrial</code> · Industrial lubricants</dt><dd>Industrial · ISO VG</dd></div>
+<div><dt><code>driveline</code> · Transmission &amp; gear oils</dt><dd>Automotive / Commercial · ATF / MTF · OEM</dd></div>
+<div><dt><code>greases</code> · Lubricating greases</dt><dd>Industrial / Commercial · NLGI</dd></div>
+<div><dt><code>energy</code> · Energy products</dt><dd>Energy · Grade / volume</dd></div>
+</dl>
+<p>These systems help identify information to confirm during an enquiry. They do not certify a particular product or confirm an OEM approval.</p>
+<h2>Five tools</h2>
+<p>All tools accept optional <code>lang</code>: <code>en</code> or <code>fr</code>, default <code>en</code>. Records include English and French names; The email body is always English; <code>lang</code> controls localised metadata, category labels, summaries and messages. The live MCP <code>tools/list</code> response defines the authoritative schemas.</p>
+<section class="tool"><h3><code>get_company_info</code><span class="tag">read</span></h3><p>Returns the legal name, public contact, business segments, enquiry brands and scope/disclaimer notes. Optional input: <code>lang</code>.</p><pre><code>{"lang":"en"}</code></pre></section>
+<section class="tool"><h3><code>list_product_categories</code><span class="tag">read</span></h3><p>Lists all six categories, or filters by <code>segment</code>: <code>Automotive</code>, <code>Commercial</code>, <code>Industrial</code> or <code>Energy</code>. Optional input: <code>lang</code>.</p><pre><code>{"segment":"Commercial","lang":"en"}</code></pre></section>
+<section class="tool"><h3><code>search_products</code><span class="tag">read</span></h3><p>Inputs: <code>query</code>, <code>category</code>, <code>brand</code>, <code>application</code> and optional <code>lang</code>. Supply a query or a filter. Matching is over category records, not individual products. A brand alone does not confirm any product. No match returns an empty result and enquiry guidance.</p><pre><code>{"query":"ISO VG 46 hydraulic oil","brand":"SINOPEC","lang":"en"}</code></pre><p>Each result carries the quotation note. This example identifies a category to discuss; it does not confirm a SKU, stock or suitability.</p></section>
+<section class="tool"><h3><code>get_enquiry_requirements</code><span class="tag">read</span></h3><p>Returns required and optional field definitions, permitted document requests and category-specific points to confirm. Optional inputs: <code>category</code>, <code>lang</code>.</p><pre><code>{"category":"driveline","lang":"en"}</code></pre></section>
+<section class="tool"><h3><code>create_enquiry_draft</code><span class="tag draft">write · draft only</span></h3>
+<p>Required strings: <code>name</code>, <code>company</code>, <code>email</code> and <code>requirements</code>.</p>
+<p>Optional inputs: <code>category</code>, <code>brand</code>, <code>product_reference</code>, <code>viscosity_or_grade</code>, <code>specification_or_oem</code>, <code>quantity_packaging</code>, <code>destination</code>, <code>documents_requested</code> and <code>lang</code>. The current category default is <code>pcmo</code>. Use the canonical document array values <code>TDS / PDS</code> and <code>SDS</code>.</p>
+<pre><code>{
+  "name": "Example Contact",
+  "company": "Example Company",
+  "email": "buyer@example.com",
+  "requirements": "Please confirm suitable products and provide a quotation.",
+  "category": "industrial",
+  "viscosity_or_grade": "ISO VG 46",
+  "documents_requested": ["TDS / PDS", "SDS"],
+  "lang": "en"
+}</code></pre>
+<p>Invalid or missing fields return machine-readable field errors. Successful output includes a structured summary, the complete email subject/body, a <code>mailto</code> link to <code>info@energydune.com</code>, and <code>draft_only: true</code>, <code>sent: false</code>, <code>persisted: false</code>. The live MCP schema may also reject invalid argument types before the handler runs.</p>
+<p>If the fully encoded <code>mailto</code> URL would exceed 1,800 characters, the link contains only the recipient and subject. <code>email.manual_copy_required</code> is then <code>true</code>; the complete <code>email.body</code> remains available for manual copying.</p>
+<p><strong>Review the draft and send it yourself.</strong> This tool sends no email, saves no enquiry, creates no order and returns no submission or delivery confirmation. Document requests do not deliver a TDS/PDS or SDS automatically.</p></section>
+<p class="muted">The example objects above are arguments to MCP tool calls, not separate REST endpoints. All contact details in examples are synthetic.</p>
+<h2>Access and limits</h2>
+<p>No product account, login or OAuth is required. Native rate limiting targets approximately 60 MCP POSTs per minute per client IP at each Cloudflare location. It is eventually consistent, not a strict global quota. Back off after HTTP <code>429</code>; hosting limits also apply. Cloudflare plan eligibility and any usage charges must be confirmed with the account provider; free operation is not guaranteed.</p>
+<h2>Data handling</h2>
+<p>Tool arguments reach the hosted service as soon as a tool is called, including any name, email or other information supplied for a draft. The application processes them for the current response without an enquiry database or intentional request-body logs. Hosting infrastructure and Muse or another MCP client may retain logs, tool results or conversation history under their own policies. Read the separate <a href="/privacy">MCP privacy notice</a> before supplying personal or confidential information.</p>
+<p>Questions: <a href="mailto:info@energydune.com">info@energydune.com</a>.</p></main>
+<footer><nav class="nav" aria-label="Service navigation"><a href="/docs">Documentation</a><a href="/privacy">MCP privacy</a><a href="/llms.txt">llms.txt</a><a href="https://energydune.com/">Website</a></nav><nav class="nav" aria-label="Website policies"><a href="https://energydune.com/privacy.html">Website privacy policy</a><a href="https://energydune.com/terms.html">Website terms of use</a><a href="mailto:info@energydune.com">info@energydune.com</a></nav><p>© 2026 DUNE ENERGY GLOBAL INC.</p></footer>
+</body>
+</html>
