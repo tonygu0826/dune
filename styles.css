@@ -839,7 +839,7 @@ em {
   justify-content: center;
   width: 100%;
   min-width: 0;
-  min-height: 164px;
+  min-height: 192px;
   padding: 26px;
   border: 1px solid #e1e6e4;
   border-radius: 3px;
@@ -855,11 +855,11 @@ em {
 }
 
 .brand-mark-sinopec {
-  width: 200px;
+  width: 260px;
 }
 
 .brand-mark-great-wall {
-  width: 340px;
+  width: 240px;
 }
 
 .brand-option:hover {
@@ -1709,12 +1709,12 @@ dialog::backdrop {
   }
 
   .brand-option {
-    min-height: 124px;
+    min-height: 168px;
     padding: 18px;
   }
 
   .brand-mark-sinopec {
-    width: 160px;
+    width: 220px;
   }
 
   .brand-note {
@@ -1926,7 +1926,7 @@ dialog::backdrop {
   }
 
   .brand-option {
-    min-height: 104px;
+    min-height: 176px;
     padding: 22px;
   }
 }
