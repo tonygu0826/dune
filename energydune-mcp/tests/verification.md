@@ -23,4 +23,4 @@ MCP_TEST_ENDPOINT=http://127.0.0.1:8787/mcp npm test
 
 The combined HTTP-enabled test run passed all 29 tests without skips. CI starts its own local Worker and runs the same suite without Cloudflare credentials. Synthetic `example.com` contacts are used; no email is sent.
 
-Public HTTPS, the deployed rate-limiter binding, account quotas and remote Inspector validation remain pending deployment authorization. The intended first deployment uses the real `workers.dev` URL returned by Cloudflare. `mcp.energydune.com` has not been configured or verified. Muse submission remains a separate step after public checks.
+Public deployment and follow-up checks are recorded separately in [public verification](public-verification.md). `mcp.energydune.com` has not been configured or verified. Muse submission remains a separate step; no Muse approval is implied by these tests.

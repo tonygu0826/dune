@@ -2,11 +2,13 @@
 
 DUNE ENERGY GLOBAL INC. · Category information and enquiry drafts · Version 0.1.0
 
-Runtime endpoint: `{{MCP_ENDPOINT}}`
-Service origin: `{{SERVICE_ORIGIN}}`
+Runtime endpoint: `https://energydune-mcp.tonygu0826.workers.dev/mcp`
+
+Service origin: `https://energydune-mcp.tonygu0826.workers.dev`
+
 Transport: stateless Streamable HTTP · Authentication: none
 
-These source placeholders are replaced with the real request origin when the Worker serves its static documentation. No production endpoint or remote Inspector success is implied by this source document. Use the endpoint returned by the actual deployment.
+The endpoint above was deployed and publicly checked on October 23, 2026. The Worker serves HTML documentation and llms.txt using the actual request origin. Deployment and test evidence is recorded in [public verification](../tests/public-verification.md).
 
 Public pages: `/docs` · `/privacy` · `/llms.txt`
 Website: <https://energydune.com/> · Contact: <info@energydune.com>

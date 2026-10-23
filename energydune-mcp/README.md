@@ -2,9 +2,13 @@
 
 A stateless Streamable HTTP MCP service for DUNE ENERGY GLOBAL INC. It searches six published product categories, explains enquiry requirements and validates a structured email draft. It adds retrieval and draft preparation to the public website; it is not a live product, stock or ordering system.
 
-**Deployment status:** a production HTTPS endpoint and a remote MCP Inspector result have not yet been verified. The last Cloudflare CLI account check returned `loggedIn: false`. An existing Cloudflare account still needs to be authorised for deployment. Do not submit an assumed `mcp.energydune.com` address.
+**Live MCP endpoint:** <https://energydune-mcp.tonygu0826.workers.dev/mcp>
 
-[Local verification results](tests/verification.md): 29 business/protocol tests, Worker packaging, HTTP boundaries and MCP Inspector checks passed locally. Public deployment checks remain pending.
+**Documentation:** <https://energydune-mcp.tonygu0826.workers.dev/docs>
+
+**MCP privacy:** <https://energydune-mcp.tonygu0826.workers.dev/privacy>
+
+Deployed on October 23, 2026. Authentication is `none`; the transport is stateless Streamable HTTP. Public HTTPS, official SDK client and MCP Inspector checks passed. See [local verification](tests/verification.md) and [public verification](tests/public-verification.md) for the recorded scope and deployment version.
 
 ## Scope
 
@@ -97,7 +101,7 @@ Choose Streamable HTTP, supply the actual HTTPS `/mcp` endpoint, and record the 
 
 Also verify unknown-product empty results, missing/invalid email field errors, quotation-only responses to price/stock questions, and the long-draft manual-copy fallback. A request to compare passenger car oils may explain SAE/API/ACEA enquiry criteria; it must not claim SKU-level performance comparisons.
 
-Record the deployed version, endpoint, date, client/Inspector version and observed outcomes. These are required checks to perform, not a claim that remote tests have already passed.
+Record the deployed version, endpoint, date, client/Inspector version and observed outcomes after each release. The current deployment record is in [public verification](tests/public-verification.md).
 
 ## Muse submission preparation
 
