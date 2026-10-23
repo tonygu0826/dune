@@ -1,0 +1,46 @@
+# DUNE ENERGY GLOBAL MCP
+
+> Category-level company/product information, enquiry requirements and a validated structured email draft. Operated by DUNE ENERGY GLOBAL INC.; contact info@energydune.com.
+
+- MCP endpoint: {{MCP_ENDPOINT}}
+- Service origin: {{SERVICE_ORIGIN}}
+- Transport: stateless Streamable HTTP.
+- Authentication: none; no product user account or OAuth.
+- Documentation: {{SERVICE_ORIGIN}}/docs
+- MCP privacy: {{SERVICE_ORIGIN}}/privacy
+- Website: https://energydune.com/
+- Website privacy: https://energydune.com/privacy.html
+- Website terms: https://energydune.com/terms.html
+
+## Tools
+
+1. get_company_info — read. Optional lang: en/fr; company contact, scope and disclaimers.
+2. list_product_categories — read. Optional segment and lang; six published categories.
+3. search_products — read. query and/or category, brand, application filters; optional lang. Returns category-level matches, never invented SKUs. A brand alone does not establish product availability.
+4. get_enquiry_requirements — read. Optional category and lang; structured required/optional enquiry fields and specification notes.
+5. create_enquiry_draft — write, draft only. Required name, company, email, requirements. Optional category, brand, product_reference, viscosity_or_grade, specification_or_oem, quantity_packaging, destination, documents_requested, lang. Returns validation errors or structured summary, email subject/body and mailto link.
+
+Use documents_requested with values "TDS / PDS" and "SDS". lang is en or fr; default en. The email body is always English; lang controls localised metadata, category labels, summaries and messages. The live tools/list response is the authoritative input schema.
+
+## Categories and limits
+
+- pcmo: passenger car engine oils; SAE / API / ACEA.
+- hdeo: heavy-duty diesel engine oils; SAE / API / OEM.
+- industrial: industrial lubricants; ISO VG.
+- driveline: transmission and gear oils; ATF / MTF / OEM.
+- greases: lubricating greases; NLGI.
+- energy: energy products; grade / volume.
+
+Availability and specifications confirmed by quotation.
+Brand names identify requested products, not authorised distribution.
+Enquiry brands: SINOPEC and Great Wall Lubricants. No affiliation or availability is established by these names.
+No SKU catalogue, product-performance comparison, prices, live inventory, confirmed lead times, orders, payments or document/approval guarantees.
+
+## Draft and privacy behaviour
+
+Successful drafts explicitly report draft_only:true, sent:false, persisted:false. No email is sent and no application enquiry record is saved. The user reviews and sends from their own email application.
+If the fully encoded mailto URL would exceed 1800 characters, return recipient and subject only in the link; email.body still contains the complete text and email.manual_copy_required is true.
+
+Tool arguments are sent to the hosted service immediately, including supplied personal information. Inputs are processed for the current response without an enquiry database or intentional application request-body logging. Responses repeat draft details; short mailto links can contain encoded personal information. For rate limiting, the Worker processes the trusted edge IP address and derives a SHA-256 key for the native binding; hashing is pseudonymisation, not anonymisation. Cloudflare and Muse or another MCP client may retain infrastructure logs, tool data or conversation history under their own policies. Do not describe this as end-to-end zero storage.
+
+Native rate limiting targets approximately 60 MCP POST requests/minute/IP independently at each Cloudflare location. It is eventually consistent, not a strict global quota. Handle HTTP 429 with backoff. Account eligibility and Cloudflare charges must be confirmed; no free-operation guarantee.

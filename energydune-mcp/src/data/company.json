@@ -1,0 +1,32 @@
+{
+  "legal_name": "DUNE ENERGY GLOBAL INC.",
+  "display_name": "DUNE ENERGY GLOBAL",
+  "website": "https://energydune.com/",
+  "email": "info@energydune.com",
+  "description_en": "DUNE ENERGY GLOBAL supplies energy products and multi-brand lubricants for automotive, commercial vehicle and industrial applications, with enquiries shaped around your brand preferences, product specifications, quantities and delivery requirements.",
+  "description_fr": "DUNE ENERGY GLOBAL propose des produits énergétiques et des lubrifiants multimarques pour les véhicules légers, les poids lourds et l’industrie. Chaque demande tient compte de vos marques, spécifications, quantités et besoins de livraison.",
+  "segments": ["Automotive", "Commercial", "Industrial", "Energy"],
+  "brands": ["SINOPEC", "Great Wall Lubricants"],
+  "brand_disclaimer": "Brand names identify requested products, not authorised distribution.",
+  "brand_disclaimer_fr": "Les marques identifient les produits demandés et n’impliquent pas de distribution agréée.",
+  "availability_note": "Availability and specifications confirmed by quotation.",
+  "availability_note_fr": "Disponibilité et spécifications confirmées par devis.",
+  "catalogue_scope": "category-level",
+  "catalogue_limitations_en": "Category-level information only. No SKU catalogue, product performance comparisons, prices, stock levels or confirmed lead times are provided. Product specifications and OEM approvals must be verified for the individual requested product.",
+  "catalogue_limitations_fr": "Informations par catégorie uniquement. Aucun catalogue de références, comparatif de performances, prix, état des stocks ou délai confirmé n’est fourni. Les spécifications et homologations doivent être vérifiées pour le produit demandé.",
+  "documents_requested": ["TDS / PDS", "SDS"],
+  "enquiry_fields": [
+    {"field": "name", "label_en": "Name", "label_fr": "Nom", "required": true, "type": "string", "max_length": 254},
+    {"field": "company", "label_en": "Company", "label_fr": "Entreprise", "required": true, "type": "string", "max_length": 254},
+    {"field": "email", "label_en": "Email", "label_fr": "Courriel", "required": true, "type": "email", "max_length": 254},
+    {"field": "requirements", "label_en": "Your requirements", "label_fr": "Vos besoins", "required": true, "type": "multiline_string", "max_length": 5000},
+    {"field": "category", "label_en": "Product category", "label_fr": "Catégorie de produits", "required": false, "type": "category", "max_length": 254, "default": "pcmo"},
+    {"field": "brand", "label_en": "Brand", "label_fr": "Marque", "required": false, "type": "brand", "max_length": 254},
+    {"field": "product_reference", "label_en": "Product / reference", "label_fr": "Produit / référence", "required": false, "type": "string", "max_length": 254},
+    {"field": "viscosity_or_grade", "label_en": "Viscosity / consistency grade", "label_fr": "Grade de viscosité / consistance", "required": false, "type": "string", "max_length": 254},
+    {"field": "specification_or_oem", "label_en": "Specification / OEM approval", "label_fr": "Norme / homologation", "required": false, "type": "string", "max_length": 254},
+    {"field": "quantity_packaging", "label_en": "Quantity / packaging", "label_fr": "Quantité / emballage", "required": false, "type": "string", "max_length": 254},
+    {"field": "destination", "label_en": "Destination", "label_fr": "Destination", "required": false, "type": "string", "max_length": 254},
+    {"field": "documents_requested", "label_en": "Documents", "label_fr": "Documents", "required": false, "type": "document_array", "allowed_values": ["TDS / PDS", "SDS"]}
+  ]
+}
