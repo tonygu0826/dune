@@ -31,10 +31,21 @@ const translations = {
     "emailLabel": "Email",
     "interestLabel": "Product category",
     "messageLabel": "Your requirements",
-    "formNote": "Prepare a draft, then send it in your email app.",
-    "prepareInquiry": "Prepare email draft",
-    "inquiryReady": "Your product enquiry is ready.",
-    "inquiryReadyBody": "Review your enquiry and send it to info@energydune.com.",
+    "formNote": "We use your details to handle this enquiry.",
+    "prepareInquiry": "Send enquiry",
+    "inquiryReady": "Your enquiry has been submitted.",
+    "inquiryReadyBody": "Thank you for contacting DUNE ENERGY GLOBAL.",
+    "inquirySending": "Submitting your enquiry…",
+    "inquirySendingBody": "Please wait for confirmation.",
+    "inquiryUnconfirmed": "Submission not confirmed.",
+    "inquirySendError": "Try again, or send the enquiry from your email app.",
+    "inquiryRateLimited": "Please wait a minute before trying again, or use your email app.",
+    "inquiryUnavailable": "Online enquiries are temporarily unavailable. Try again later or use your email app.",
+    "inquiryConflict": "We could not confirm this request. Please use your email app or review the enquiry.",
+    "inquiryInvalid": "Please review the enquiry fields before trying again.",
+    "retryInquiry": "Try again",
+    "startAnotherInquiry": "Start another enquiry",
+    "invalidField": "Please check this field.",
     "copyInquiry": "Copy enquiry",
     "downloadInquiry": "Download .txt",
     "editInquiry": "← Edit enquiry",
@@ -148,10 +159,21 @@ const translations = {
     "emailLabel": "Courriel",
     "interestLabel": "Catégorie de produits",
     "messageLabel": "Vos besoins",
-    "formNote": "Préparez un brouillon, puis envoyez-le dans votre application de messagerie.",
-    "prepareInquiry": "Préparer le brouillon",
-    "inquiryReady": "Votre demande est prête.",
-    "inquiryReadyBody": "Vérifiez votre demande et envoyez-la à info@energydune.com.",
+    "formNote": "Nous utilisons vos coordonnées pour traiter cette demande.",
+    "prepareInquiry": "Envoyer la demande",
+    "inquiryReady": "Votre demande a été transmise.",
+    "inquiryReadyBody": "Merci d’avoir contacté DUNE ENERGY GLOBAL.",
+    "inquirySending": "Transmission de votre demande…",
+    "inquirySendingBody": "Veuillez attendre la confirmation.",
+    "inquiryUnconfirmed": "Transmission non confirmée.",
+    "inquirySendError": "Réessayez ou envoyez la demande depuis votre messagerie.",
+    "inquiryRateLimited": "Patientez une minute avant de réessayer, ou utilisez votre messagerie.",
+    "inquiryUnavailable": "Les demandes en ligne sont temporairement indisponibles. Réessayez plus tard ou utilisez votre messagerie.",
+    "inquiryConflict": "Nous n’avons pas pu confirmer cette demande. Utilisez votre messagerie ou vérifiez son contenu.",
+    "inquiryInvalid": "Veuillez vérifier les champs de votre demande avant de réessayer.",
+    "retryInquiry": "Réessayer",
+    "startAnotherInquiry": "Nouvelle demande",
+    "invalidField": "Veuillez vérifier ce champ.",
     "copyInquiry": "Copier la demande",
     "downloadInquiry": "Télécharger .txt",
     "editInquiry": "← Modifier la demande",
@@ -251,6 +273,112 @@ let inquiryText = '';
 const inquiryEmail = 'info@energydune.com';
 const emailDraft = document.querySelector('#email-inquiry');
 const emailDraftNote = document.querySelector('#email-draft-note');
+const sendInquiryButton = document.querySelector('#send-inquiry');
+const inquiryResultTitle = document.querySelector('#inquiry-result-title');
+const inquiryResultBody = document.querySelector('#inquiry-result-body');
+const formSubmitButton = form.querySelector('[type="submit"]');
+let inquiryPhase = 'idle';
+let inquiryError = '';
+let requestInFlight = false;
+let activeRequest = null;
+let activeRequestSignature = '';
+
+function updateInquiryState() {
+  const t = translations[language];
+  const pending = inquiryPhase === 'sending';
+  const accepted = inquiryPhase === 'accepted';
+  const errorKeys = { rate_limited: 'inquiryRateLimited', service_unavailable: 'inquiryUnavailable', request_conflict: 'inquiryConflict', validation_error: 'inquiryInvalid' };
+  inquiryResultTitle.textContent = t[pending ? 'inquirySending' : accepted ? 'inquiryReady' : 'inquiryUnconfirmed'];
+  inquiryResultBody.textContent = t[pending ? 'inquirySendingBody' : accepted ? 'inquiryReadyBody' : errorKeys[inquiryError] || 'inquirySendError'];
+  result.dataset.state = inquiryPhase;
+  result.setAttribute('aria-busy', String(pending));
+  formSubmitButton.disabled = requestInFlight;
+  sendInquiryButton.hidden = accepted || inquiryError === 'validation_error' || inquiryError === 'request_conflict';
+  sendInquiryButton.disabled = requestInFlight;
+  sendInquiryButton.textContent = t[pending ? 'inquirySending' : 'retryInquiry'];
+  emailDraft.hidden = pending || accepted;
+  emailDraftNote.hidden = pending || accepted;
+  for (const button of result.querySelectorAll('button:not(#send-inquiry)')) button.disabled = requestInFlight;
+  document.querySelector('#edit-inquiry').textContent = t[accepted ? 'startAnotherInquiry' : 'editInquiry'];
+}
+
+function createInquiryRequestId() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  const bytes = crypto.getRandomValues(new Uint8Array(16));
+  bytes[6] = (bytes[6] & 15) | 64;
+  bytes[8] = (bytes[8] & 63) | 128;
+  const hex = [...bytes].map(value => value.toString(16).padStart(2, '0')).join('');
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+}
+
+function prepareInquiryRequest() {
+  const data = new FormData(form);
+  const fields = ['name', 'company', 'email', 'interest', 'preferredBrand', 'productReference', 'message', 'viscosity', 'specification', 'quantity', 'destination', 'website'];
+  const payload = Object.fromEntries(fields.map(name => [name, String(data.get(name) || '').trim()]));
+  payload.language = language;
+  payload.documents = data.getAll('documents');
+  const signature = JSON.stringify(payload);
+  if (!activeRequest || signature !== activeRequestSignature) {
+    activeRequest = { ...payload, requestId: createInquiryRequestId() };
+    activeRequestSignature = signature;
+  }
+}
+
+function getInquiryEndpoint() {
+  const configured = document.querySelector('meta[name="dune-enquiry-endpoint"]')?.content;
+  if (!configured) return null;
+  try {
+    const endpoint = new URL(configured);
+    return endpoint.protocol === 'https:' && !endpoint.username && !endpoint.password && endpoint.pathname === '/enquiries' && !endpoint.search && !endpoint.hash ? endpoint.href : null;
+  } catch { return null; }
+}
+
+async function submitInquiry() {
+  if (requestInFlight || !activeRequest) return;
+  requestInFlight = true;
+  inquiryPhase = 'sending';
+  inquiryError = '';
+  updateInquiryState();
+  const endpoint = getInquiryEndpoint();
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15000);
+  try {
+    if (!endpoint) {
+      inquiryError = 'service_unavailable';
+      throw new Error('Enquiry endpoint is not configured');
+    }
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(activeRequest),
+      credentials: 'omit',
+      cache: 'no-store',
+      redirect: 'error',
+      signal: controller.signal,
+    });
+    const payload = await response.json();
+    if (response.status !== 202 || payload.status !== 'accepted' || payload.requestId !== activeRequest.requestId) {
+      inquiryError = response.status === 429 ? 'rate_limited' : response.status === 503 ? 'service_unavailable' : typeof payload.code === 'string' ? payload.code : '';
+      if (payload.code === 'validation_error' && Array.isArray(payload.fieldErrors)) {
+        for (const error of payload.fieldErrors) {
+          const input = form.elements.namedItem(error.field);
+          if (input && typeof input.setCustomValidity === 'function') {
+            input.setCustomValidity(translations[language][error.code === 'required' ? 'requiredField' : error.field === 'email' ? 'invalidEmail' : 'invalidField']);
+          }
+        }
+      }
+      throw new Error('Enquiry submission was not confirmed');
+    }
+    inquiryPhase = 'accepted';
+  } catch {
+    inquiryPhase = 'error';
+  } finally {
+    clearTimeout(timer);
+    requestInFlight = false;
+    updateInquiryState();
+    if (inquiryDialog.open) inquiryResultTitle.focus();
+  }
+}
 
 function setMenu(open) {
   menuButton.setAttribute('aria-expanded', String(open));
@@ -271,9 +399,10 @@ function updateInquiryEmail() {
   if (!emailDraft) return;
   const t = translations[language];
   const base = `mailto:${inquiryEmail}?subject=${encodeURIComponent(t.emailSubject)}`;
-  const fullDraft = `${base}&body=${encodeURIComponent(inquiryText.replace(/\n/g, '\r\n'))}`;
+  let fullDraft = base;
+  try { fullDraft = `${base}&body=${encodeURIComponent(inquiryText.replace(/\n/g, '\r\n'))}`; } catch { /* Malformed input remains available to correct in the form. */ }
   // Long mailto URLs are truncated by some mail apps; keep the complete brief available to copy or attach.
-  const includeBody = fullDraft.length <= 1800;
+  const includeBody = fullDraft !== base && fullDraft.length <= 1800;
   emailDraft.href = includeBody ? fullDraft : base;
   emailDraftNote.textContent = t[includeBody ? 'emailDraftNote' : 'emailLongNote'];
   emailDraftNote.dataset.manualCopy = String(!includeBody);
@@ -351,8 +480,9 @@ function setLanguage(nextLanguage) {
   document.querySelector('.hero-scroll').setAttribute('aria-label', t.explore);
   menuButton.setAttribute('aria-label', t[mobileNav.hidden ? 'menuOpen' : 'menuClose']);
   status.textContent = '';
-  form.querySelectorAll('input, textarea').forEach(input => input.setCustomValidity(''));
+  form.querySelectorAll('input, textarea, select').forEach(input => input.setCustomValidity(''));
   if (!result.hidden) { inquiryText = formatInquiry(); preview.textContent = inquiryText; updateInquiryEmail(); }
+  updateInquiryState();
   try { localStorage.setItem('dune-language', language); } catch { /* Storage is optional. */ }
 }
 document.querySelector('.language-switch').addEventListener('click', () => setLanguage(language === 'en' ? 'fr' : 'en'));
@@ -369,7 +499,13 @@ function openDialog(dialog) {
 }
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => updateProductFilter(button.dataset.filter)));
 document.querySelectorAll('[data-inquiry]').forEach(button => button.addEventListener('click', () => {
+  if (requestInFlight) { openDialog(inquiryDialog); return; }
   if (button.dataset.category || button.dataset.brand) {
+    if (inquiryPhase === 'accepted') {
+      form.reset();
+      activeRequest = null;
+      activeRequestSignature = '';
+    }
     if (button.dataset.category) form.elements.interest.value = button.dataset.category;
     if (button.dataset.brand) form.elements.preferredBrand.value = button.dataset.brand;
     form.hidden = false;
@@ -394,6 +530,7 @@ form.addEventListener('invalid', event => {
 }, true);
 form.addEventListener('submit', event => {
   event.preventDefault();
+  if (requestInFlight) return;
   for (const input of form.querySelectorAll('input[required], textarea[required]')) {
     if (!input.value.trim()) { input.setCustomValidity(translations[language].requiredField); input.reportValidity(); return; }
   }
@@ -404,10 +541,30 @@ form.addEventListener('submit', event => {
   result.hidden = false;
   status.textContent = '';
   inquiryDialog.scrollTop = 0;
-  document.querySelector('#copy-inquiry').focus();
+  try {
+    prepareInquiryRequest();
+    void submitInquiry();
+  } catch {
+    inquiryPhase = 'error';
+    inquiryError = 'service_unavailable';
+    updateInquiryState();
+  }
 });
-form.querySelectorAll('input, textarea').forEach(input => input.addEventListener('input', () => input.setCustomValidity('')));
-document.querySelector('#edit-inquiry').addEventListener('click', () => { result.hidden = true; form.hidden = false; form.elements.name.focus(); });
+form.querySelectorAll('input, textarea, select').forEach(input => input.addEventListener('input', () => input.setCustomValidity('')));
+sendInquiryButton.addEventListener('click', () => { void submitInquiry(); });
+document.querySelector('#edit-inquiry').addEventListener('click', () => {
+  if (requestInFlight) return;
+  if (inquiryPhase === 'accepted') {
+    form.reset();
+    activeRequest = null;
+    activeRequestSignature = '';
+  }
+  inquiryPhase = 'idle';
+  inquiryError = '';
+  result.hidden = true;
+  form.hidden = false;
+  form.elements.name.focus();
+});
 document.querySelector('#copy-inquiry').addEventListener('click', async () => {
   try {
     if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');

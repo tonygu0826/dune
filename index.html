@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#092C34">
   <meta name="description" content="Energy products and multi-brand lubricants for automotive, commercial and industrial applications. Contact DUNE ENERGY GLOBAL for product enquiries.">
+  <meta name="dune-enquiry-endpoint" content="https://energydune-enquiries.tonygu0826.workers.dev/enquiries">
   <title>DUNE ENERGY GLOBAL — Energy &amp; Lubricants</title>
   <link rel="canonical" href="https://energydune.com/">
   <meta property="og:type" content="website">
@@ -13,8 +14,8 @@
   <meta property="og:url" content="https://energydune.com/">
   <meta property="og:image" content="https://energydune.com/assets/lubricants-hero.png">
   <link rel="icon" type="image/svg+xml" href="assets/dune-symbol.svg?v=oil-amber-1">
-  <link rel="stylesheet" href="styles.css?v=legal-1">
-  <script src="app.js?v=legal-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=enquiry-email-1">
+  <script src="app.js?v=enquiry-email-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
@@ -162,6 +163,7 @@
       <p class="dialog-description" data-i18n="inquiryDescription">Tell us the product and quantity you need.</p>
       <p class="inquiry-contact"><a href="mailto:info@energydune.com">info@energydune.com</a></p>
       <form id="inquiry-form">
+        <div class="inquiry-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" autocomplete="off" tabindex="-1" maxlength="254"></label></div>
         <div class="form-row"><label><span><span data-i18n="nameLabel">Name</span></span><input type="text" name="name" autocomplete="name" maxlength="254" required></label><label><span><span data-i18n="companyLabel">Company</span></span><input type="text" name="company" autocomplete="organization" maxlength="254" required></label></div>
         <div class="form-row"><label><span><span data-i18n="emailLabel">Email</span></span><input type="email" name="email" autocomplete="email" maxlength="254" required></label><label><span data-i18n="interestLabel">Product category</span><select name="interest" required><option value="passenger" data-i18n="product1Title">Passenger car engine oils</option><option value="commercial" data-i18n="product2Title">Heavy-duty diesel engine oils</option><option value="industrial" data-i18n="product3Title">Industrial lubricants</option><option value="driveline" data-i18n="product4Title">Transmission &amp; gear oils</option><option value="grease" data-i18n="product5Title">Lubricating greases</option><option value="energy" data-i18n="product6Title">Energy products</option></select></label></div>
         <div class="form-row"><label><span><span data-i18n="brandLabel">Brand</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="preferredBrand" autocomplete="off" maxlength="254" data-i18n-placeholder="brandPlaceholder" placeholder="Brand name" list="brand-options"></label><label><span><span data-i18n="referenceLabel">Product / reference</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="productReference" autocomplete="off" maxlength="254" data-i18n-placeholder="referencePlaceholder" placeholder="Product name or reference"></label></div>
@@ -173,15 +175,16 @@
           <div class="form-row"><label><span><span data-i18n="quantityLabel">Quantity / packaging</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="quantity" autocomplete="off" maxlength="254" data-i18n-placeholder="quantityPlaceholder" placeholder="Quantity and pack size"></label><label><span><span data-i18n="destinationLabel">Destination</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="destination" autocomplete="off" maxlength="254" data-i18n-placeholder="destinationPlaceholder" placeholder="City, country"></label></div>
           <fieldset class="documents-fieldset"><legend data-i18n="documentsLabel">Documents</legend><div class="checkbox-row"><label class="checkbox-label"><input type="checkbox" name="documents" value="TDS / PDS"><span>TDS / PDS</span></label><label class="checkbox-label"><input type="checkbox" name="documents" value="SDS"><span>SDS</span></label></div></fieldset>
         </details>
-        <p class="form-note" data-i18n="formNote">Prepare a draft, then send it in your email app.</p>
-        <button class="button button-dark form-submit" type="submit" ><span data-i18n="prepareInquiry">Prepare email draft</span><span aria-hidden="true">↗</span></button>
+        <p class="form-note"><span data-i18n="formNote">We use your details to handle this enquiry.</span> <a href="privacy.html" data-legal-page="privacy" data-i18n="privacy">Privacy Policy</a></p>
+        <button class="button button-dark form-submit" type="submit" ><span data-i18n="prepareInquiry">Send enquiry</span><span aria-hidden="true">↗</span></button>
       </form>
       <section class="inquiry-result" id="inquiry-result" hidden aria-live="polite">
-        <h3 data-i18n="inquiryReady">Your product enquiry is ready.</h3><p data-i18n="inquiryReadyBody">Review your enquiry and send it to info@energydune.com.</p>
+        <h3 id="inquiry-result-title" tabindex="-1" data-i18n="inquiryReady">Your enquiry has been submitted.</h3><p id="inquiry-result-body" data-i18n="inquiryReadyBody">Thank you for contacting DUNE ENERGY GLOBAL.</p>
         <pre id="inquiry-preview"></pre>
         <p class="form-note email-draft-note" id="email-draft-note"></p>
         <div class="result-actions">
-          <a class="button button-dark" id="email-inquiry" href="mailto:info@energydune.com" aria-describedby="email-draft-note" data-i18n="emailInquiry">Open email draft</a>
+          <button class="button button-dark" id="send-inquiry" type="button" data-i18n="retryInquiry">Try again</button>
+          <a class="button button-outline" id="email-inquiry" href="mailto:info@energydune.com" aria-describedby="email-draft-note" data-i18n="emailInquiry">Open email draft</a>
           <button class="button button-outline" id="copy-inquiry" type="button" data-i18n="copyInquiry">Copy enquiry</button>
           <button class="button button-outline" id="download-inquiry" type="button" data-i18n="downloadInquiry">Download .txt</button>
         </div>

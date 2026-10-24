@@ -1334,6 +1334,26 @@ dialog::backdrop {
   margin-top: 1px;
 }
 
+.inquiry-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.inquiry-dialog button:disabled {
+  cursor: wait;
+  opacity: .62;
+}
+
+.form-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .inquiry-result h3 {
   margin: 0 0 11px;
   font-size: 22px;
