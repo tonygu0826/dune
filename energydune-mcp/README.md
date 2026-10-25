@@ -121,8 +121,8 @@ For the data questionnaire, include query arguments, draft fields, returned summ
 
 ## Privacy and contact
 
-Unlike the website's local email-draft flow, an MCP tool invocation immediately sends its arguments to the hosted Worker for processing. Draft fields can include a name, company and email address. The application processes them for the current response without an enquiry database or intentional request-body logs. Cloudflare and Muse or another MCP client may retain operational logs, tool arguments, results or conversation history under their own settings and policies. A short `mailto` URL can contain the draft text; URL encoding does not anonymise it.
+An MCP tool invocation immediately sends its arguments to the hosted Worker for processing. Draft fields can include a name, company and email address. The application processes them for the current response without an enquiry database or intentional request-body logs. Cloudflare and Muse or another MCP client may retain operational logs, tool arguments, results or conversation history under their own settings and policies. A short `mailto` URL can contain the draft text; URL encoding does not anonymise it.
 
-See [docs/privacy.html](docs/privacy.html) for the separate MCP privacy notice. Existing website policies remain at <https://energydune.com/privacy.html> and <https://energydune.com/terms.html>.
+See [docs/privacy.html](docs/privacy.html) for the separate MCP privacy notice. The website’s direct enquiry form uses Cloudflare and Resend for email delivery, covered by the website privacy policy at <https://energydune.com/privacy.html>. MCP tools remain draft-only and do not invoke that email-delivery function. Website terms remain at <https://energydune.com/terms.html>.
 
 Contact: <info@energydune.com> · Website: <https://energydune.com/>
