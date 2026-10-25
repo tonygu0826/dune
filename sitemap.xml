@@ -4,6 +4,9 @@
     <loc>https://energydune.com/</loc>
   </url>
   <url>
+    <loc>https://energydune.com/mail/</loc>
+  </url>
+  <url>
     <loc>https://energydune.com/privacy.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/privacy-fr.html"/>

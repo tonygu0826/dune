@@ -122,7 +122,10 @@ const translations = {
     "categoryIndustrial": "INDUSTRIAL",
     "categoryDriveline": "DRIVELINE",
     "categoryGrease": "GREASES",
-    "categoryEnergy": "ENERGY"
+    "categoryEnergy": "ENERGY",
+    "backToWebsite": "Back to website",
+    "enquiryPageTitle": "Product enquiry | DUNE ENERGY GLOBAL",
+    "enquiryPageDescription": "Send a product and supply enquiry to DUNE ENERGY GLOBAL."
   },
   "fr": {
     "skip": "Aller au contenu",
@@ -246,17 +249,20 @@ const translations = {
     "categoryDriveline": "TRANSMISSION",
     "categoryGrease": "GRAISSES",
     "categoryEnergy": "ÉNERGIE",
-    "invalidEmail": "Veuillez saisir une adresse courriel valide."
+    "invalidEmail": "Veuillez saisir une adresse courriel valide.",
+    "backToWebsite": "Retour au site",
+    "enquiryPageTitle": "Demande de prix | DUNE ENERGY GLOBAL",
+    "enquiryPageDescription": "Envoyez une demande de produits et d’approvisionnement à DUNE ENERGY GLOBAL."
   }
 };
 
 let language = 'en';
 try { language = localStorage.getItem('dune-language') === 'fr' ? 'fr' : 'en'; } catch { /* Storage is optional. */ }
-const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
+const pageParameters = new URLSearchParams(window.location.search);
+const requestedLanguage = pageParameters.get('lang');
 if (requestedLanguage === 'en' || requestedLanguage === 'fr') language = requestedLanguage;
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
-const inquiryDialog = document.querySelector('#inquiry-dialog');
 const form = document.querySelector('#inquiry-form');
 const result = document.querySelector('#inquiry-result');
 const preview = document.querySelector('#inquiry-preview');
@@ -265,7 +271,7 @@ let inquiryText = '';
 const sendInquiryButton = document.querySelector('#send-inquiry');
 const inquiryResultTitle = document.querySelector('#inquiry-result-title');
 const inquiryResultBody = document.querySelector('#inquiry-result-body');
-const formSubmitButton = form.querySelector('[type="submit"]');
+const formSubmitButton = form?.querySelector('[type="submit"]');
 let inquiryPhase = 'idle';
 let inquiryError = '';
 let requestInFlight = false;
@@ -273,6 +279,7 @@ let activeRequest = null;
 let activeRequestSignature = '';
 
 function updateInquiryState() {
+  if (!form) return;
   const t = translations[language];
   const pending = inquiryPhase === 'sending';
   const accepted = inquiryPhase === 'accepted';
@@ -363,11 +370,12 @@ async function submitInquiry() {
     clearTimeout(timer);
     requestInFlight = false;
     updateInquiryState();
-    if (inquiryDialog.open) inquiryResultTitle.focus();
+    inquiryResultTitle.focus();
   }
 }
 
 function setMenu(open) {
+  if (!menuButton || !mobileNav) return;
   menuButton.setAttribute('aria-expanded', String(open));
   menuButton.setAttribute('aria-label', translations[language][open ? 'menuClose' : 'menuOpen']);
   mobileNav.hidden = !open;
@@ -387,6 +395,7 @@ const productList = document.querySelector('#product-list');
 const productScrollControls = document.querySelector('.product-scroll-controls');
 const productScrollButtons = [...document.querySelectorAll('[data-scroll-products]')];
 function updateProductScrollControls() {
+  if (!productList) return;
   const maxScroll = productList.scrollWidth - productList.clientWidth;
   productScrollControls.hidden = maxScroll <= 2;
   productScrollButtons[0].disabled = productList.scrollLeft <= 1;
@@ -400,8 +409,8 @@ productScrollButtons.forEach(button => button.addEventListener('click', () => {
     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
   });
 }));
-productList.addEventListener('scroll', updateProductScrollControls, { passive: true });
-productList.addEventListener('focusin', event => {
+productList?.addEventListener('scroll', updateProductScrollControls, { passive: true });
+productList?.addEventListener('focusin', event => {
   const card = event.target.closest('[data-product]');
   if (card && event.target.matches(':focus-visible')) {
     card.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'auto' });
@@ -409,6 +418,7 @@ productList.addEventListener('focusin', event => {
 });
 window.addEventListener('resize', updateProductScrollControls);
 function updateProductFilter(nextFilter = activeFilter) {
+  if (!productList) return;
   activeFilter = nextFilter;
   let count = 0;
   document.querySelectorAll('[data-product]').forEach(card => {
@@ -424,166 +434,132 @@ function setLanguage(nextLanguage) {
   language = nextLanguage === 'fr' ? 'fr' : 'en';
   try {
     const pageUrl = new URL(window.location.href);
-    if (pageUrl.searchParams.has('lang')) {
+    if (form || pageUrl.searchParams.has('lang')) {
       pageUrl.searchParams.set('lang', language);
       window.history.replaceState(window.history.state, '', pageUrl);
     }
   } catch { /* URL updates are optional. */ }
   const t = translations[language];
   document.documentElement.lang = language;
-  document.title = t.pageTitle;
-  document.querySelector('meta[name="description"]').content = t.metaDescription;
-  document.querySelector('meta[property="og:title"]').content = t.pageTitle;
-  document.querySelector('meta[property="og:description"]').content = t.metaDescription;
+  document.title = t[form ? 'enquiryPageTitle' : 'pageTitle'];
+  document.querySelector('meta[name="description"]').content = t[form ? 'enquiryPageDescription' : 'metaDescription'];
+  document.querySelector('meta[property="og:title"]').content = document.title;
+  document.querySelector('meta[property="og:description"]').content = t[form ? 'enquiryPageDescription' : 'metaDescription'];
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t[el.dataset.i18n]; });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => el.placeholder = t[el.dataset.i18nPlaceholder]);
-  document.querySelector('.filter-group').setAttribute('aria-label', t.filterLabel);
-  productList.setAttribute('aria-label', t.productListLabel);
-  productScrollButtons[0].setAttribute('aria-label', t.productScrollPrevious);
-  productScrollButtons[1].setAttribute('aria-label', t.productScrollNext);
+  document.querySelector('.filter-group')?.setAttribute('aria-label', t.filterLabel);
+  productList?.setAttribute('aria-label', t.productListLabel);
+  productScrollButtons[0]?.setAttribute('aria-label', t.productScrollPrevious);
+  productScrollButtons[1]?.setAttribute('aria-label', t.productScrollNext);
   document.querySelectorAll('[data-brand]').forEach(el => el.setAttribute('aria-label', t.brandAsk.replace('{brand}', el.dataset.brand)));
-  document.querySelectorAll('[data-legal-page]').forEach(link => link.setAttribute('href', `${link.dataset.legalPage}${language === 'fr' ? '-fr' : ''}.html`));
+  document.querySelectorAll('[data-legal-page]').forEach(link => link.setAttribute('href', `/${link.dataset.legalPage}${language === 'fr' ? '-fr' : ''}.html`));
   updateProductFilter();
   document.querySelector('.language-current').textContent = language === 'fr' ? 'FR' : 'EN';
   document.querySelector('.language-next').textContent = language === 'fr' ? 'EN' : 'FR';
   document.querySelector('.language-switch').setAttribute('aria-label', t.switchLanguage);
   document.querySelectorAll('.brand').forEach(el => el.setAttribute('aria-label', t.home));
-  document.querySelectorAll('[data-close-dialog]').forEach(el => el.setAttribute('aria-label', t.close));
-  document.querySelector('.desktop-nav').setAttribute('aria-label', t.navLabel);
-  mobileNav.setAttribute('aria-label', t.mobileNavLabel);
-  document.querySelector('.hero-image').alt = t.heroAlt;
-  document.querySelector('.hero-scroll').setAttribute('aria-label', t.explore);
-  menuButton.setAttribute('aria-label', t[mobileNav.hidden ? 'menuOpen' : 'menuClose']);
-  status.textContent = '';
-  form.querySelectorAll('input, textarea, select').forEach(input => input.setCustomValidity(''));
-  if (!result.hidden) { inquiryText = formatInquiry(); preview.textContent = inquiryText; }
+  document.querySelector('.desktop-nav')?.setAttribute('aria-label', t.navLabel);
+  mobileNav?.setAttribute('aria-label', t.mobileNavLabel);
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) heroImage.alt = t.heroAlt;
+  document.querySelector('.hero-scroll')?.setAttribute('aria-label', t.explore);
+  if (menuButton) menuButton.setAttribute('aria-label', t[mobileNav.hidden ? 'menuOpen' : 'menuClose']);
+  document.querySelectorAll('[data-inquiry]').forEach(link => {
+    const target = new URL('/mail/', window.location.origin);
+    target.searchParams.set('lang', language);
+    if (link.dataset.category) target.searchParams.set('category', link.dataset.category);
+    if (link.dataset.brand) target.searchParams.set('brand', link.dataset.brand);
+    link.href = target.pathname + target.search;
+  });
+  document.querySelectorAll('[data-home-link]').forEach(link => { link.href = `/?lang=${language}`; });
+  if (form) {
+    status.textContent = '';
+    form.querySelectorAll('input, textarea, select').forEach(input => input.setCustomValidity(''));
+    if (!result.hidden) { inquiryText = formatInquiry(); preview.textContent = inquiryText; }
+  }
   updateInquiryState();
   try { localStorage.setItem('dune-language', language); } catch { /* Storage is optional. */ }
 }
 document.querySelector('.language-switch').addEventListener('click', () => setLanguage(language === 'en' ? 'fr' : 'en'));
-menuButton.addEventListener('click', () => setMenu(mobileNav.hidden));
-mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+menuButton?.addEventListener('click', () => setMenu(mobileNav.hidden));
+mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
-document.addEventListener('click', event => { if (!mobileNav.hidden && !document.querySelector('.site-header').contains(event.target)) setMenu(false); });
+document.addEventListener('click', event => { if (mobileNav && !mobileNav.hidden && !document.querySelector('.site-header').contains(event.target)) setMenu(false); });
 window.matchMedia('(min-width: 681px)').addEventListener('change', event => { if (event.matches) setMenu(false); });
 
-function openDialog(dialog) {
-  setMenu(false);
-  document.body.classList.add('dialog-open');
-  if (!dialog.open) dialog.showModal();
-}
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => updateProductFilter(button.dataset.filter)));
-function openInquiryEntry(trigger) {
-  if (!requestInFlight) {
+function redirectLegacyMailRoute() {
+  if (!form && window.location.hash === '#mail') {
+    window.location.replace(`/mail/?lang=${language}`);
+  }
+}
+window.addEventListener('hashchange', redirectLegacyMailRoute);
+
+if (form) {
+  const category = pageParameters.get('category');
+  if ([...form.elements.interest.options].some(option => option.value === category)) {
+    form.elements.interest.value = category;
+  }
+  const brand = pageParameters.get('brand');
+  if (brand) form.elements.preferredBrand.value = brand.slice(0, 254);
+  form.addEventListener('invalid', event => {
+    const input = event.target;
+    if (!input.value.trim()) input.setCustomValidity(translations[language].requiredField);
+    else if (input.type === 'email' && input.validity.typeMismatch) input.setCustomValidity(translations[language].invalidEmail);
+  }, true);
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (requestInFlight) return;
+    for (const input of form.querySelectorAll('input[required], textarea[required]')) {
+      if (!input.value.trim()) { input.setCustomValidity(translations[language].requiredField); input.reportValidity(); return; }
+    }
+    inquiryText = formatInquiry();
+    preview.textContent = inquiryText;
+    form.hidden = true;
+    result.hidden = false;
+    status.textContent = '';
+    result.scrollIntoView({ block: 'start' });
+    try {
+      prepareInquiryRequest();
+      void submitInquiry();
+    } catch {
+      inquiryPhase = 'error';
+      inquiryError = 'service_unavailable';
+      updateInquiryState();
+    }
+  });
+  form.querySelectorAll('input, textarea, select').forEach(input => input.addEventListener('input', () => input.setCustomValidity('')));
+  sendInquiryButton.addEventListener('click', () => { void submitInquiry(); });
+  document.querySelector('#edit-inquiry').addEventListener('click', () => {
+    if (requestInFlight) return;
     if (inquiryPhase === 'accepted') {
       form.reset();
       activeRequest = null;
       activeRequestSignature = '';
     }
-    if (trigger?.dataset.category) form.elements.interest.value = trigger.dataset.category;
-    if (trigger?.dataset.brand) form.elements.preferredBrand.value = trigger.dataset.brand;
     inquiryPhase = 'idle';
     inquiryError = '';
-    form.hidden = false;
     result.hidden = true;
-    status.textContent = '';
-  }
-  openDialog(inquiryDialog);
-  if (!requestInFlight) form.elements.name.focus({ preventScroll: true });
-}
-function syncInquiryRoute() {
-  if (window.location.hash === '#mail') {
-    if (!inquiryDialog.open) openInquiryEntry();
-  } else if (inquiryDialog.open) {
-    inquiryDialog.close();
-  }
-}
-document.querySelectorAll('[data-inquiry]').forEach(link => link.addEventListener('click', event => {
-  if (event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-  event.preventDefault();
-  if (window.location.hash !== '#mail') {
-    const state = history.state && typeof history.state === 'object' ? history.state : {};
-    history.pushState({ ...state, duneMailRoute: true }, '', '/#mail');
-  }
-  openInquiryEntry(link);
-}));
-window.addEventListener('hashchange', syncInquiryRoute);
-window.addEventListener('popstate', syncInquiryRoute);
-document.querySelectorAll('dialog').forEach(dialog => {
-  dialog.querySelector('[data-close-dialog]').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => {
-    document.body.classList.remove('dialog-open');
-    if (dialog === inquiryDialog && window.location.hash === '#mail') {
-      if (history.state?.duneMailRoute) history.back();
-      else {
-        const url = new URL(window.location.href);
-        url.hash = '';
-        history.replaceState(history.state, '', url);
-      }
-    }
+    form.hidden = false;
+    form.elements.name.focus();
   });
-  dialog.addEventListener('click', event => {
-    if (event.target !== dialog) return;
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+  document.querySelector('#copy-inquiry').addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(inquiryText);
+      status.textContent = translations[language].copySuccess;
+    } catch { status.textContent = translations[language].copyFailure; }
   });
-});
-form.addEventListener('invalid', event => {
-  const input = event.target;
-  if (!input.value.trim()) input.setCustomValidity(translations[language].requiredField);
-  else if (input.type === 'email' && input.validity.typeMismatch) input.setCustomValidity(translations[language].invalidEmail);
-}, true);
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  if (requestInFlight) return;
-  for (const input of form.querySelectorAll('input[required], textarea[required]')) {
-    if (!input.value.trim()) { input.setCustomValidity(translations[language].requiredField); input.reportValidity(); return; }
-  }
-  inquiryText = formatInquiry();
-  preview.textContent = inquiryText;
-  form.hidden = true;
-  result.hidden = false;
-  status.textContent = '';
-  inquiryDialog.scrollTop = 0;
-  try {
-    prepareInquiryRequest();
-    void submitInquiry();
-  } catch {
-    inquiryPhase = 'error';
-    inquiryError = 'service_unavailable';
-    updateInquiryState();
-  }
-});
-form.querySelectorAll('input, textarea, select').forEach(input => input.addEventListener('input', () => input.setCustomValidity('')));
-sendInquiryButton.addEventListener('click', () => { void submitInquiry(); });
-document.querySelector('#edit-inquiry').addEventListener('click', () => {
-  if (requestInFlight) return;
-  if (inquiryPhase === 'accepted') {
-    form.reset();
-    activeRequest = null;
-    activeRequestSignature = '';
-  }
-  inquiryPhase = 'idle';
-  inquiryError = '';
-  result.hidden = true;
-  form.hidden = false;
-  form.elements.name.focus();
-});
-document.querySelector('#copy-inquiry').addEventListener('click', async () => {
-  try {
-    if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
-    await navigator.clipboard.writeText(inquiryText);
-    status.textContent = translations[language].copySuccess;
-  } catch { status.textContent = translations[language].copyFailure; }
-});
-document.querySelector('#download-inquiry').addEventListener('click', () => {
-  const url = URL.createObjectURL(new Blob(['\uFEFF' + inquiryText], { type: 'text/plain;charset=utf-8' }));
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'DUNE-business-inquiry.txt';
-  document.body.append(link); link.click(); link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-});
-document.querySelector('#year').textContent = String(new Date().getFullYear());
+  document.querySelector('#download-inquiry').addEventListener('click', () => {
+    const url = URL.createObjectURL(new Blob(['\uFEFF' + inquiryText], { type: 'text/plain;charset=utf-8' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'DUNE-business-inquiry.txt';
+    document.body.append(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+}
+const year = document.querySelector('#year');
+if (year) year.textContent = String(new Date().getFullYear());
 setLanguage(language);
-syncInquiryRoute();
+redirectLegacyMailRoute();
