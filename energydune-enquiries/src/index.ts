@@ -106,27 +106,93 @@ function emailBody(enquiry: Enquiry): string {
 
 class ProviderTimeout extends Error {}
 
+type ProviderFailureReason = 'invalid_key' | 'sender_domain' | 'recipient_restriction' | 'quota' | 'idempotency' | 'http_error' | 'network_error' | 'invalid_response' | 'provider_timeout';
+type ProviderResponseFormat = 'json' | 'nonjson' | 'none';
+type ProviderFailure = { status: number; reason: ProviderFailureReason; responseFormat: ProviderResponseFormat };
+type ProviderResult = { outcome: 'accepted' } | { outcome: 'conflict' | 'unavailable'; diagnostic: ProviderFailure };
+
+function classifyProviderFailure(status: number, data: unknown): ProviderFailureReason {
+  // Inspect only a bounded message in memory. Never return or log this text:
+  // providers may include addresses, request data, or other sensitive details.
+  const record = data && typeof data === 'object' ? data as Record<string, unknown> : {};
+  const text = ['name', 'code', 'message'].map(key => typeof record[key] === 'string' ? record[key].slice(0, 4096).toLowerCase() : '').join(' ');
+  if (status === 409) return 'idempotency';
+  if (status === 401 || /invalid_api_key|missing_api_key|restricted_api_key|invalid_access/.test(text) || /api.?key.{0,80}(?:invalid|missing|restricted|not valid)|(?:invalid|missing).{0,40}api.?key/.test(text)) return 'invalid_key';
+  if (/only send.{0,100}(?:testing|your own)|testing emails|recipient.{0,80}(?:restrict|not allowed)|test.mode/.test(text)) return 'recipient_restriction';
+  if (status === 429 || /quota|rate.limit|too many requests|daily.limit|monthly.limit/.test(text)) return 'quota';
+  if (/domain.{0,100}(?:not verified|unverified|verification)|(?:not verified|unverified).{0,100}domain|sender.{0,80}(?:domain|verif)|from.{0,80}(?:not verified|verified domain)/.test(text)) return 'sender_domain';
+  return 'http_error';
+}
+
+async function readProviderResponse(provider: Response): Promise<{ responseFormat: 'json' | 'nonjson'; data?: unknown }> {
+  if (!provider.body) return { responseFormat: 'nonjson' };
+  const reader = provider.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let length = 0;
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      length += value.byteLength;
+      if (length > 16 * 1024) {
+        try { await reader.cancel(); } catch { /* Do not expose stream errors. */ }
+        return { responseFormat: 'nonjson' };
+      }
+      chunks.push(value);
+    }
+  } finally { reader.releaseLock(); }
+  const bytes = new Uint8Array(length);
+  let offset = 0;
+  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
+  try { return { responseFormat: 'json', data: JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)) }; }
+  catch { return { responseFormat: 'nonjson' }; }
+}
+
+function logProviderFailure(diagnostic: ProviderFailure): void {
+  // Fixed metadata only. No request ID, enquiry, provider body, headers, API key,
+  // exception message, or stack is passed to the logging service.
+  console.warn('enquiry_provider_failure', diagnostic);
+}
+
 async function send(enquiry: Enquiry, env: Env, dependencies: Dependencies): Promise<'accepted' | 'conflict' | 'unavailable' | 'timeout'> {
   const controller = new AbortController();
   let timer: ReturnType<typeof setTimeout> | undefined;
+  let observedStatus = 0;
   const deadline = new Promise<never>((_resolve, reject) => {
     timer = setTimeout(() => { controller.abort(); reject(new ProviderTimeout()); }, dependencies.timeoutMs ?? 10_000);
   });
-  async function requestProvider(): Promise<'accepted' | 'conflict' | 'unavailable'> {
-    const provider = await (dependencies.fetch ?? fetch)(PROVIDER_URL, {
-      method: 'POST', signal: controller.signal, redirect: 'error',
+  async function requestProvider(): Promise<ProviderResult> {
+    const options: RequestInit = {
+      // workerd supports manual/follow, but redirect:error throws before sending.
+      // A 3xx response is rejected below rather than forwarding credentials.
+      method: 'POST', signal: controller.signal, redirect: 'manual',
       headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json', 'Idempotency-Key': `dune-enquiry/${enquiry.requestId}` },
       body: JSON.stringify({ from: env.MAIL_FROM, to: [RECIPIENT], reply_to: enquiry.email, subject: 'Website enquiry | DUNE ENERGY GLOBAL', text: emailBody(enquiry) }),
-    });
+    };
+    const provider = dependencies.fetch
+      ? await dependencies.fetch(PROVIDER_URL, options)
+      : await fetch(PROVIDER_URL, options);
+    observedStatus = provider.status;
+    const parsed = await readProviderResponse(provider);
     if (!provider.ok) {
-      await provider.body?.cancel();
-      return provider.status === 409 ? 'conflict' : 'unavailable';
+      return {
+        outcome: provider.status === 409 ? 'conflict' : 'unavailable',
+        diagnostic: { status: provider.status, reason: classifyProviderFailure(provider.status, parsed.data), responseFormat: parsed.responseFormat },
+      };
     }
-    const data = await provider.json() as { id?: unknown };
-    return typeof data?.id === 'string' && data.id.trim().length > 0 && data.id.length <= 254 && !/[\u0000-\u001f\u007f-\u009f]/u.test(data.id) ? 'accepted' : 'unavailable';
+    const data = parsed.data as { id?: unknown } | undefined;
+    if (typeof data?.id === 'string' && data.id.trim().length > 0 && data.id.length <= 254 && !/[\u0000-\u001f\u007f-\u009f]/u.test(data.id)) return { outcome: 'accepted' };
+    return { outcome: 'unavailable', diagnostic: { status: provider.status, reason: 'invalid_response', responseFormat: parsed.responseFormat } };
   }
-  try { return await Promise.race([requestProvider(), deadline]); }
-  catch (error) { return error instanceof ProviderTimeout || controller.signal.aborted ? 'timeout' : 'unavailable'; }
+  try {
+    const result = await Promise.race([requestProvider(), deadline]);
+    if (result.outcome !== 'accepted') logProviderFailure(result.diagnostic);
+    return result.outcome;
+  } catch (error) {
+    const timeout = error instanceof ProviderTimeout || controller.signal.aborted;
+    logProviderFailure({ status: observedStatus, reason: timeout ? 'provider_timeout' : 'network_error', responseFormat: 'none' });
+    return timeout ? 'timeout' : 'unavailable';
+  }
   finally { if (timer !== undefined) clearTimeout(timer); }
 }
 
