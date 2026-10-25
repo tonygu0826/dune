@@ -1,0 +1,16 @@
+name = "energydune-enquiries"
+main = "src/index.ts"
+compatibility_date = "2026-10-24"
+workers_dev = true
+preview_urls = false
+
+[vars]
+MAIL_FROM = "DUNE ENERGY GLOBAL <website@notify.energydune.com>"
+
+[observability]
+enabled = false
+
+[[ratelimits]]
+name = "ENQUIRY_RATE_LIMITER"
+namespace_id = "202610245"
+simple = { limit = 5, period = 60 }
