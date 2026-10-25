@@ -1,0 +1,83 @@
+{
+  "catalogue_scope": "category-level",
+  "categories": [
+    {
+      "id": "pcmo",
+      "name_en": "Passenger car engine oils",
+      "name_fr": "Huiles moteur véhicules légers",
+      "description_en": "Engine oils matched to vehicle requirements.",
+      "description_fr": "Selon les exigences du véhicule.",
+      "segments": ["Automotive"],
+      "spec_system": "SAE · API / ACEA",
+      "spec_system_fr": "SAE · API / ACEA",
+      "enquiry_notes_en": ["Specify the vehicle or engine, required SAE viscosity grade, and API/ACEA specification or manufacturer requirement.", "Individual grades, specifications and approvals must be checked against the requested product's current technical documentation."],
+      "enquiry_notes_fr": ["Précisez le véhicule ou le moteur, le grade de viscosité SAE et la norme API/ACEA ou l’exigence du constructeur.", "Les grades, spécifications et homologations doivent être vérifiés dans la documentation technique à jour du produit demandé."],
+      "search_terms": ["pcmo", "passenger car", "passenger cars", "passenger vehicle", "passenger vehicles", "gasoline engine", "petrol engine", "automotive engine", "light duty engine", "voiture", "voitures", "vehicule leger", "vehicules legers", "moteur essence", "moteurs essence"]
+    },
+    {
+      "id": "hdeo",
+      "name_en": "Heavy-duty diesel engine oils",
+      "name_fr": "Huiles moteur poids lourds",
+      "description_en": "For commercial vehicles and off-highway equipment.",
+      "description_fr": "Pour véhicules commerciaux et équipements hors route.",
+      "segments": ["Commercial"],
+      "spec_system": "SAE · API / OEM",
+      "spec_system_fr": "SAE · API / OEM",
+      "enquiry_notes_en": ["Specify the engine or equipment, required SAE viscosity grade, API specification and any OEM requirement.", "State any relevant emissions-system requirements; a category listing does not confirm a product approval."],
+      "enquiry_notes_fr": ["Précisez le moteur ou l’équipement, le grade de viscosité SAE, la norme API et toute exigence du constructeur.", "Indiquez les exigences du système de traitement des émissions, s’il y a lieu ; la catégorie ne confirme aucune homologation d’un produit."],
+      "search_terms": ["hdeo", "heavy duty", "heavy diesel", "diesel", "truck engine", "truck engines", "commercial vehicle", "commercial vehicles", "off highway", "off road equipment", "poids lourd", "poids lourds", "vehicule commercial", "vehicules commerciaux", "hors route"]
+    },
+    {
+      "id": "industrial",
+      "name_en": "Industrial lubricants",
+      "name_fr": "Lubrifiants industriels",
+      "description_en": "Hydraulic, gear and compressor oils.",
+      "description_fr": "Huiles hydrauliques, pour engrenages et compresseurs.",
+      "segments": ["Industrial"],
+      "spec_system": "ISO VG",
+      "spec_system_fr": "ISO VG",
+      "enquiry_notes_en": ["Specify the hydraulic, industrial gear or compressor application, required ISO VG viscosity grade, equipment and manufacturer requirements.", "State the requested product or oil type rather than assuming interchangeability between applications."],
+      "enquiry_notes_fr": ["Précisez l’application hydraulique, d’engrenages industriels ou de compresseur, le grade de viscosité ISO VG et les exigences de l’équipementier.", "Indiquez le produit ou le type d’huile demandé sans présumer l’interchangeabilité entre applications."],
+      "search_terms": ["industrial", "hydraulic", "hydraulics", "compressor", "compressors", "industrial gear", "iso vg", "industriel", "industriels", "industrielle", "industrielles", "hydraulique", "hydrauliques", "compresseur", "compresseurs", "engrenages industriels"]
+    },
+    {
+      "id": "driveline",
+      "name_en": "Transmission & gear oils",
+      "name_fr": "Huiles de transmission",
+      "description_en": "ATF, CVT, DCT and automotive gear oils.",
+      "description_fr": "ATF, CVT, DCT et huiles d’engrenages automobiles.",
+      "segments": ["Automotive", "Commercial"],
+      "spec_system": "ATF / MTF · OEM",
+      "spec_system_fr": "ATF / MTF · OEM",
+      "enquiry_notes_en": ["Specify the transmission or axle, ATF/CVT/DCT/manual transmission or gear-oil application, required grade and OEM specification.", "Transmission-fluid types and manufacturer specifications are not interchangeable by default."],
+      "enquiry_notes_fr": ["Précisez la transmission ou le pont, le type ATF/CVT/DCT, transmission manuelle ou huile d’engrenages, le grade et la spécification du constructeur.", "Les types de fluides et les spécifications des constructeurs ne sont pas interchangeables par défaut."],
+      "search_terms": ["driveline", "transmission", "transmissions", "atf", "mtf", "cvt", "dct", "automotive gear", "axle", "axles", "differential", "differentials", "boite de vitesses", "boites de vitesses", "engrenages automobiles", "pont", "ponts", "differentiel", "differentiels"]
+    },
+    {
+      "id": "greases",
+      "name_en": "Lubricating greases",
+      "name_fr": "Graisses lubrifiantes",
+      "description_en": "Bearing and multipurpose greases.",
+      "description_fr": "Graisses polyvalentes et pour roulements.",
+      "segments": ["Industrial", "Commercial"],
+      "spec_system": "NLGI",
+      "spec_system_fr": "NLGI",
+      "enquiry_notes_en": ["Specify the bearing or equipment, NLGI consistency grade, operating conditions and any manufacturer requirement.", "Identify the existing grease and compatibility requirements when replacing or mixing greases."],
+      "enquiry_notes_fr": ["Précisez le roulement ou l’équipement, le grade de consistance NLGI, les conditions de service et les exigences du fabricant.", "Indiquez la graisse en service et les exigences de compatibilité en cas de remplacement ou de mélange."],
+      "search_terms": ["grease", "greases", "nlgi", "bearing", "bearings", "graisse", "graisses", "roulement", "roulements"]
+    },
+    {
+      "id": "energy",
+      "name_en": "Energy products",
+      "name_fr": "Produits énergétiques",
+      "description_en": "Enquiries by product, specification and destination.",
+      "description_fr": "Demandes par produit, spécification et destination.",
+      "segments": ["Energy"],
+      "spec_system": "GRADE / VOLUME",
+      "spec_system_fr": "SPÉC. / VOLUME",
+      "enquiry_notes_en": ["Identify the energy product, required grade or specification, volume, packaging or delivery format, and destination.", "No individual energy products, prices, inventory or delivery commitments are published in this category-level catalogue."],
+      "enquiry_notes_fr": ["Indiquez le produit énergétique, le grade ou la spécification, le volume, l’emballage ou le mode de livraison et la destination.", "Ce catalogue par catégorie ne publie aucun produit énergétique individuel, prix, stock ou engagement de livraison."],
+      "search_terms": ["energy product", "energy products", "produit energetique", "produits energetiques"]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+name: MCP checks
+
+on:
+  pull_request:
+    paths:
+      - 'energydune-mcp/**'
+      - '.github/workflows/mcp-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'energydune-mcp/**'
+      - '.github/workflows/mcp-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: energydune-mcp
+    env:
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: energydune-mcp/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - name: Test tools and local Worker HTTP transport
+        env:
+          MCP_TEST_ENDPOINT: http://127.0.0.1:8787/mcp
+        run: |
+          npm run dev > "$RUNNER_TEMP/mcp-worker.log" 2>&1 &
+          mcp_worker_pid=$!
+          trap 'kill "$mcp_worker_pid" 2>/dev/null || true' EXIT
+          node --input-type=module <<'JS'
+          for (let attempt = 0; attempt < 30; attempt++) {
+            try {
+              const response = await fetch('http://127.0.0.1:8787/health', { signal: AbortSignal.timeout(1000) });
+              if (response.ok) process.exit(0);
+            } catch {}
+            await new Promise(resolve => setTimeout(resolve, 500));
+          }
+          throw new Error('Local Worker did not become ready');
+          JS
+          npm test
