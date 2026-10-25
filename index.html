@@ -14,8 +14,8 @@
   <meta property="og:url" content="https://energydune.com/">
   <meta property="og:image" content="https://energydune.com/assets/lubricants-hero.png">
   <link rel="icon" type="image/svg+xml" href="assets/dune-symbol.svg?v=oil-amber-1">
-  <link rel="stylesheet" href="styles.css?v=enquiry-email-1">
-  <script src="app.js?v=enquiry-email-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=mail-route-1">
+  <script src="app.js?v=mail-route-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
@@ -25,11 +25,11 @@
       <nav class="desktop-nav" aria-label="Main navigation"><a href="#products" data-i18n="navExpertise">Products</a><a href="#brands" data-i18n="navBrands">Brands</a><a href="#about" data-i18n="navAbout">About</a></nav>
       <div class="header-actions">
         <button class="language-switch" type="button" aria-label="Switch to French"><span class="language-current">EN</span><span class="language-divider">/</span><span class="language-next">FR</span></button>
-        <button class="header-contact" type="button" data-inquiry ><span data-i18n="getInTouch">Enquire</span><span aria-hidden="true">↗</span></button>
+        <a href="/#mail" class="header-contact" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog"><span data-i18n="getInTouch">Enquire</span><span aria-hidden="true">↗</span></a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
       </div>
     </div>
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#products" data-i18n="navExpertise">Products</a><a href="#brands" data-i18n="navBrands">Brands</a><a href="#about" data-i18n="navAbout">About</a><a href="#contact" data-i18n="meetDune">Get in touch</a></nav>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#products" data-i18n="navExpertise">Products</a><a href="#brands" data-i18n="navBrands">Brands</a><a href="#about" data-i18n="navAbout">About</a><a href="/#mail" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-i18n="meetDune">Get in touch</a></nav>
   </header>
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title">
@@ -41,7 +41,7 @@
           <p class="hero-description" data-i18n="heroDescription">Multi-brand products for automotive, industrial and energy applications.</p>
           <div class="hero-actions">
             <a class="button button-gold" href="#products"><span data-i18n="explore">Explore products</span><span aria-hidden="true">↗</span></a>
-            <button class="button button-outline" type="button" data-inquiry ><span data-i18n="meetDune">Get in touch</span><span aria-hidden="true">↗</span></button>
+            <a href="/#mail" class="button button-outline" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog"><span data-i18n="meetDune">Get in touch</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <a class="hero-scroll" href="#products" aria-label="Explore products"><span aria-hidden="true">↓</span></a>
@@ -68,42 +68,42 @@
           <h3 data-i18n="product1Title">Passenger car engine oils</h3>
           <p class="product-description" data-i18n="product1Body">Engine oils matched to vehicle requirements.</p>
           <div class="product-tags"><span data-i18n="product1Tag">SAE · API / ACEA</span></div>
-          <button class="text-link product-enquiry" type="button" data-inquiry data-category="passenger"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></button>
+          <a href="/#mail" class="text-link product-enquiry" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-category="passenger"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></a>
         </article>
 <article class="product-card" data-product="commercial" data-groups="commercial">
           <p class="product-category">HDEO</p>
           <h3 data-i18n="product2Title">Heavy-duty diesel engine oils</h3>
           <p class="product-description" data-i18n="product2Body">For commercial vehicles and off-highway equipment.</p>
           <div class="product-tags"><span data-i18n="product2Tag">SAE · API / OEM</span></div>
-          <button class="text-link product-enquiry" type="button" data-inquiry data-category="commercial"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></button>
+          <a href="/#mail" class="text-link product-enquiry" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-category="commercial"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></a>
         </article>
 <article class="product-card" data-product="industrial" data-groups="industrial">
           <p class="product-category" data-i18n="categoryIndustrial">INDUSTRIAL</p>
           <h3 data-i18n="product3Title">Industrial lubricants</h3>
           <p class="product-description" data-i18n="product3Body">Hydraulic, gear and compressor oils.</p>
           <div class="product-tags"><span data-i18n="product3Tag">ISO VG</span></div>
-          <button class="text-link product-enquiry" type="button" data-inquiry data-category="industrial"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></button>
+          <a href="/#mail" class="text-link product-enquiry" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-category="industrial"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></a>
         </article>
 <article class="product-card" data-product="driveline" data-groups="automotive commercial">
           <p class="product-category" data-i18n="categoryDriveline">DRIVELINE</p>
           <h3 data-i18n="product4Title">Transmission &amp; gear oils</h3>
           <p class="product-description" data-i18n="product4Body">ATF, CVT, DCT and automotive gear oils.</p>
           <div class="product-tags"><span data-i18n="product4Tag">ATF / MTF · OEM</span></div>
-          <button class="text-link product-enquiry" type="button" data-inquiry data-category="driveline"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></button>
+          <a href="/#mail" class="text-link product-enquiry" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-category="driveline"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></a>
         </article>
 <article class="product-card" data-product="grease" data-groups="industrial commercial">
           <p class="product-category" data-i18n="categoryGrease">GREASES</p>
           <h3 data-i18n="product5Title">Lubricating greases</h3>
           <p class="product-description" data-i18n="product5Body">Bearing and multipurpose greases.</p>
           <div class="product-tags"><span data-i18n="product5Tag">NLGI</span></div>
-          <button class="text-link product-enquiry" type="button" data-inquiry data-category="grease"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></button>
+          <a href="/#mail" class="text-link product-enquiry" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-category="grease"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></a>
         </article>
 <article class="product-card" data-product="energy" data-groups="energy">
           <p class="product-category" data-i18n="categoryEnergy">ENERGY</p>
           <h3 data-i18n="product6Title">Energy products</h3>
           <p class="product-description" data-i18n="product6Body">Enquiries by product, specification and destination.</p>
           <div class="product-tags"><span data-i18n="product6Tag">GRADE / VOLUME</span></div>
-          <button class="text-link product-enquiry" type="button" data-inquiry data-category="energy"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></button>
+          <a href="/#mail" class="text-link product-enquiry" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-category="energy"><span data-i18n="productQuote">Enquire</span><span aria-hidden="true">↗</span></a>
         </article>
       </div>
       <p class="products-note" data-i18n="productsNote">Availability and specifications confirmed by quotation.</p>
@@ -115,8 +115,8 @@
           <p data-i18n="brandsBody">Select a brand to enquire.</p>
         </div>
         <div class="brand-grid">
-          <button class="brand-option" type="button" data-inquiry data-brand="SINOPEC"><img class="brand-mark brand-mark-sinopec" src="assets/sinopec-logo.svg?v=brands-hd-1" width="130" height="38" alt="SINOPEC" decoding="async" loading="lazy"></button>
-          <button class="brand-option" type="button" data-inquiry data-brand="Great Wall Lubricants"><img class="brand-mark brand-mark-great-wall" src="assets/great-wall-lubricants-logo.jpg?v=brands-hd-1" width="700" height="381" alt="Great Wall Lubricants" decoding="async" loading="lazy"></button>
+          <a href="/#mail" class="brand-option" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-brand="SINOPEC"><img class="brand-mark brand-mark-sinopec" src="assets/sinopec-logo.svg?v=brands-hd-1" width="130" height="38" alt="SINOPEC" decoding="async" loading="lazy"></a>
+          <a href="/#mail" class="brand-option" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog" data-brand="Great Wall Lubricants"><img class="brand-mark brand-mark-great-wall" src="assets/great-wall-lubricants-logo.jpg?v=brands-hd-1" width="700" height="381" alt="Great Wall Lubricants" decoding="async" loading="lazy"></a>
         </div>
         <details class="brand-note"><summary data-i18n="brandNoteLabel">Brand information</summary><p data-i18n="brandsNote">Brand names identify requested products, not authorised distribution. Availability is confirmed by quotation.</p></details>
       </div>
@@ -135,9 +135,9 @@
         <div>
           <p class="eyebrow" data-i18n="contactLabel">CONTACT</p>
           <h2 id="contact-title" data-i18n="contactTitle">Let’s talk products.</h2>
-          <a class="contact-email" href="mailto:info@energydune.com">info@energydune.com</a>
+          <a class="contact-email" href="/#mail" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog">info@energydune.com</a>
         </div>
-        <button class="button button-dark" type="button" data-inquiry ><span data-i18n="startConversation">Start an enquiry</span><span aria-hidden="true">↗</span></button>
+        <a href="/#mail" class="button button-dark" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog"><span data-i18n="startConversation">Start an enquiry</span><span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
@@ -147,7 +147,7 @@
         <a class="brand" href="#home" aria-label="DUNE ENERGY GLOBAL — home"><img class="brand-logo" src="assets/dune-logo-light.svg?v=logo-align-1" width="520" height="180" alt="DUNE ENERGY GLOBAL" decoding="async"></a>
         <div class="footer-summary"><p data-i18n="footerTagline">Energy products. Multi-brand lubricants.</p></div>
         <div class="footer-links">
-          <a class="footer-email" href="mailto:info@energydune.com">info@energydune.com</a>
+          <a class="footer-email" href="/#mail" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog">info@energydune.com</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -161,7 +161,7 @@
       <button class="dialog-close" type="button" data-close-dialog aria-label="Close dialog">×</button>
       <h2 id="inquiry-title" data-i18n="inquiryTitle">Your product enquiry.</h2>
       <p class="dialog-description" data-i18n="inquiryDescription">Tell us the product and quantity you need.</p>
-      <p class="inquiry-contact"><a href="mailto:info@energydune.com">info@energydune.com</a></p>
+      <p class="inquiry-contact"><a href="/#mail" data-inquiry aria-haspopup="dialog" aria-controls="inquiry-dialog">info@energydune.com</a></p>
       <form id="inquiry-form">
         <div class="inquiry-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" autocomplete="off" tabindex="-1" maxlength="254"></label></div>
         <div class="form-row"><label><span><span data-i18n="nameLabel">Name</span></span><input type="text" name="name" autocomplete="name" maxlength="254" required></label><label><span><span data-i18n="companyLabel">Company</span></span><input type="text" name="company" autocomplete="organization" maxlength="254" required></label></div>
@@ -181,10 +181,8 @@
       <section class="inquiry-result" id="inquiry-result" hidden aria-live="polite">
         <h3 id="inquiry-result-title" tabindex="-1" data-i18n="inquiryReady">Your enquiry has been submitted.</h3><p id="inquiry-result-body" data-i18n="inquiryReadyBody">Thank you for contacting DUNE ENERGY GLOBAL.</p>
         <pre id="inquiry-preview"></pre>
-        <p class="form-note email-draft-note" id="email-draft-note"></p>
         <div class="result-actions">
           <button class="button button-dark" id="send-inquiry" type="button" data-i18n="retryInquiry">Try again</button>
-          <a class="button button-outline" id="email-inquiry" href="mailto:info@energydune.com" aria-describedby="email-draft-note" data-i18n="emailInquiry">Open email draft</a>
           <button class="button button-outline" id="copy-inquiry" type="button" data-i18n="copyInquiry">Copy enquiry</button>
           <button class="button button-outline" id="download-inquiry" type="button" data-i18n="downloadInquiry">Download .txt</button>
         </div>
