@@ -1,6 +1,6 @@
 # Enquiry email implementation checks
 
-The application code is prepared and the backend Worker is deployed. Production email is not enabled: the Resend key and sender-domain verification are still required, and the prepared website/privacy changes have not been published. No real email has been sent in these checks.
+The application code is prepared and the backend Worker is deployed. A sending-only key scoped to the DUNE sender subdomain has been installed. Production email is not enabled: sender-domain DNS verification is still required, and the prepared website/privacy changes have not been published. No real email has been sent in these checks.
 
 ## Backend
 
@@ -8,9 +8,11 @@ TypeScript and the Wrangler dry-run passed. All 27 provider-mocked tests passed,
 
 Deployed endpoint: `https://energydune-enquiries.tonygu0826.workers.dev/enquiries`.
 
-Worker version: `ba7c8751-2ba0-4832-ba0e-e9d40f5631c9`.
+Initial runtime-code deployment version: `ba7c8751-2ba0-4832-ba0e-e9d40f5631c9`.
 
 An ordinary Node client using the inherited proxy and CA trust received the expected public `503 application/json` health response: `mailProvider:false`, `sender:true`, `rateLimiter:true`. This confirms that missing credentials fail closed; it is not a real-email delivery test or sender-domain verification.
+
+After secure installation of the runtime sending key, public health returned `200` with all three configuration flags true. This only establishes configuration presence. The sender domain was created in Resend and DNS verification requested; its generated DNS records remain pending addition/verification. No message has been submitted to Resend.
 
 ## Website
 

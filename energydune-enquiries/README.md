@@ -10,7 +10,7 @@ Create and verify the dedicated sender domain `notify.energydune.com` in Resend.
 
 Configure `RESEND_API_KEY` as a Cloudflare Worker secret, for example through the Cloudflare dashboard or `wrangler secret put RESEND_API_KEY`. Use a sending-only key scoped to the verified domain where supported. No provider key belongs in the website, Git, documentation or public environment variables. The `ENQUIRY_RATE_LIMITER` native binding is required. Deployment and plan eligibility must be checked in the actual accounts; a free-tier starting configuration does not guarantee zero charges.
 
-The Worker has been deployed at `https://energydune-enquiries.tonygu0826.workers.dev/enquiries`, version `ba7c8751-2ba0-4832-ba0e-e9d40f5631c9`. Sending remains unavailable until its Resend secret is configured and the sender domain is verified. The website changes are prepared but have not been published. No real-email delivery test has been performed.
+The Worker has been deployed at `https://energydune-enquiries.tonygu0826.workers.dev/enquiries`; its initial runtime-code deployment version is `ba7c8751-2ba0-4832-ba0e-e9d40f5631c9`. A sending-only Resend key scoped to `notify.energydune.com` is securely installed in the Worker. Sending remains gated on that sender domain's DNS verification. The website changes are prepared but have not been published. No real-email delivery test has been performed.
 
 ## HTTP contract
 
