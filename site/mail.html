@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#092C34">
+  <meta name="description" content="Send a product enquiry to DUNE ENERGY GLOBAL for energy products and multi-brand lubricants.">
+  <meta name="dune-enquiry-endpoint" content="https://energydune-enquiries.tonygu0826.workers.dev/enquiries">
+  <title>Product enquiry — DUNE ENERGY GLOBAL</title>
+  <link rel="canonical" href="https://energydune.com/mail/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Product enquiry — DUNE ENERGY GLOBAL">
+  <meta property="og:description" content="Send a product enquiry to DUNE ENERGY GLOBAL for energy products and multi-brand lubricants.">
+  <meta property="og:url" content="https://energydune.com/mail/">
+  <link rel="icon" type="image/svg+xml" href="/assets/dune-symbol.svg?v=oil-amber-1">
+  <link rel="stylesheet" href="/styles.css?v=mail-page-1">
+  <link rel="stylesheet" href="/mail.css?v=mail-page-1">
+  <script src="/app.js?v=mail-page-1" defer></script>
+</head>
+<body class="mail-page" data-inquiry-page>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="site-header mail-header">
+    <div class="mail-header-inner">
+      <a class="brand" href="/" data-home-link aria-label="DUNE ENERGY GLOBAL — home"><img class="brand-logo" src="/assets/dune-logo-light.svg?v=logo-align-1" width="520" height="180" alt="DUNE ENERGY GLOBAL" decoding="async"></a>
+      <a class="mail-back" href="/" data-home-link><span aria-hidden="true">←</span><span data-i18n="backToWebsite">Back to website</span></a>
+      <button class="language-switch" type="button" aria-label="Switch to French"><span class="language-current">EN</span><span class="language-divider">/</span><span class="language-next">FR</span></button>
+    </div>
+  </header>
+  <main class="mail-main" id="main">
+    <section class="mail-panel" aria-labelledby="inquiry-title">
+      <header class="mail-heading">
+        <p class="eyebrow" data-i18n="contactLabel">CONTACT</p>
+        <h1 id="inquiry-title" data-i18n="inquiryTitle">Your product enquiry.</h1>
+        <p class="mail-description" data-i18n="inquiryDescription">Tell us the product and quantity you need.</p>
+        <p class="mail-recipient">info@energydune.com</p>
+      </header>
+      <noscript><p class="mail-noscript">Enable JavaScript to submit this form, or email info@energydune.com directly.</p></noscript>
+      <form id="inquiry-form" method="post">
+        <div class="inquiry-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" autocomplete="off" tabindex="-1" maxlength="254"></label></div>
+        <div class="form-row"><label><span><span data-i18n="nameLabel">Name</span></span><input type="text" name="name" autocomplete="name" maxlength="254" required></label><label><span><span data-i18n="companyLabel">Company</span></span><input type="text" name="company" autocomplete="organization" maxlength="254" required></label></div>
+        <div class="form-row"><label><span><span data-i18n="emailLabel">Email</span></span><input type="email" name="email" autocomplete="email" maxlength="254" required></label><label><span data-i18n="interestLabel">Product category</span><select name="interest" required><option value="passenger" data-i18n="product1Title">Passenger car engine oils</option><option value="commercial" data-i18n="product2Title">Heavy-duty diesel engine oils</option><option value="industrial" data-i18n="product3Title">Industrial lubricants</option><option value="driveline" data-i18n="product4Title">Transmission &amp; gear oils</option><option value="grease" data-i18n="product5Title">Lubricating greases</option><option value="energy" data-i18n="product6Title">Energy products</option></select></label></div>
+        <div class="form-row"><label><span><span data-i18n="brandLabel">Brand</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="preferredBrand" autocomplete="off" maxlength="254" data-i18n-placeholder="brandPlaceholder" placeholder="Brand name" list="brand-options"></label><label><span><span data-i18n="referenceLabel">Product / reference</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="productReference" autocomplete="off" maxlength="254" data-i18n-placeholder="referencePlaceholder" placeholder="Product name or reference"></label></div>
+        <datalist id="brand-options"><option value="SINOPEC"></option><option value="Great Wall Lubricants"></option></datalist>
+        <label><span data-i18n="messageLabel">Your requirements</span><textarea name="message" rows="3" maxlength="5000" data-i18n-placeholder="messagePlaceholder" placeholder="Product, quantity and delivery requirements" required></textarea></label>
+        <details class="inquiry-specs">
+          <summary data-i18n="moreSpecifications">Additional specifications</summary>
+          <div class="form-row"><label><span><span data-i18n="viscosityLabel">Viscosity / consistency grade</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="viscosity" autocomplete="off" maxlength="254" data-i18n-placeholder="viscosityPlaceholder" placeholder="SAE 5W-30 / ISO VG 46 / NLGI 2"></label><label><span><span data-i18n="specificationLabel">Specification / OEM approval</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="specification" autocomplete="off" maxlength="254" data-i18n-placeholder="specificationPlaceholder" placeholder="API / ACEA / OEM requirement"></label></div>
+          <div class="form-row"><label><span><span data-i18n="quantityLabel">Quantity / packaging</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="quantity" autocomplete="off" maxlength="254" data-i18n-placeholder="quantityPlaceholder" placeholder="Quantity and pack size"></label><label><span><span data-i18n="destinationLabel">Destination</span> <small class="optional-label" data-i18n="optional">Optional</small></span><input type="text" name="destination" autocomplete="off" maxlength="254" data-i18n-placeholder="destinationPlaceholder" placeholder="City, country"></label></div>
+          <fieldset class="documents-fieldset"><legend data-i18n="documentsLabel">Documents</legend><div class="checkbox-row"><label class="checkbox-label"><input type="checkbox" name="documents" value="TDS / PDS"><span>TDS / PDS</span></label><label class="checkbox-label"><input type="checkbox" name="documents" value="SDS"><span>SDS</span></label></div></fieldset>
+        </details>
+        <p class="form-note"><span data-i18n="formNote">We use your details to handle this enquiry.</span> <a href="/privacy.html" data-legal-page="privacy" data-i18n="privacy">Privacy Policy</a></p>
+        <button class="button button-dark form-submit" type="submit" disabled><span data-i18n="prepareInquiry">Send enquiry</span><span aria-hidden="true">↗</span></button>
+      </form>
+      <section class="inquiry-result" id="inquiry-result" hidden aria-live="polite">
+        <h3 id="inquiry-result-title" tabindex="-1" data-i18n="inquiryReady">Your enquiry has been submitted.</h3><p id="inquiry-result-body" data-i18n="inquiryReadyBody">Thank you for contacting DUNE ENERGY GLOBAL.</p>
+        <pre id="inquiry-preview"></pre>
+        <div class="result-actions">
+          <button class="button button-dark" id="send-inquiry" type="button" data-i18n="retryInquiry">Try again</button>
+          <button class="button button-outline" id="copy-inquiry" type="button" data-i18n="copyInquiry">Copy enquiry</button>
+          <button class="button button-outline" id="download-inquiry" type="button" data-i18n="downloadInquiry">Download .txt</button>
+        </div>
+        <p id="copy-status" class="form-note" role="status"></p>
+        <button class="text-link" id="edit-inquiry" type="button" data-i18n="editInquiry">← Edit enquiry</button>
+      </section>
+    </section>
+  </main>
+  <footer class="mail-footer">
+    <span>© <span id="year">2026</span> DUNE ENERGY GLOBAL INC. <span data-i18n="rights">All rights reserved.</span></span>
+    <nav aria-label="Legal information"><a href="/privacy.html" data-legal-page="privacy" data-i18n="privacy">Privacy Policy</a><a href="/terms.html" data-legal-page="terms" data-i18n="terms">Terms of Use</a></nav>
+  </footer>
+</body>
+</html>

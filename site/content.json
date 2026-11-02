@@ -1,0 +1,1332 @@
+{
+  "schema_version": 1,
+  "prepared_on": "2026-11-02",
+  "publication_status": "draft_for_review",
+  "business_facts": {
+    "legal_name": "DUNE ENERGY GLOBAL INC.",
+    "display_name": "DUNE ENERGY GLOBAL",
+    "website": "https://energydune.com/",
+    "email": "info@energydune.com",
+    "business_scope": "Energy products and multi-brand lubricants for automotive, commercial vehicle and industrial applications.",
+    "enquiry_brands": [
+      "SINOPEC",
+      "Great Wall Lubricants"
+    ],
+    "brand_note": {
+      "en": "Brand names identify requested products, not authorised distribution.",
+      "fr": "Les marques identifient les produits demandés et n’impliquent pas de distribution agréée."
+    },
+    "availability_note": {
+      "en": "Availability and specifications confirmed by quotation.",
+      "fr": "Disponibilité et spécifications confirmées par devis."
+    },
+    "evidence": [
+      "index.html",
+      "app.js",
+      "energydune-mcp/src/data/products.json"
+    ],
+    "unconfirmed_do_not_infer": [
+      "office locations",
+      "service territories",
+      "authorised distribution",
+      "brand affiliation",
+      "stock",
+      "prices",
+      "delivery lead times",
+      "certifications",
+      "specific product approvals",
+      "specific energy products"
+    ]
+  },
+  "terminology_glossary": [
+    {
+      "term": "SAE J300",
+      "en": "Engine-oil viscosity classification. A viscosity grade does not establish an API/ACEA performance claim or vehicle-manufacturer approval.",
+      "fr": "Classification de viscosité des huiles moteur. Un grade de viscosité n’établit ni un niveau de performance API/ACEA ni une homologation constructeur.",
+      "source_ids": [
+        "saemobilus-j300"
+      ]
+    },
+    {
+      "term": "SAE J306",
+      "en": "Automotive gear-lubricant viscosity classification. Its grade numbers use a different scale from engine-oil grades under SAE J300.",
+      "fr": "Classification de viscosité des lubrifiants pour engrenages automobiles. Son échelle diffère de celle des huiles moteur SAE J300.",
+      "source_ids": [
+        "saemobilus-j306-current"
+      ]
+    },
+    {
+      "term": "ISO VG",
+      "en": "Industrial lubricant viscosity grade, classified by kinematic viscosity at 40 °C. It does not by itself establish suitability for a hydraulic system, gearbox or compressor.",
+      "fr": "Grade de viscosité d’un lubrifiant industriel, fondé sur la viscosité cinématique à 40 °C. Il ne suffit pas à confirmer l’adéquation à un système hydraulique, un réducteur ou un compresseur.",
+      "source_ids": [
+        "mobil-gear-pds",
+        "mobil-compressor-pds",
+        "nlgi-glossary"
+      ]
+    },
+    {
+      "term": "NLGI grade",
+      "en": "Grease consistency grade based on worked penetration. It describes consistency, not the viscosity of the grease's base oil.",
+      "fr": "Grade de consistance d’une graisse, fondé sur la pénétration après malaxage. Il décrit la consistance, pas la viscosité de l’huile de base.",
+      "source_ids": [
+        "nlgi-glossary"
+      ]
+    },
+    {
+      "term": "API / ACEA",
+      "en": "Engine-oil performance categories and sequences. Check the exact designation and application against the engine manufacturer's requirements.",
+      "fr": "Catégories et séquences de performance des huiles moteur. Vérifiez la désignation exacte et l’application par rapport aux exigences du motoriste.",
+      "source_ids": [
+        "api-oil-categories",
+        "acea-2023",
+        "acea-2024"
+      ]
+    },
+    {
+      "term": "OEM approval",
+      "en": "Approval granted for an individual product by an equipment or vehicle manufacturer. Keep formal approvals distinct from supplier statements such as recommended for or meets requirements.",
+      "fr": "Homologation accordée à un produit précis par un constructeur ou équipementier. Distinguez-la des recommandations d’emploi ou déclarations de conformité du fournisseur.",
+      "source_ids": [
+        "mobil-gear-pds"
+      ]
+    },
+    {
+      "term": "TDS / PDS",
+      "en": "Technical or product data sheet: product properties, applications and stated specifications. Use the current document for the exact product and market.",
+      "fr": "Fiche technique ou fiche de données produit : propriétés, applications et spécifications déclarées. Utilisez la version à jour correspondant au produit et au marché.",
+      "source_ids": [
+        "mobil-gear-pds",
+        "mobil-compressor-pds",
+        "mobil-product-faq"
+      ]
+    },
+    {
+      "term": "SDS",
+      "en": "Safety data sheet: hazards, handling, storage and emergency information. An SDS is not evidence of engine or equipment approval.",
+      "fr": "Fiche de données de sécurité : dangers, manipulation, stockage et mesures d’urgence. Elle ne constitue pas une preuve d’homologation moteur ou équipement.",
+      "source_ids": [
+        "mobil-gear-pds",
+        "mobil-compressor-pds",
+        "mobil-product-faq"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "id": "passenger",
+      "type": "product_category",
+      "slugs": {
+        "en": "passenger-car-engine-oils",
+        "fr": "huiles-moteur-vehicules-legers"
+      },
+      "related_page_ids": [
+        "commercial",
+        "driveline",
+        "lubricant-selection"
+      ],
+      "source_ids": [
+        "api-oil-categories",
+        "acea-2023",
+        "saemobilus-j300"
+      ],
+      "en": {
+        "title": "Passenger car engine oils",
+        "meta_description": "Enquire about passenger car engine oils by brand, SAE grade, API/ACEA specification and vehicle requirement. Send quantity, packaging and destination.",
+        "summary": "DUNE ENERGY GLOBAL handles enquiries for passenger car engine oils by product reference and vehicle requirement. A useful request identifies the required viscosity and performance specification together; a familiar brand or viscosity grade alone is not enough to establish suitability.",
+        "applications": [
+          "Passenger car engines",
+          "Vehicle servicing and lubricant purchasing"
+        ],
+        "sections": [
+          {
+            "heading": "Start with the vehicle requirement",
+            "paragraphs": [
+              "Use the vehicle handbook or current manufacturer service information to identify the engine-oil requirement. Include the vehicle model, engine and model year when the product reference is uncertain. API categories and ACEA sequences describe performance requirements; the correct designation depends on the engine and its specified application."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023"
+            ]
+          },
+          {
+            "heading": "Separate viscosity from performance",
+            "paragraphs": [
+              "An SAE engine-oil grade, such as 5W-30, describes viscosity classification. It is not an API category, an ACEA sequence or a manufacturer approval. Two oils displaying the same viscosity grade can carry different performance claims. Check the exact product's current technical data sheet before treating one as an alternative."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023",
+              "saemobilus-j300"
+            ]
+          }
+        ],
+        "checklist_heading": "Include in your enquiry",
+        "checklist": [
+          "Preferred brand and exact product reference, if known.",
+          "Vehicle, engine and model year or the manufacturer's oil requirement.",
+          "Required SAE viscosity grade and API/ACEA designation.",
+          "Any required manufacturer approval, copied exactly.",
+          "Quantity, pack size, destination and requested delivery date.",
+          "Whether you need a TDS/PDS, SDS or both."
+        ],
+        "faqs": [
+          {
+            "question": "Are all 5W-30 engine oils interchangeable?",
+            "answer": "No. A shared viscosity grade does not establish matching API/ACEA performance or manufacturer requirements. Compare the exact product documentation with the vehicle requirement.",
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023",
+              "saemobilus-j300"
+            ]
+          },
+          {
+            "question": "Can I request a particular brand?",
+            "answer": "You can identify SINOPEC or Great Wall Lubricants and a product reference in your enquiry. Brand names identify requested products, not authorised distribution. Availability and specifications are confirmed by quotation.",
+            "source_ids": []
+          }
+        ],
+        "cta": {
+          "label": "Enquire about engine oils",
+          "text": "Send your brand, vehicle requirement, quantity and destination to info@energydune.com.",
+          "email": "info@energydune.com"
+        }
+      },
+      "fr": {
+        "title": "Huiles moteur pour véhicules légers",
+        "meta_description": "Demandez une huile moteur selon la marque, le grade SAE, la norme API/ACEA et les exigences du véhicule. Précisez quantité, emballage et destination.",
+        "summary": "DUNE ENERGY GLOBAL reçoit les demandes d’huiles moteur pour véhicules légers selon la référence et les exigences du véhicule. Une demande précise associe viscosité et niveau de performance : une marque connue ou un grade de viscosité ne suffit pas à établir l’adéquation du produit.",
+        "applications": [
+          "Moteurs de véhicules légers",
+          "Entretien automobile et achats de lubrifiants"
+        ],
+        "sections": [
+          {
+            "heading": "Partir des exigences du véhicule",
+            "paragraphs": [
+              "Consultez le manuel du véhicule ou les informations d’entretien à jour du constructeur pour identifier l’huile requise. Indiquez le modèle, le moteur et l’année lorsque la référence est incertaine. Les catégories API et les séquences ACEA décrivent des exigences de performance ; la désignation appropriée dépend du moteur et de son application."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023"
+            ]
+          },
+          {
+            "heading": "Distinguer viscosité et performance",
+            "paragraphs": [
+              "Un grade SAE pour huile moteur, comme 5W-30, décrit une classification de viscosité. Il ne constitue ni une catégorie API, ni une séquence ACEA, ni une homologation constructeur. Deux huiles de même grade peuvent présenter des niveaux de performance différents. Vérifiez la fiche technique à jour du produit avant d’envisager une substitution."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023",
+              "saemobilus-j300"
+            ]
+          }
+        ],
+        "checklist_heading": "À préciser dans votre demande",
+        "checklist": [
+          "Marque souhaitée et référence exacte, si connue.",
+          "Véhicule, moteur et année, ou exigence d’huile du constructeur.",
+          "Grade de viscosité SAE et désignation API/ACEA requis.",
+          "Homologation constructeur éventuelle, recopiée exactement.",
+          "Quantité, format, destination et date de livraison souhaitée.",
+          "Besoin d’une fiche technique TDS/PDS, d’une FDS/SDS ou des deux."
+        ],
+        "faqs": [
+          {
+            "question": "Toutes les huiles moteur 5W-30 sont-elles interchangeables ?",
+            "answer": "Non. Un même grade de viscosité ne garantit pas des performances API/ACEA ni des exigences constructeur identiques. Comparez la documentation du produit aux exigences du véhicule.",
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023",
+              "saemobilus-j300"
+            ]
+          },
+          {
+            "question": "Puis-je demander une marque précise ?",
+            "answer": "Vous pouvez indiquer SINOPEC ou Great Wall Lubricants avec une référence. Les marques identifient les produits demandés et n’impliquent pas de distribution agréée. Disponibilité et spécifications sont confirmées par devis.",
+            "source_ids": []
+          }
+        ],
+        "cta": {
+          "label": "Demander une huile moteur",
+          "text": "Envoyez la marque, les exigences du véhicule, la quantité et la destination à info@energydune.com.",
+          "email": "info@energydune.com"
+        }
+      }
+    },
+    {
+      "id": "commercial",
+      "type": "product_category",
+      "slugs": {
+        "en": "heavy-duty-diesel-engine-oils",
+        "fr": "huiles-moteur-diesel-poids-lourds"
+      },
+      "related_page_ids": [
+        "passenger",
+        "driveline",
+        "grease",
+        "lubricant-selection"
+      ],
+      "source_ids": [
+        "api-oil-categories",
+        "acea-2024",
+        "saemobilus-j300"
+      ],
+      "en": {
+        "title": "Heavy-duty diesel engine oils",
+        "meta_description": "Request heavy-duty diesel engine oils for commercial vehicles and off-highway equipment. Specify the engine, SAE grade, API category and OEM requirements.",
+        "summary": "Heavy-duty diesel engine-oil enquiries need more than a viscosity grade. DUNE ENERGY GLOBAL accepts requests for commercial vehicles and off-highway equipment using the engine requirement, preferred product and purchasing details. Identify the engine and any emissions-system requirements so the enquiry describes the intended application clearly.",
+        "applications": [
+          "Commercial vehicle engines",
+          "Off-highway equipment engines"
+        ],
+        "sections": [
+          {
+            "heading": "Record the engine specification",
+            "paragraphs": [
+              "Copy the required SAE viscosity grade, API category and manufacturer specification from the engine documentation. Include an ACEA heavy-duty designation where the engine manufacturer requires one. Road vehicles and off-highway equipment may have different requirements even when their oils display the same viscosity grade."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2024"
+            ]
+          },
+          {
+            "heading": "Do not assume every diesel category substitutes",
+            "paragraphs": [
+              "API explicitly states that FA-4 oils are not interchangeable or backward compatible with CK-4 and the earlier diesel categories listed in its guidance. This is a useful reminder to follow the engine manufacturer's recommendation rather than select by a newer-looking category name. Requested service intervals should also follow the engine and operating conditions, not a general sales description."
+            ],
+            "source_ids": [
+              "api-oil-categories"
+            ]
+          }
+        ],
+        "checklist_heading": "Include in your enquiry",
+        "checklist": [
+          "Brand and exact product reference, if known.",
+          "Engine or equipment make, model and application.",
+          "Required SAE grade, API category and any ACEA designation.",
+          "Manufacturer specification and relevant aftertreatment requirements.",
+          "Operating conditions and requested service interval, if relevant.",
+          "Quantity, packaging, destination and documents required."
+        ],
+        "faqs": [
+          {
+            "question": "Can FA-4 replace CK-4 in any diesel engine?",
+            "answer": "No. API says FA-4 is not interchangeable or backward compatible with CK-4 and specified earlier categories. Use FA-4 only where the engine manufacturer's recommendation permits it.",
+            "source_ids": [
+              "api-oil-categories"
+            ]
+          },
+          {
+            "question": "Does a product enquiry confirm an extended drain interval?",
+            "answer": "No. A category description does not establish a drain interval or an individual product approval. The engine manufacturer's requirements, duty and applicable product documentation must be checked.",
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2024"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Enquire about diesel engine oils",
+          "text": "Send the engine requirement and purchasing details to info@energydune.com. Availability and specifications are confirmed by quotation.",
+          "email": "info@energydune.com"
+        }
+      },
+      "fr": {
+        "title": "Huiles moteur diesel pour poids lourds",
+        "meta_description": "Demandez des huiles moteur diesel pour véhicules commerciaux et équipements hors route. Précisez moteur, grade SAE, catégorie API et exigences constructeur.",
+        "summary": "Une demande d’huile moteur diesel pour poids lourds nécessite plus qu’un grade de viscosité. DUNE ENERGY GLOBAL reçoit les demandes pour véhicules commerciaux et équipements hors route selon les exigences du moteur, le produit souhaité et les détails d’achat. Identifiez le moteur et les exigences de traitement des émissions pour décrire précisément l’application.",
+        "applications": [
+          "Moteurs de véhicules commerciaux",
+          "Moteurs d’équipements hors route"
+        ],
+        "sections": [
+          {
+            "heading": "Relever la spécification du moteur",
+            "paragraphs": [
+              "Recopiez le grade de viscosité SAE, la catégorie API et la spécification constructeur figurant dans la documentation du moteur. Ajoutez la désignation ACEA poids lourds si le motoriste l’exige. Un véhicule routier et un équipement hors route peuvent demander des huiles différentes malgré un même grade de viscosité."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2024"
+            ]
+          },
+          {
+            "heading": "Ne pas présumer l’interchangeabilité",
+            "paragraphs": [
+              "L’API précise que les huiles FA-4 ne sont ni interchangeables ni rétrocompatibles avec CK-4 et les catégories diesel antérieures citées dans ses recommandations. Suivez donc les indications du motoriste plutôt qu’une catégorie paraissant plus récente. L’intervalle de vidange doit également correspondre au moteur et aux conditions de service, pas à une description commerciale générale."
+            ],
+            "source_ids": [
+              "api-oil-categories"
+            ]
+          }
+        ],
+        "checklist_heading": "À préciser dans votre demande",
+        "checklist": [
+          "Marque et référence exacte, si connues.",
+          "Marque, modèle et application du moteur ou de l’équipement.",
+          "Grade SAE, catégorie API et désignation ACEA éventuelle.",
+          "Spécification constructeur et exigences de post-traitement des émissions.",
+          "Conditions de service et intervalle de vidange souhaité, si pertinent.",
+          "Quantité, emballage, destination et documents demandés."
+        ],
+        "faqs": [
+          {
+            "question": "Une huile FA-4 peut-elle remplacer CK-4 dans tout moteur diesel ?",
+            "answer": "Non. Selon l’API, FA-4 n’est ni interchangeable ni rétrocompatible avec CK-4 et certaines catégories antérieures. Utilisez FA-4 uniquement lorsque les recommandations du motoriste l’autorisent.",
+            "source_ids": [
+              "api-oil-categories"
+            ]
+          },
+          {
+            "question": "Une demande de produit confirme-t-elle une vidange espacée ?",
+            "answer": "Non. Une description de catégorie ne définit ni intervalle de vidange ni homologation d’un produit. Il faut vérifier les exigences du motoriste, les conditions de service et la documentation du produit.",
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2024"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Demander une huile moteur diesel",
+          "text": "Envoyez les exigences moteur et les détails d’achat à info@energydune.com. Disponibilité et spécifications sont confirmées par devis.",
+          "email": "info@energydune.com"
+        }
+      }
+    },
+    {
+      "id": "industrial",
+      "type": "product_category",
+      "slugs": {
+        "en": "industrial-lubricants",
+        "fr": "lubrifiants-industriels"
+      },
+      "related_page_ids": [
+        "grease",
+        "driveline",
+        "lubricant-selection"
+      ],
+      "source_ids": [
+        "mobil-gear-pds",
+        "mobil-compressor-pds",
+        "mobil-hydraulics",
+        "nlgi-glossary"
+      ],
+      "en": {
+        "title": "Industrial lubricants",
+        "meta_description": "Enquire about hydraulic, gear and compressor oils by application, ISO VG grade and equipment requirement. Include reference, quantity and destination.",
+        "summary": "DUNE ENERGY GLOBAL accepts enquiries for hydraulic oils, industrial gear oils and compressor oils. Start with the equipment and its lubrication requirement, then identify the requested brand or reference. An industrial viscosity grade helps describe the request, but it does not make different application types interchangeable.",
+        "applications": [
+          "Hydraulic systems",
+          "Industrial gearboxes",
+          "Compressors"
+        ],
+        "sections": [
+          {
+            "heading": "Match the oil to the application",
+            "paragraphs": [
+              "A hydraulic system, an enclosed gearbox and a compressor place different demands on their lubricant. State the equipment make and model, oil type required by its manufacturer, operating conditions and existing product where known. Manufacturer product data separates applications, specifications and typical properties; those details matter when reviewing a proposed alternative."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "mobil-hydraulics"
+            ]
+          },
+          {
+            "heading": "Use ISO VG as one part of the specification",
+            "paragraphs": [
+              "ISO VG describes an industrial lubricant's viscosity grade using kinematic viscosity at 40 °C. It is distinct from SAE engine-oil grades and NLGI grease consistency. Two ISO VG 46 oils can have different formulations, application recommendations and approvals. A hydraulic-oil request should therefore say hydraulic oil, ISO VG 46, then add the required equipment specification."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "nlgi-glossary"
+            ]
+          }
+        ],
+        "checklist_heading": "Include in your enquiry",
+        "checklist": [
+          "Hydraulic, industrial gear or compressor application.",
+          "Equipment make, model and manufacturer requirement.",
+          "Requested brand, exact product reference and ISO VG grade.",
+          "Existing lubricant and any compatibility or changeover requirements.",
+          "Operating temperature, load or other relevant service conditions.",
+          "Quantity, pack size, destination and TDS/PDS or SDS request."
+        ],
+        "faqs": [
+          {
+            "question": "Are all ISO VG 46 oils equivalent?",
+            "answer": "No. ISO VG identifies a viscosity grade, not a complete application or performance specification. Confirm the equipment requirement and the exact product's technical data before considering an alternative.",
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds"
+            ]
+          },
+          {
+            "question": "Is industrial gear oil the same as automotive gear oil?",
+            "answer": "Do not assume so. Specify the equipment and its required lubricant. Industrial gear oils and automotive driveline oils use different application requirements and may describe viscosity under different classification systems.",
+            "source_ids": [
+              "mobil-gear-pds"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Enquire about industrial lubricants",
+          "text": "Send the application, specification, quantity and destination to info@energydune.com. Supply details are confirmed by quotation.",
+          "email": "info@energydune.com"
+        }
+      },
+      "fr": {
+        "title": "Lubrifiants industriels",
+        "meta_description": "Demandez des huiles hydrauliques, pour réducteurs ou compresseurs selon l’application, le grade ISO VG et l’équipement. Précisez quantité et destination.",
+        "summary": "DUNE ENERGY GLOBAL reçoit les demandes d’huiles hydrauliques, d’huiles pour engrenages industriels et d’huiles pour compresseurs. Partez de l’équipement et de ses exigences de lubrification, puis indiquez la marque ou la référence souhaitée. Le grade de viscosité précise la demande, sans rendre les différentes applications interchangeables.",
+        "applications": [
+          "Systèmes hydrauliques",
+          "Réducteurs industriels",
+          "Compresseurs"
+        ],
+        "sections": [
+          {
+            "heading": "Associer l’huile à l’application",
+            "paragraphs": [
+              "Un système hydraulique, un réducteur fermé et un compresseur imposent des exigences différentes au lubrifiant. Indiquez la marque et le modèle de l’équipement, le type d’huile prescrit, les conditions de service et le produit en place, si connu. Les fiches fabricant distinguent applications, spécifications et propriétés typiques ; ces informations comptent pour examiner une solution de remplacement."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "mobil-hydraulics"
+            ]
+          },
+          {
+            "heading": "Compléter le grade ISO VG",
+            "paragraphs": [
+              "Le grade ISO VG décrit la viscosité d’un lubrifiant industriel à partir de sa viscosité cinématique à 40 °C. Il se distingue des grades SAE pour huiles moteur et de la consistance NLGI des graisses. Deux huiles ISO VG 46 peuvent différer par leur formulation, leurs applications et leurs homologations. Précisez donc huile hydraulique, ISO VG 46, puis ajoutez la spécification de l’équipement."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "nlgi-glossary"
+            ]
+          }
+        ],
+        "checklist_heading": "À préciser dans votre demande",
+        "checklist": [
+          "Application hydraulique, engrenages industriels ou compresseur.",
+          "Marque, modèle et exigences du fabricant de l’équipement.",
+          "Marque souhaitée, référence exacte et grade ISO VG.",
+          "Lubrifiant en place et exigences de compatibilité ou de remplacement.",
+          "Température, charge et autres conditions de service pertinentes.",
+          "Quantité, format, destination et besoin de fiche technique ou FDS/SDS."
+        ],
+        "faqs": [
+          {
+            "question": "Toutes les huiles ISO VG 46 sont-elles équivalentes ?",
+            "answer": "Non. ISO VG désigne un grade de viscosité, pas une spécification complète d’application ou de performance. Vérifiez les exigences de l’équipement et la fiche technique du produit avant d’envisager une alternative.",
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds"
+            ]
+          },
+          {
+            "question": "Une huile d’engrenages industriels est-elle une huile d’engrenages automobiles ?",
+            "answer": "Ne le présumez pas. Précisez l’équipement et le lubrifiant exigé. Les huiles d’engrenages industriels et les huiles de transmission automobile répondent à des applications différentes et peuvent utiliser des classifications de viscosité distinctes.",
+            "source_ids": [
+              "mobil-gear-pds"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Demander un lubrifiant industriel",
+          "text": "Envoyez l’application, la spécification, la quantité et la destination à info@energydune.com. Les conditions de fourniture sont confirmées par devis.",
+          "email": "info@energydune.com"
+        }
+      }
+    },
+    {
+      "id": "driveline",
+      "type": "product_category",
+      "slugs": {
+        "en": "transmission-and-gear-oils",
+        "fr": "huiles-transmission-engrenages"
+      },
+      "related_page_ids": [
+        "passenger",
+        "commercial",
+        "industrial",
+        "lubricant-selection"
+      ],
+      "source_ids": [
+        "mobil-multi-vehicle-atf",
+        "mobil-gear-pds",
+        "saemobilus-j300",
+        "saemobilus-j306-current"
+      ],
+      "en": {
+        "title": "Transmission and gear oils",
+        "meta_description": "Enquire about ATF, CVT, DCT, manual transmission and automotive gear oils. Identify the transmission or axle and exact manufacturer specification.",
+        "summary": "Transmission-oil enquiries should identify the unit being lubricated, not only the vehicle. DUNE ENERGY GLOBAL accepts requests for ATF, CVT, DCT and automotive gear oils by product reference and manufacturer requirement. The transmission or axle specification is the starting point for describing the correct product.",
+        "applications": [
+          "Automatic and manual transmissions",
+          "CVT and dual-clutch transmissions",
+          "Automotive axles and differentials"
+        ],
+        "sections": [
+          {
+            "heading": "Specify the transmission-fluid type",
+            "paragraphs": [
+              "ATF means automatic transmission fluid; CVT and DCT identify different transmission designs and their associated fluid requirements. A product described as multi-vehicle still needs to list the relevant application. Do not assume that an ATF can serve a CVT, a dual-clutch transmission or a manual gearbox without checking the exact manufacturer's requirement."
+            ],
+            "source_ids": [
+              "mobil-multi-vehicle-atf"
+            ]
+          },
+          {
+            "heading": "Keep gearbox and engine-oil grades separate",
+            "paragraphs": [
+              "Where an automotive gear-oil SAE grade is specified, it uses the gear-lubricant classification SAE J306 rather than engine-oil classification SAE J300. Similar-looking grade numbers should not be compared as a common scale. Also record the required performance specification and any formal approval; viscosity alone does not establish suitability for a synchronised gearbox or axle."
+            ],
+            "source_ids": [
+              "saemobilus-j300",
+              "saemobilus-j306-current"
+            ]
+          }
+        ],
+        "checklist_heading": "Include in your enquiry",
+        "checklist": [
+          "Vehicle or equipment, transmission or axle make and model.",
+          "ATF, CVT, DCT, manual transmission or automotive gear application.",
+          "Exact manufacturer fluid designation and any required approval.",
+          "Specified viscosity grade or exact product reference.",
+          "Preferred brand and existing fluid, if known.",
+          "Quantity, packaging, destination and requested documentation."
+        ],
+        "faqs": [
+          {
+            "question": "Does multi-vehicle ATF mean suitable for every transmission?",
+            "answer": "No. Check the individual product's stated applications against the exact transmission requirement. A broad product description does not confirm suitability for every ATF, CVT or DCT application.",
+            "source_ids": [
+              "mobil-multi-vehicle-atf"
+            ]
+          },
+          {
+            "question": "Are a recommendation and a manufacturer approval the same?",
+            "answer": "No. A supplier's recommendation is distinct from formal manufacturer approval. Ask for the current technical data sheet and keep its approval wording intact when comparing products.",
+            "source_ids": [
+              "mobil-gear-pds"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Enquire about transmission oils",
+          "text": "Send the unit specification, product reference, quantity and destination to info@energydune.com. Availability and specifications are confirmed by quotation.",
+          "email": "info@energydune.com"
+        }
+      },
+      "fr": {
+        "title": "Huiles de transmission et d’engrenages",
+        "meta_description": "Demandez des fluides ATF, CVT, DCT et huiles pour boîtes manuelles ou ponts. Identifiez la transmission et la spécification exacte du constructeur.",
+        "summary": "Une demande d’huile de transmission doit identifier l’organe lubrifié, pas seulement le véhicule. DUNE ENERGY GLOBAL reçoit les demandes de fluides ATF, CVT, DCT et d’huiles d’engrenages automobiles selon la référence et les exigences constructeur. La spécification de la transmission ou du pont permet de définir le produit demandé.",
+        "applications": [
+          "Boîtes automatiques et manuelles",
+          "Transmissions à variation continue et à double embrayage",
+          "Ponts et différentiels automobiles"
+        ],
+        "sections": [
+          {
+            "heading": "Préciser le type de fluide",
+            "paragraphs": [
+              "ATF signifie fluide de transmission automatique ; CVT et DCT désignent des architectures de transmission différentes et leurs exigences de fluide. Même un produit dit multivéhicules doit mentionner l’application concernée. Ne présumez pas qu’un ATF convient à une CVT, à une boîte à double embrayage ou à une boîte manuelle sans vérifier la prescription exacte du constructeur."
+            ],
+            "source_ids": [
+              "mobil-multi-vehicle-atf"
+            ]
+          },
+          {
+            "heading": "Distinguer les grades pour engrenages et moteur",
+            "paragraphs": [
+              "Un grade SAE pour huile d’engrenages automobiles relève de la classification SAE J306, et non de la classification des huiles moteur SAE J300. Des nombres ressemblants ne constituent pas une échelle commune. Relevez aussi la spécification de performance et toute homologation exigée : la viscosité seule ne confirme pas l’adéquation à une boîte synchronisée ou à un pont."
+            ],
+            "source_ids": [
+              "saemobilus-j300",
+              "saemobilus-j306-current"
+            ]
+          }
+        ],
+        "checklist_heading": "À préciser dans votre demande",
+        "checklist": [
+          "Véhicule ou équipement, marque et modèle de transmission ou de pont.",
+          "Application ATF, CVT, DCT, boîte manuelle ou engrenages automobiles.",
+          "Désignation exacte du fluide et homologation requise par le constructeur.",
+          "Grade de viscosité prescrit ou référence exacte.",
+          "Marque souhaitée et fluide en place, si connus.",
+          "Quantité, emballage, destination et documentation demandée."
+        ],
+        "faqs": [
+          {
+            "question": "Un ATF multivéhicules convient-il à toutes les transmissions ?",
+            "answer": "Non. Comparez les applications déclarées du produit aux exigences exactes de la transmission. Une description générale ne confirme pas l’adéquation à toutes les applications ATF, CVT ou DCT.",
+            "source_ids": [
+              "mobil-multi-vehicle-atf"
+            ]
+          },
+          {
+            "question": "Une recommandation équivaut-elle à une homologation constructeur ?",
+            "answer": "Non. Une recommandation du fournisseur se distingue d’une homologation formelle. Demandez la fiche technique à jour et conservez les termes exacts relatifs aux homologations lors de la comparaison.",
+            "source_ids": [
+              "mobil-gear-pds"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Demander une huile de transmission",
+          "text": "Envoyez la spécification de l’organe, la référence, la quantité et la destination à info@energydune.com. Disponibilité et spécifications sont confirmées par devis.",
+          "email": "info@energydune.com"
+        }
+      }
+    },
+    {
+      "id": "grease",
+      "type": "product_category",
+      "slugs": {
+        "en": "lubricating-greases",
+        "fr": "graisses-lubrifiantes"
+      },
+      "related_page_ids": [
+        "industrial",
+        "commercial",
+        "lubricant-selection"
+      ],
+      "source_ids": [
+        "nlgi-glossary",
+        "mobil-product-faq"
+      ],
+      "en": {
+        "title": "Lubricating greases",
+        "meta_description": "Request bearing and multipurpose greases by NLGI consistency, application and equipment requirement. Include the existing grease, quantity and destination.",
+        "summary": "DUNE ENERGY GLOBAL accepts enquiries for bearing and multipurpose greases in industrial and commercial applications. A useful grease request combines consistency, equipment and operating conditions. If you are replacing a product, identify the existing grease as well as the proposed reference so compatibility can be considered.",
+        "applications": [
+          "Bearings",
+          "Multipurpose lubrication",
+          "Industrial and commercial equipment"
+        ],
+        "sections": [
+          {
+            "heading": "NLGI describes consistency",
+            "paragraphs": [
+              "The NLGI grade classifies grease consistency using worked penetration. It is not the viscosity grade of the base oil, nor a complete measure of performance. Two NLGI 2 greases can differ in base-oil viscosity, thickener, water resistance and intended service. Choose the required grade from the equipment or lubrication-system specification rather than assuming one consistency suits every application."
+            ],
+            "source_ids": [
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "heading": "Consider the existing grease",
+            "paragraphs": [
+              "NLGI defines incompatibility by adverse physical or performance properties in a grease mixture. A common consistency number does not establish compatibility. Before a changeover, record the exact existing and proposed products and follow equipment and lubricant-manufacturer guidance. Include relevant speed, load, temperature and water exposure when these affect the application."
+            ],
+            "source_ids": [
+              "nlgi-glossary",
+              "mobil-product-faq"
+            ]
+          }
+        ],
+        "checklist_heading": "Include in your enquiry",
+        "checklist": [
+          "Bearing, equipment or lubrication-system application.",
+          "Required NLGI consistency grade and manufacturer specification.",
+          "Preferred brand and exact grease reference.",
+          "Existing grease, including thickener and base-oil details if known.",
+          "Relevant load, speed, temperature and water exposure.",
+          "Quantity, packaging, destination and TDS/PDS or SDS request."
+        ],
+        "faqs": [
+          {
+            "question": "Does NLGI 2 mean a grease has the right oil viscosity?",
+            "answer": "No. NLGI 2 is a consistency grade. Check the grease's base-oil viscosity and application requirements separately in the product's technical information.",
+            "source_ids": [
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "question": "Can two greases with the same NLGI grade be mixed?",
+            "answer": "Do not assume compatibility from the NLGI grade. Identify both products and check the relevant manufacturer guidance or compatibility assessment before mixing or changing over.",
+            "source_ids": [
+              "nlgi-glossary"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Enquire about lubricating greases",
+          "text": "Send the grease reference, equipment requirement, quantity and destination to info@energydune.com. Availability and specifications are confirmed by quotation.",
+          "email": "info@energydune.com"
+        }
+      },
+      "fr": {
+        "title": "Graisses lubrifiantes",
+        "meta_description": "Demandez des graisses pour roulements et usages multiples selon la consistance NLGI et l’équipement. Précisez produit en place, quantité et destination.",
+        "summary": "DUNE ENERGY GLOBAL reçoit les demandes de graisses pour roulements et usages multiples, pour applications industrielles et commerciales. Une demande utile associe consistance, équipement et conditions de service. En cas de remplacement, indiquez la graisse en place ainsi que la référence proposée pour permettre l’examen de la compatibilité.",
+        "applications": [
+          "Roulements",
+          "Graissage polyvalent",
+          "Équipements industriels et commerciaux"
+        ],
+        "sections": [
+          {
+            "heading": "NLGI décrit la consistance",
+            "paragraphs": [
+              "Le grade NLGI classe la consistance des graisses selon leur pénétration après malaxage. Il ne décrit ni la viscosité de l’huile de base ni l’ensemble des performances. Deux graisses NLGI 2 peuvent différer par leur huile de base, épaississant, résistance à l’eau et usage prévu. Retenez le grade exigé par l’équipement ou le système de graissage, sans supposer qu’une même consistance convient à toutes les applications."
+            ],
+            "source_ids": [
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "heading": "Tenir compte de la graisse en place",
+            "paragraphs": [
+              "Le NLGI définit l’incompatibilité par la dégradation des propriétés physiques ou des performances d’un mélange. Un même numéro de consistance n’établit pas la compatibilité. Avant un remplacement, relevez les références exactes des deux produits et suivez les indications de l’équipementier et du fabricant de lubrifiant. Précisez vitesse, charge, température et exposition à l’eau lorsqu’elles influencent l’application."
+            ],
+            "source_ids": [
+              "nlgi-glossary",
+              "mobil-product-faq"
+            ]
+          }
+        ],
+        "checklist_heading": "À préciser dans votre demande",
+        "checklist": [
+          "Roulement, équipement ou système de graissage concerné.",
+          "Grade de consistance NLGI et spécification fabricant requis.",
+          "Marque souhaitée et référence exacte de graisse.",
+          "Graisse en place, épaississant et huile de base si connus.",
+          "Charge, vitesse, température et exposition à l’eau pertinentes.",
+          "Quantité, emballage, destination et besoin de fiche technique ou FDS/SDS."
+        ],
+        "faqs": [
+          {
+            "question": "NLGI 2 garantit-il la bonne viscosité d’huile ?",
+            "answer": "Non. NLGI 2 est un grade de consistance. Vérifiez séparément la viscosité de l’huile de base et les exigences de l’application dans la documentation technique.",
+            "source_ids": [
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "question": "Peut-on mélanger deux graisses de même grade NLGI ?",
+            "answer": "Ne déduisez pas la compatibilité du grade NLGI. Identifiez les deux produits et vérifiez les recommandations fabricant ou l’évaluation de compatibilité avant mélange ou remplacement.",
+            "source_ids": [
+              "nlgi-glossary"
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Demander une graisse lubrifiante",
+          "text": "Envoyez la référence, les exigences de l’équipement, la quantité et la destination à info@energydune.com. Disponibilité et spécifications sont confirmées par devis.",
+          "email": "info@energydune.com"
+        }
+      }
+    },
+    {
+      "id": "energy",
+      "type": "product_category",
+      "slugs": {
+        "en": "energy-products",
+        "fr": "produits-energetiques"
+      },
+      "related_page_ids": [
+        "industrial",
+        "lubricant-selection"
+      ],
+      "source_ids": [],
+      "editorial_notes": [
+        "Intentionally focused on enquiry definition. The company has not confirmed individual energy products, supply territories, transport capabilities or stock."
+      ],
+      "en": {
+        "title": "Energy products",
+        "meta_description": "Send an energy-product enquiry with the exact product, specification, volume, delivery format and destination. Supply details are confirmed by quotation.",
+        "summary": "DUNE ENERGY GLOBAL accepts energy-product enquiries by named product, specification and destination. This category is a starting point for a defined commercial request. It is not a published list of individual products or a statement that a particular grade, volume or delivery arrangement is available.",
+        "applications": [
+          "Product-specific commercial enquiries",
+          "Requirements defined by grade, volume and destination"
+        ],
+        "sections": [
+          {
+            "heading": "Define the product before discussing supply",
+            "paragraphs": [
+              "Use the exact commercial product name and the grade or specification required. Include the intended use when it helps distinguish the request. If you have a written specification or product reference, identify it clearly in your message rather than relying on a broad description such as energy supply."
+            ],
+            "source_ids": []
+          },
+          {
+            "heading": "Separate your requirement from confirmed terms",
+            "paragraphs": [
+              "State the volume, unit of measure, packaging or delivery format you require, destination and requested schedule. These are enquiry details, not confirmed delivery terms. Availability, specifications and any proposed commercial arrangements need to be established in the quotation for the particular request."
+            ],
+            "source_ids": []
+          }
+        ],
+        "checklist_heading": "Include in your enquiry",
+        "checklist": [
+          "Exact product name and reference, if known.",
+          "Required grade or specification and intended use.",
+          "Volume and unit of measure.",
+          "Requested packaging or delivery format.",
+          "Destination and requested delivery period.",
+          "Your company contact and any documentation requirements."
+        ],
+        "faqs": [
+          {
+            "question": "Which individual energy products are listed?",
+            "answer": "The website currently publishes an energy-products category rather than a SKU-level catalogue. Send the exact product and specification so the request can be considered without assuming supply.",
+            "source_ids": []
+          },
+          {
+            "question": "Does an enquiry reserve stock or confirm a delivery date?",
+            "answer": "No. An enquiry states your requirements. It does not reserve stock, create an order or establish a delivery commitment. Availability and specifications are confirmed by quotation.",
+            "source_ids": []
+          }
+        ],
+        "cta": {
+          "label": "Send an energy-product enquiry",
+          "text": "Email the product, specification, volume and destination to info@energydune.com.",
+          "email": "info@energydune.com"
+        }
+      },
+      "fr": {
+        "title": "Produits énergétiques",
+        "meta_description": "Précisez produit énergétique, spécification, volume, mode de livraison et destination dans votre demande. Les conditions sont confirmées par devis.",
+        "summary": "DUNE ENERGY GLOBAL reçoit les demandes de produits énergétiques selon le produit nommé, la spécification et la destination. Cette catégorie permet de définir une demande commerciale. Elle ne constitue ni une liste de produits individuels ni une confirmation de disponibilité pour un grade, un volume ou un mode de livraison précis.",
+        "applications": [
+          "Demandes commerciales pour un produit précis",
+          "Besoins définis par grade, volume et destination"
+        ],
+        "sections": [
+          {
+            "heading": "Définir le produit avant la fourniture",
+            "paragraphs": [
+              "Indiquez le nom commercial exact du produit et le grade ou la spécification requis. Ajoutez l’usage prévu lorsqu’il permet de distinguer la demande. Si vous disposez d’une spécification écrite ou d’une référence, identifiez-la clairement dans votre message plutôt que d’utiliser une description générale comme fourniture d’énergie."
+            ],
+            "source_ids": []
+          },
+          {
+            "heading": "Distinguer besoin et conditions confirmées",
+            "paragraphs": [
+              "Précisez le volume, l’unité de mesure, l’emballage ou le mode de livraison demandé, la destination et la période souhaitée. Ces éléments décrivent votre besoin ; ils ne constituent pas des conditions de livraison confirmées. Disponibilité, spécifications et modalités commerciales proposées doivent être établies dans le devis correspondant à la demande."
+            ],
+            "source_ids": []
+          }
+        ],
+        "checklist_heading": "À préciser dans votre demande",
+        "checklist": [
+          "Nom exact du produit et référence, si connue.",
+          "Grade ou spécification requis et usage prévu.",
+          "Volume et unité de mesure.",
+          "Emballage ou mode de livraison souhaité.",
+          "Destination et période de livraison demandée.",
+          "Coordonnées professionnelles et documents nécessaires."
+        ],
+        "faqs": [
+          {
+            "question": "Quels produits énergétiques individuels sont répertoriés ?",
+            "answer": "Le site présente actuellement une catégorie de produits énergétiques, sans catalogue de références individuelles. Indiquez le produit et la spécification exacts pour permettre l’examen de la demande sans présumer la fourniture.",
+            "source_ids": []
+          },
+          {
+            "question": "Une demande réserve-t-elle du stock ou une date de livraison ?",
+            "answer": "Non. Une demande expose vos besoins. Elle ne réserve pas de stock, ne crée pas de commande et ne constitue pas un engagement de livraison. Disponibilité et spécifications sont confirmées par devis.",
+            "source_ids": []
+          }
+        ],
+        "cta": {
+          "label": "Demander un produit énergétique",
+          "text": "Envoyez produit, spécification, volume et destination à info@energydune.com.",
+          "email": "info@energydune.com"
+        }
+      }
+    },
+    {
+      "id": "lubricant-selection",
+      "type": "guide",
+      "slugs": {
+        "en": "lubricant-selection",
+        "fr": "lubricant-selection"
+      },
+      "related_page_ids": [
+        "passenger",
+        "commercial",
+        "industrial",
+        "driveline",
+        "grease"
+      ],
+      "source_ids": [
+        "api-oil-categories",
+        "acea-2023",
+        "acea-2024",
+        "nlgi-glossary",
+        "mobil-gear-pds",
+        "mobil-compressor-pds",
+        "saemobilus-j300",
+        "saemobilus-j306-current",
+        "mobil-product-faq"
+      ],
+      "en": {
+        "title": "How to specify a lubricant for an enquiry",
+        "meta_description": "Prepare a lubricant enquiry using the application, SAE or ISO VG grade, NLGI consistency and API/ACEA or OEM requirements. Know which documents to request.",
+        "summary": "A clear lubricant enquiry describes the equipment requirement and the requested product separately. Start with the machine or vehicle documentation, identify the relevant viscosity or consistency system, then record the performance specification. Brand, quantity, packaging and destination complete the commercial request; they do not establish technical suitability.",
+        "applications": [
+          "Automotive lubricant purchasing",
+          "Commercial vehicle maintenance",
+          "Industrial lubrication enquiries"
+        ],
+        "sections": [
+          {
+            "heading": "1. Identify what needs lubrication",
+            "paragraphs": [
+              "State whether the request concerns a passenger car engine, heavy-duty diesel engine, transmission, industrial system or grease application. Include the equipment make and model or the exact requirement copied from its manual. When replacing an existing product, provide its full reference; a partial name or colour is not a reliable specification."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "mobil-gear-pds",
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "heading": "2. Use the correct grade system",
+            "paragraphs": [
+              "SAE J300 classifies engine-oil viscosity; SAE J306 covers automotive gear-lubricant viscosity. These are different scales. ISO VG describes industrial lubricant viscosity at 40 °C. NLGI describes grease consistency, not the viscosity of its base oil. A grade number helps identify one property, but does not by itself establish performance or interchangeability."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "nlgi-glossary",
+              "saemobilus-j300",
+              "saemobilus-j306-current"
+            ]
+          },
+          {
+            "heading": "3. Keep performance and approval wording exact",
+            "paragraphs": [
+              "For engine oils, record the required API category or ACEA designation and any manufacturer requirement. Do not assume that a category with a later-looking designation is universally interchangeable: API's FA-4 guidance is one clear exception. For any application, distinguish a formal manufacturer approval from statements such as recommended for or meets requirements. Check the exact product and current documentation rather than transferring a claim from another grade or product family."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023",
+              "acea-2024",
+              "mobil-gear-pds"
+            ]
+          },
+          {
+            "heading": "4. Request the appropriate documents",
+            "paragraphs": [
+              "A technical or product data sheet, TDS/PDS, describes the product, typical properties and stated applications or specifications. A safety data sheet, SDS, addresses hazards, handling and safety information. They serve different purposes. Ask for the current documents for the requested reference; an SDS does not establish a vehicle approval, and typical properties are not a substitute for the equipment requirement."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "mobil-product-faq"
+            ]
+          },
+          {
+            "heading": "5. Complete the purchasing details",
+            "paragraphs": [
+              "Add the preferred brand, quantity with units, pack size, destination and requested date. Indicate whether an exact product is required or an alternative may be reviewed. An enquiry is a request for consideration; availability, specifications and commercial terms need confirmation in the quotation."
+            ],
+            "source_ids": []
+          }
+        ],
+        "checklist_heading": "A compact enquiry checklist",
+        "checklist": [
+          "Application and equipment requirement.",
+          "Exact product or preferred brand, if known.",
+          "Viscosity or consistency grade plus performance specification.",
+          "Required approval and supporting documentation.",
+          "Quantity, packaging, destination and requested date."
+        ],
+        "faqs": [
+          {
+            "question": "What should I send if I do not know the product reference?",
+            "answer": "Provide the equipment make and model, the lubricant requirement from its manual and details of the existing product if available. Avoid guessing equivalence from a viscosity grade alone.",
+            "source_ids": [
+              "api-oil-categories",
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "question": "Does this guide confirm a product is approved or in stock?",
+            "answer": "No. It explains how to describe a request. Individual product suitability, approval status and supply must be checked for the specific enquiry and confirmed in the relevant documentation and quotation.",
+            "source_ids": []
+          }
+        ],
+        "cta": {
+          "label": "Prepare a product enquiry",
+          "text": "Send your requirements to info@energydune.com. Brand names identify requested products, not authorised distribution.",
+          "email": "info@energydune.com"
+        }
+      },
+      "fr": {
+        "title": "Comment préciser un lubrifiant dans une demande",
+        "meta_description": "Préparez votre demande avec l’application, le grade SAE ou ISO VG, la consistance NLGI et les normes API/ACEA ou constructeur. Identifiez les documents utiles.",
+        "summary": "Une demande claire distingue les exigences de l’équipement du produit souhaité. Partez de la documentation du véhicule ou de la machine, identifiez le système de viscosité ou de consistance pertinent, puis relevez la spécification de performance. Marque, quantité, emballage et destination complètent la demande commerciale sans établir l’adéquation technique.",
+        "applications": [
+          "Achats de lubrifiants automobiles",
+          "Entretien de véhicules commerciaux",
+          "Demandes de lubrification industrielle"
+        ],
+        "sections": [
+          {
+            "heading": "1. Identifier l’organe à lubrifier",
+            "paragraphs": [
+              "Précisez s’il s’agit d’un moteur de véhicule léger, d’un moteur diesel poids lourd, d’une transmission, d’un système industriel ou d’une application de graisse. Indiquez la marque et le modèle de l’équipement ou recopiez l’exigence du manuel. Pour remplacer un produit, donnez sa référence complète : un nom partiel ou une couleur ne constitue pas une spécification fiable."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "mobil-gear-pds",
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "heading": "2. Employer le bon système de grade",
+            "paragraphs": [
+              "SAE J300 classe la viscosité des huiles moteur ; SAE J306 concerne les lubrifiants d’engrenages automobiles. Ces échelles diffèrent. ISO VG décrit la viscosité des lubrifiants industriels à 40 °C. NLGI décrit la consistance d’une graisse, pas la viscosité de son huile de base. Un numéro de grade précise une propriété, sans suffire à établir performance ou interchangeabilité."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "nlgi-glossary",
+              "saemobilus-j300",
+              "saemobilus-j306-current"
+            ]
+          },
+          {
+            "heading": "3. Conserver les termes exacts de performance et d’homologation",
+            "paragraphs": [
+              "Pour une huile moteur, relevez la catégorie API ou la désignation ACEA requise, ainsi que les exigences constructeur. Une désignation paraissant plus récente ne garantit pas l’interchangeabilité : les indications API sur FA-4 en sont un exemple. Distinguez, pour toute application, homologation formelle, recommandation d’emploi et déclaration de conformité. Vérifiez le produit et sa documentation à jour sans transférer les caractéristiques d’un autre grade ou d’une gamme."
+            ],
+            "source_ids": [
+              "api-oil-categories",
+              "acea-2023",
+              "acea-2024",
+              "mobil-gear-pds"
+            ]
+          },
+          {
+            "heading": "4. Demander les documents appropriés",
+            "paragraphs": [
+              "La fiche technique ou fiche produit, TDS/PDS, décrit le produit, ses propriétés typiques, applications ou spécifications déclarées. La fiche de données de sécurité, FDS/SDS, traite des dangers, de la manipulation et des informations de sécurité. Leurs rôles diffèrent. Demandez les versions à jour de la référence souhaitée ; une FDS ne confirme pas une homologation véhicule et les propriétés typiques ne remplacent pas les exigences de l’équipement."
+            ],
+            "source_ids": [
+              "mobil-gear-pds",
+              "mobil-compressor-pds",
+              "mobil-product-faq"
+            ]
+          },
+          {
+            "heading": "5. Compléter les détails d’achat",
+            "paragraphs": [
+              "Ajoutez la marque souhaitée, la quantité avec ses unités, le format, la destination et la date demandée. Indiquez si une référence exacte est nécessaire ou si une alternative peut être examinée. Une demande ouvre l’examen du besoin ; disponibilité, spécifications et conditions commerciales restent à confirmer par devis."
+            ],
+            "source_ids": []
+          }
+        ],
+        "checklist_heading": "Liste pratique pour votre demande",
+        "checklist": [
+          "Application et exigences de l’équipement.",
+          "Produit exact ou marque souhaitée, si connus.",
+          "Grade de viscosité ou consistance et spécification de performance.",
+          "Homologation requise et documents justificatifs.",
+          "Quantité, emballage, destination et date souhaitée."
+        ],
+        "faqs": [
+          {
+            "question": "Que transmettre si je ne connais pas la référence ?",
+            "answer": "Indiquez la marque et le modèle de l’équipement, le lubrifiant exigé dans son manuel et les détails du produit en place, si disponibles. Ne déduisez pas l’équivalence du seul grade de viscosité.",
+            "source_ids": [
+              "api-oil-categories",
+              "nlgi-glossary"
+            ]
+          },
+          {
+            "question": "Ce guide confirme-t-il une homologation ou du stock ?",
+            "answer": "Non. Il explique comment décrire une demande. L’adéquation du produit, ses homologations et sa disponibilité doivent être vérifiées pour le besoin précis et confirmées dans la documentation et le devis correspondants.",
+            "source_ids": []
+          }
+        ],
+        "cta": {
+          "label": "Préparer une demande de produit",
+          "text": "Envoyez vos besoins à info@energydune.com. Les marques identifient les produits demandés et n’impliquent pas de distribution agréée.",
+          "email": "info@energydune.com"
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "api-oil-categories",
+      "title": "Oil Categories",
+      "publisher": "American Petroleum Institute",
+      "url": "https://www.api.org/products-and-services/engine-oil/eolcs-categories-and-classifications/oil-categories",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:42:26.242405+00:00",
+      "supports": [
+        "Engine-oil performance categories; manufacturer recommendations; explicit FA-4/CK-4 non-interchangeability."
+      ],
+      "limitations": "Use for category distinctions, not a claim about the newest category. The page includes historical material.",
+      "publish": true
+    },
+    {
+      "id": "acea-2023",
+      "title": "ACEA Oil Sequences 2023 – Light-duty engines",
+      "publisher": "ACEA",
+      "url": "https://www.acea.auto/publication/acea-oil-sequences-2023/",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:42:26.562500+00:00",
+      "supports": [
+        "Light-duty engine-oil performance sequences and their application context."
+      ],
+      "limitations": "2023 edition. No copy claims this is the latest available standard or that any DUNE product meets it.",
+      "publish": true
+    },
+    {
+      "id": "acea-2024",
+      "title": "ACEA Oil Sequences 2024 – Heavy-duty engines",
+      "publisher": "ACEA",
+      "url": "https://www.acea.auto/publication/acea-oil-sequences-2024-heavy-duty-engines/",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:42:27.759749+00:00",
+      "supports": [
+        "Separate heavy-duty engine-oil sequences and engine/performance context."
+      ],
+      "limitations": "2024 heavy-duty edition. No product approval, performance or supply claim is inferred.",
+      "publish": true
+    },
+    {
+      "id": "nlgi-glossary",
+      "title": "NLGI Grease Glossary",
+      "publisher": "NLGI",
+      "url": "https://www.nlgi.org/grease-glossary/",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:42:28.360501+00:00",
+      "supports": [
+        "NLGI grade and consistency; worked penetration; kinematic viscosity; grease incompatibility."
+      ],
+      "limitations": "Definitions support category education, not a product recommendation or NLGI certification claim.",
+      "publish": true
+    },
+    {
+      "id": "mobil-gear-pds",
+      "title": "Mobilgear 600 XP Series – Product Data Sheet",
+      "publisher": "ExxonMobil / Mobil",
+      "url": "https://www.mobil.com/en-us/industrial/pds/gl-xx-mobilgear-600-xp-series",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:44:13.407716+00:00",
+      "supports": [
+        "Industrial gear-oil application context; ISO VG and kinematic-viscosity tables; distinction between approvals and meets-or-exceeds claims; technical/safety documentation."
+      ],
+      "limitations": "Manufacturer example for terminology only. DUNE does not claim availability, distribution or approval for this product.",
+      "publish": true
+    },
+    {
+      "id": "mobil-compressor-pds",
+      "title": "Mobil Rarus 400 Series – Product Data Sheet",
+      "publisher": "ExxonMobil / Mobil",
+      "url": "https://www.mobil.com/en-us/industrial/pds/gl-xx-mobil-rarus-400-series",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:44:04.451331+00:00",
+      "supports": [
+        "Compressor-specific applications; ISO VG viscosity grades; technical properties and safety-document reference."
+      ],
+      "limitations": "Manufacturer example only. Published product properties are not transferred to any DUNE product.",
+      "publish": true
+    },
+    {
+      "id": "mobil-hydraulics",
+      "title": "Hydraulic system lubricants",
+      "publisher": "ExxonMobil / Mobil",
+      "url": "https://www.mobil.com/en/lubricants/for-businesses/industrial/lubricants/applications/hydraulics",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:44:04.451537+00:00",
+      "supports": [
+        "Hydraulic systems as a distinct industrial application."
+      ],
+      "limitations": "Application overview only, not evidence of a DUNE product approval or performance benefit.",
+      "publish": true
+    },
+    {
+      "id": "mobil-automatic-transmission",
+      "title": "Automatic transmission fluids",
+      "publisher": "ExxonMobil / Mobil",
+      "url": "https://www.mobil.com/en/lubricants/for-personal-vehicles/our-products/automatic-transmission-fluids",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:44:04.328356+00:00",
+      "supports": [
+        "Distinct automatic-transmission product references and application-specific products."
+      ],
+      "limitations": "Product-category overview; exact compatibility requires the individual product document.",
+      "publish": true
+    },
+    {
+      "id": "saemobilus-j300",
+      "title": "SAE J300_202405 – Engine Oil Viscosity Classification",
+      "publisher": "SAE International",
+      "url": "https://saemobilus.sae.org/standards/j300_202405-engine-oil-viscosity-classification",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:49:58.798333+00:00",
+      "supports": [
+        "Engine oils are classified in rheological terms only; other oil characteristics are outside this classification."
+      ],
+      "limitations": "Public scope and bibliographic metadata were read. The paid full standard was not accessed.",
+      "publish": true
+    },
+    {
+      "id": "saemobilus-j306-current",
+      "title": "SAE J306_202502 – Automotive Driveline Lubricant Viscosity Classification",
+      "publisher": "SAE International",
+      "url": "https://saemobilus.sae.org/standards/j306_202502-automotive-driveline-lubricant-viscosity-classification",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:51:49.905535+00:00",
+      "supports": [
+        "Automotive gear lubricants are classified in rheological terms only, separately from SAE engine-oil classification."
+      ],
+      "limitations": "Public scope and bibliographic metadata were read. The paid full standard and numeric grade-limit tables were not accessed.",
+      "publish": true
+    },
+    {
+      "id": "mobil-multi-vehicle-atf",
+      "title": "Mobil Multi-Vehicle ATF – Product and technical information",
+      "publisher": "ExxonMobil / Mobil",
+      "url": "https://www.mobil.com/en/lubricants/for-personal-vehicles/our-products/products/mobil-multi-vehicle-atf",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:49:57.895348+00:00",
+      "supports": [
+        "The manufacturer explicitly excludes CVT and DCT use for this multi-vehicle ATF and directs users to the vehicle requirement."
+      ],
+      "limitations": "Manufacturer example only. No claim of DUNE supply, authorised distribution or product compatibility is made.",
+      "publish": true
+    },
+    {
+      "id": "mobil-product-faq",
+      "title": "Industrial lubricants FAQ",
+      "publisher": "ExxonMobil / Mobil",
+      "url": "https://www.mobil.com/en/lubricants/for-businesses/industrial/industrial-faqs/industrial-lubricants-faq",
+      "retrieval_status": "fetched",
+      "http_status": 200,
+      "checked_at": "2026-11-02T16:49:58.213922+00:00",
+      "supports": [
+        "Technical/product data-sheet terminology; safety-data-sheet distinction; grease compatibility; need to check equipment recommendations."
+      ],
+      "limitations": "Used for general documentation and compatibility concepts; individual Mobil product recommendations are not transferred to DUNE.",
+      "publish": true
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+[
+  {
+    "path": "/",
+    "alternate": "/fr/",
+    "language": "en",
+    "title": "Multi-brand lubricants & energy | DUNE ENERGY GLOBAL",
+    "description": "Enquire about multi-brand engine oils, industrial lubricants, transmission fluids, greases and energy products. Product specifications and supply confirmed by quotation.",
+    "file": "index.html",
+    "kind": "WebPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/mail/",
+    "alternate": "/fr/mail/",
+    "language": "en",
+    "title": "Product enquiry | DUNE ENERGY GLOBAL",
+    "description": "Send a product and supply enquiry to DUNE ENERGY GLOBAL.",
+    "file": "mail/index.html",
+    "kind": "ContactPage",
+    "lastmod": null
+  },
+  {
+    "path": "/products/",
+    "alternate": "/fr/products/",
+    "language": "en",
+    "title": "Lubricants and energy products | DUNE ENERGY GLOBAL",
+    "description": "Explore the product categories for your application, then send the specifications, quantity and destination needed for a quotation.",
+    "file": "products/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/products/passenger-car-engine-oils/",
+    "alternate": "/fr/products/huiles-moteur-vehicules-legers/",
+    "language": "en",
+    "title": "Passenger car engine oils | DUNE ENERGY GLOBAL",
+    "description": "Enquire about passenger car engine oils by brand, SAE grade, API/ACEA specification and vehicle requirement. Send quantity, packaging and destination.",
+    "file": "products/passenger-car-engine-oils/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/products/heavy-duty-diesel-engine-oils/",
+    "alternate": "/fr/products/huiles-moteur-diesel-poids-lourds/",
+    "language": "en",
+    "title": "Heavy-duty diesel engine oils | DUNE ENERGY GLOBAL",
+    "description": "Request heavy-duty diesel engine oils for commercial vehicles and off-highway equipment. Specify the engine, SAE grade, API category and OEM requirements.",
+    "file": "products/heavy-duty-diesel-engine-oils/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/products/industrial-lubricants/",
+    "alternate": "/fr/products/lubrifiants-industriels/",
+    "language": "en",
+    "title": "Industrial lubricants | DUNE ENERGY GLOBAL",
+    "description": "Enquire about hydraulic, gear and compressor oils by application, ISO VG grade and equipment requirement. Include reference, quantity and destination.",
+    "file": "products/industrial-lubricants/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/products/transmission-and-gear-oils/",
+    "alternate": "/fr/products/huiles-transmission-engrenages/",
+    "language": "en",
+    "title": "Transmission and gear oils | DUNE ENERGY GLOBAL",
+    "description": "Enquire about ATF, CVT, DCT, manual transmission and automotive gear oils. Identify the transmission or axle and exact manufacturer specification.",
+    "file": "products/transmission-and-gear-oils/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/products/lubricating-greases/",
+    "alternate": "/fr/products/graisses-lubrifiantes/",
+    "language": "en",
+    "title": "Lubricating greases | DUNE ENERGY GLOBAL",
+    "description": "Request bearing and multipurpose greases by NLGI consistency, application and equipment requirement. Include the existing grease, quantity and destination.",
+    "file": "products/lubricating-greases/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/products/energy-products/",
+    "alternate": "/fr/products/produits-energetiques/",
+    "language": "en",
+    "title": "Energy products | DUNE ENERGY GLOBAL",
+    "description": "Send an energy-product enquiry with the exact product, specification, volume, delivery format and destination. Supply details are confirmed by quotation.",
+    "file": "products/energy-products/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/guides/lubricant-selection/",
+    "alternate": "/fr/guides/lubricant-selection/",
+    "language": "en",
+    "title": "How to specify a lubricant for an enquiry | DUNE ENERGY GLOBAL",
+    "description": "Prepare a lubricant enquiry using the application, SAE or ISO VG grade, NLGI consistency and API/ACEA or OEM requirements. Know which documents to request.",
+    "file": "guides/lubricant-selection/index.html",
+    "kind": "WebPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/about/",
+    "alternate": "/fr/about/",
+    "language": "en",
+    "title": "About DUNE ENERGY GLOBAL",
+    "description": "DUNE ENERGY GLOBAL supplies energy products and multi-brand lubricants for automotive, commercial vehicle and industrial applications, with enquiries shaped around your brand preferences, product specifications, quantities and delivery requirements.",
+    "file": "about/index.html",
+    "kind": "AboutPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/",
+    "alternate": "/",
+    "language": "fr",
+    "title": "Lubrifiants multimarques et énergie | DUNE ENERGY GLOBAL",
+    "description": "Demandez des huiles moteur, lubrifiants industriels, fluides de transmission, graisses et produits énergétiques. Spécifications et disponibilité confirmées par devis.",
+    "file": "fr/index.html",
+    "kind": "WebPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/mail/",
+    "alternate": "/mail/",
+    "language": "fr",
+    "title": "Demande de prix | DUNE ENERGY GLOBAL",
+    "description": "Envoyez une demande de produits et d’approvisionnement à DUNE ENERGY GLOBAL.",
+    "file": "fr/mail/index.html",
+    "kind": "ContactPage",
+    "lastmod": null
+  },
+  {
+    "path": "/fr/products/",
+    "alternate": "/products/",
+    "language": "fr",
+    "title": "Lubrifiants et produits énergétiques | DUNE ENERGY GLOBAL",
+    "description": "Consultez les catégories adaptées à votre application, puis transmettez les spécifications, la quantité et la destination pour obtenir un devis.",
+    "file": "fr/products/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/products/huiles-moteur-vehicules-legers/",
+    "alternate": "/products/passenger-car-engine-oils/",
+    "language": "fr",
+    "title": "Huiles moteur pour véhicules légers | DUNE ENERGY GLOBAL",
+    "description": "Demandez une huile moteur selon la marque, le grade SAE, la norme API/ACEA et les exigences du véhicule. Précisez quantité, emballage et destination.",
+    "file": "fr/products/huiles-moteur-vehicules-legers/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/products/huiles-moteur-diesel-poids-lourds/",
+    "alternate": "/products/heavy-duty-diesel-engine-oils/",
+    "language": "fr",
+    "title": "Huiles moteur diesel pour poids lourds | DUNE ENERGY GLOBAL",
+    "description": "Demandez des huiles moteur diesel pour véhicules commerciaux et équipements hors route. Précisez moteur, grade SAE, catégorie API et exigences constructeur.",
+    "file": "fr/products/huiles-moteur-diesel-poids-lourds/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/products/lubrifiants-industriels/",
+    "alternate": "/products/industrial-lubricants/",
+    "language": "fr",
+    "title": "Lubrifiants industriels | DUNE ENERGY GLOBAL",
+    "description": "Demandez des huiles hydrauliques, pour réducteurs ou compresseurs selon l’application, le grade ISO VG et l’équipement. Précisez quantité et destination.",
+    "file": "fr/products/lubrifiants-industriels/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/products/huiles-transmission-engrenages/",
+    "alternate": "/products/transmission-and-gear-oils/",
+    "language": "fr",
+    "title": "Huiles de transmission et d’engrenages | DUNE ENERGY GLOBAL",
+    "description": "Demandez des fluides ATF, CVT, DCT et huiles pour boîtes manuelles ou ponts. Identifiez la transmission et la spécification exacte du constructeur.",
+    "file": "fr/products/huiles-transmission-engrenages/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/products/graisses-lubrifiantes/",
+    "alternate": "/products/lubricating-greases/",
+    "language": "fr",
+    "title": "Graisses lubrifiantes | DUNE ENERGY GLOBAL",
+    "description": "Demandez des graisses pour roulements et usages multiples selon la consistance NLGI et l’équipement. Précisez produit en place, quantité et destination.",
+    "file": "fr/products/graisses-lubrifiantes/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/products/produits-energetiques/",
+    "alternate": "/products/energy-products/",
+    "language": "fr",
+    "title": "Produits énergétiques | DUNE ENERGY GLOBAL",
+    "description": "Précisez produit énergétique, spécification, volume, mode de livraison et destination dans votre demande. Les conditions sont confirmées par devis.",
+    "file": "fr/products/produits-energetiques/index.html",
+    "kind": "CollectionPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/guides/lubricant-selection/",
+    "alternate": "/guides/lubricant-selection/",
+    "language": "fr",
+    "title": "Comment préciser un lubrifiant dans une demande | DUNE ENERGY GLOBAL",
+    "description": "Préparez votre demande avec l’application, le grade SAE ou ISO VG, la consistance NLGI et les normes API/ACEA ou constructeur. Identifiez les documents utiles.",
+    "file": "fr/guides/lubricant-selection/index.html",
+    "kind": "WebPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/fr/about/",
+    "alternate": "/about/",
+    "language": "fr",
+    "title": "À propos de DUNE ENERGY GLOBAL",
+    "description": "DUNE ENERGY GLOBAL propose des produits énergétiques et des lubrifiants multimarques pour les véhicules légers, les poids lourds et l’industrie. Chaque demande tient compte de vos marques, spécifications, quantités et besoins de livraison.",
+    "file": "fr/about/index.html",
+    "kind": "AboutPage",
+    "lastmod": "2026-11-02"
+  },
+  {
+    "path": "/privacy.html",
+    "alternate": "/privacy-fr.html",
+    "language": "en",
+    "title": "Privacy Policy — DUNE ENERGY GLOBAL INC.",
+    "description": "How Dune Energy Global Inc. collects, uses and shares information sent through energydune.com and by email.",
+    "file": "privacy.html",
+    "kind": "WebPage",
+    "lastmod": null
+  },
+  {
+    "path": "/privacy-fr.html",
+    "alternate": "/privacy.html",
+    "language": "fr",
+    "title": "Politique de confidentialité — DUNE ENERGY GLOBAL INC.",
+    "description": "Comment Dune Energy Global Inc. recueille, utilise et communique les renseignements transmis par energydune.com et par courriel.",
+    "file": "privacy-fr.html",
+    "kind": "WebPage",
+    "lastmod": null
+  },
+  {
+    "path": "/terms.html",
+    "alternate": "/terms-fr.html",
+    "language": "en",
+    "title": "Terms of Use — DUNE ENERGY GLOBAL INC.",
+    "description": "Terms governing use of energydune.com, operated by Dune Energy Global Inc.",
+    "file": "terms.html",
+    "kind": "WebPage",
+    "lastmod": null
+  },
+  {
+    "path": "/terms-fr.html",
+    "alternate": "/terms.html",
+    "language": "fr",
+    "title": "Conditions d’utilisation — DUNE ENERGY GLOBAL INC.",
+    "description": "Conditions régissant l’utilisation d’energydune.com, exploité par Dune Energy Global Inc.",
+    "file": "terms-fr.html",
+    "kind": "WebPage",
+    "lastmod": null
+  }
+]
