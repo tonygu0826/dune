@@ -4,5 +4,9 @@
   "cache_version": "search-20261102-1",
   "legal_name": "DUNE ENERGY GLOBAL INC.",
   "name": "DUNE ENERGY GLOBAL",
-  "email": "info@energydune.com"
+  "email": "info@energydune.com",
+  "search_verification": {
+    "google": null,
+    "bing": null
+  }
 }

@@ -27,13 +27,26 @@ The first command previews the host, endpoint and URL count without submitting. 
 
 The owner confirmed that neither Google Search Console nor Bing Webmaster Tools is set up. Neither account was created or logged into by this implementation.
 
-1. Open [Google Search Console](https://search.google.com/search-console/), sign in to the company-controlled Google account, add a **Domain** property for `energydune.com`, and copy the verification TXT record.
-2. In Alibaba Cloud DNS, add that TXT record at `@`. Add a new verification record; do not replace existing website, MX, SPF, DKIM or Resend records. Complete verification in Search Console after DNS is visible.
+1. Open [Google Search Console](https://search.google.com/search-console/welcome), sign in to the company-controlled Google account, and add the **URL-prefix** property `https://energydune.com/`. All current canonical site URLs are under this prefix.
+2. Expand **HTML tag**, copy the whole `google-site-verification` meta tag, and provide that public ownership proof to the website operator. The operator can publish it in the original homepage HTML without changing DNS. Then return to Search Console and select **Verify**. Publishing a proof does not by itself confirm that the account completed verification. Keep the tag in place after success.
 3. In **Sitemaps**, submit `https://energydune.com/sitemap.xml`. Use URL Inspection on `/`, `/fr/`, the product hubs and representative category/guide pages. Request indexing where appropriate, then inspect Pages/Indexing and Performance over time.
-4. Sign in to [Bing Webmaster Tools](https://www.bing.com/webmasters/) and import the verified Search Console site, or verify the domain separately. Submit the same sitemap and inspect representative URLs.
+4. Sign in to [Bing Webmaster Tools](https://www.bing.com/webmasters/). The owner can choose to import the verified Search Console site and review the requested Google permissions. Alternatively, add `https://energydune.com/` manually and copy the **HTML Meta Tag** (`msvalidate.01`); the operator can publish it, after which the owner selects **Verify**. Submit the same sitemap and inspect representative URLs.
 5. Track real query impressions, clicks, indexed pages and enquiries by language. Search Console may include appearances in Google AI features within its web-search reporting; the implementation does not claim a separate AI citation dashboard.
 
 Search-engine verification values are public ownership proofs. Account credentials, Cloudflare tokens and mail-provider keys do not belong in HTML, this repository or Search Console verification fields.
+
+To install a real provider-issued tag, save the public tag under `.local/` and run:
+
+```sh
+python tools/set_search_verification.py google --tag-file .local/google-verification-tag.txt
+python tools/set_search_verification.py bing --tag-file .local/bing-verification-tag.txt
+python tools/build_site.py
+python tools/check_seo.py
+```
+
+`site/config.json` stores only the public proof values. Empty values generate no verification tags. Only the root homepage receives these two tags. Publish that updated homepage and verify its original HTML over HTTPS before selecting Verify in each account. Do not invent proof values, publish test markers or mark an account verified without a provider success result.
+
+For a broader Google **Domain** property, DNS verification remains an optional later route: add the provider-issued TXT at `@` in Alibaba Cloud DNS and complete verification. Add a new record; preserve existing website, MX, SPF, DKIM and Resend records.
 
 ## Maintain content without losing the search foundations
 

@@ -97,6 +97,14 @@ def head(path, other, lang, title, description, structured, css=('styles.css', '
         f'<meta name="robots" content="{"index,follow,max-image-preview:large" if index else "noindex,follow"}">',
         f'<link rel="canonical" href="{e(absolute(path))}">',
     ]
+    if path == '/':
+        verification = CONFIG.get('search_verification', {})
+        for provider, name in [('google', 'google-site-verification'), ('bing', 'msvalidate.01')]:
+            value = verification.get(provider)
+            if value:
+                if not isinstance(value, str) or not re.fullmatch(r'[A-Za-z0-9._-]{8,256}', value):
+                    raise ValueError(f'Invalid {provider} public verification code')
+                tags.append(f'<meta name="{name}" content="{e(value)}">')
     if index:
         pair = {lang: path, ('fr' if lang == 'en' else 'en'): other}
         tags.extend(f'<link rel="alternate" hreflang="{code}" href="{e(absolute(pair[code]))}">' for code in ['en', 'fr'])
