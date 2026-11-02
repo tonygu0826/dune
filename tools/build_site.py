@@ -182,7 +182,7 @@ def page_shell(path, other, lang, title, description, heading, summary, body, cr
     document = f'<!doctype html>\n<html lang="{lang}">\n' + head(path, other, lang, title, description, data) + f'\n<body class="content-page">\n' + render_header(lang, other)
     document += '<main class="content-main" id="main">' + breadcrumb(crumbs, lang) + f'<header class="content-heading"><p class="eyebrow">DUNE ENERGY GLOBAL</p><h1>{e(heading)}</h1><p class="content-summary">{e(summary)}</p>'
     if heading_cta:
-        document += f'<a class="button button-dark" href="{mail(lang)}">{e(COPY[lang]["startConversation"])} <span aria-hidden="true">↗</span></a>'
+        document += f'<a class="button button-dark" href="{mail(lang)}">{e(COPY[lang]["startConversation"])}</a>'
     document += '</header>'
     document += '<div class="content-layout"><article class="content-article">' + body + '</article>' + aside + '</div></main>' + footer(lang) + '</body></html>'
     register(path, other, lang, title, description, document, kind)
