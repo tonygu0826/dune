@@ -25,7 +25,7 @@ The first command previews the host, endpoint and URL count without submitting. 
 
 ## Verify ownership and start measuring
 
-The owner confirmed that neither Google Search Console nor Bing Webmaster Tools is set up. Neither account was created or logged into by this implementation.
+On 2 November 2026, the owner confirmed that Google site verification and sitemap submission succeeded and that the site was successfully imported into Bing from Search Console. These are owner-reported console results; this execution environment has no authenticated dashboard or Webmaster API access. Bing documents that imported verified sites are automatically verified and that new Search Console sitemaps are imported during periodic ownership checks. The steps below remain available for future verification or troubleshooting.
 
 1. Open [Google Search Console](https://search.google.com/search-console/welcome), sign in to the company-controlled Google account, and add the **URL-prefix** property `https://energydune.com/`. All current canonical site URLs are under this prefix.
 2. Expand **HTML tag**, copy the whole `google-site-verification` meta tag, and provide that public ownership proof to the website operator. The operator can publish it in the original homepage HTML without changing DNS. Then return to Search Console and select **Verify**. Publishing a proof does not by itself confirm that the account completed verification. Keep the tag in place after success.

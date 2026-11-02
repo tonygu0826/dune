@@ -60,7 +60,7 @@ GitHub Pages 从远端 `gh-pages` 分支根目录发布，必须保留该分支�
 
 ## SEO / AI 搜索维护
 
-内容分层、结构化实体、双语路径、技术引用、抓取策略、IndexNow 与站长平台接入说明见 [docs/SEARCH-VISIBILITY.md](docs/SEARCH-VISIBILITY.md)。网站尚未接入 Search Console 或 Bing Webmaster 账户；站点验证需由域名与账户持有人完成，不表示已取得收录或 AI 引用。
+内容分层、结构化实体、双语路径、技术引用、抓取策略、IndexNow 与站长平台接入说明见 [docs/SEARCH-VISIBILITY.md](docs/SEARCH-VISIBILITY.md)。账户持有人已确认 Google 站点验证和 sitemap 提交成功，Bing 已从 Google 导入成功；这些接入结果不代表已取得收录、排名或 AI 引用，实际数据需登录对应后台查看。
 
 ```sh
 python3 -m pip install -r tools/requirements-site.txt
