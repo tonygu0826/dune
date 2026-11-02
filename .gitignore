@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+.local/
+test-results/
+__pycache__/
+
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.wrangler/

@@ -1,0 +1,44 @@
+# DUNE ENERGY GLOBAL
+
+> Energy products and multi-brand lubricants for automotive, commercial vehicle and industrial applications. Official website: https://energydune.com/.
+
+DUNE ENERGY GLOBAL INC. is the legal company name. Contact: info@energydune.com. Availability and specifications are confirmed by quotation. SINOPEC and Great Wall Lubricants identify requested products; their listing does not imply authorised distribution. This website publishes category-level information, not live inventory, prices, SKU-level approvals or confirmed lead times.
+
+## Company and enquiries
+
+- [Company profile](https://energydune.com/about/): Public company identity, scope and quotation process.
+- [Send an enquiry](https://energydune.com/mail/): Direct enquiry form.
+- [French homepage](https://energydune.com/fr/): Site en français.
+- [French company profile](https://energydune.com/fr/about/): Informations sur l’entreprise.
+
+## Product information
+
+- [Automotive and industrial lubricants](https://energydune.com/lubricants/): Lubricating oils, greases, application choices and enquiries with US or Canadian destinations; supply terms require a quotation.
+- [Lubrifiants automobiles et industriels](https://energydune.com/fr/lubrifiants/): Version française.
+- [Passenger car engine oils](https://energydune.com/products/passenger-car-engine-oils/): DUNE ENERGY GLOBAL handles enquiries for passenger car engine oils by product reference and vehicle requirement. A useful request identifies the required viscosity and performance specification together; a familiar brand or viscosity grade alone is not enough to establish suitability.
+- [Huiles moteur pour véhicules légers](https://energydune.com/fr/products/huiles-moteur-vehicules-legers/): Version française.
+- [Heavy-duty diesel engine oils](https://energydune.com/products/heavy-duty-diesel-engine-oils/): Heavy-duty diesel engine-oil enquiries need more than a viscosity grade. DUNE ENERGY GLOBAL accepts requests for commercial vehicles and off-highway equipment using the engine requirement, preferred product and purchasing details. Identify the engine and any emissions-system requirements so the enquiry describes the intended application clearly.
+- [Huiles moteur diesel pour poids lourds](https://energydune.com/fr/products/huiles-moteur-diesel-poids-lourds/): Version française.
+- [Industrial lubricants](https://energydune.com/products/industrial-lubricants/): DUNE ENERGY GLOBAL accepts enquiries for hydraulic oils, industrial gear oils and compressor oils. Start with the equipment and its lubrication requirement, then identify the requested brand or reference. An industrial viscosity grade helps describe the request, but it does not make different application types interchangeable.
+- [Lubrifiants industriels](https://energydune.com/fr/products/lubrifiants-industriels/): Version française.
+- [Transmission and gear oils](https://energydune.com/products/transmission-and-gear-oils/): Transmission-oil enquiries should identify the unit being lubricated, not only the vehicle. DUNE ENERGY GLOBAL accepts requests for ATF, CVT, DCT and automotive gear oils by product reference and manufacturer requirement. The transmission or axle specification is the starting point for describing the correct product.
+- [Huiles de transmission et d’engrenages](https://energydune.com/fr/products/huiles-transmission-engrenages/): Version française.
+- [Lubricating greases](https://energydune.com/products/lubricating-greases/): DUNE ENERGY GLOBAL accepts enquiries for bearing and multipurpose greases in industrial and commercial applications. A useful grease request combines consistency, equipment and operating conditions. If you are replacing a product, identify the existing grease as well as the proposed reference so compatibility can be considered.
+- [Graisses lubrifiantes](https://energydune.com/fr/products/graisses-lubrifiantes/): Version française.
+- [Energy products](https://energydune.com/products/energy-products/): DUNE ENERGY GLOBAL accepts energy-product enquiries by named product, specification and destination. This category is a starting point for a defined commercial request. It is not a published list of individual products or a statement that a particular grade, volume or delivery arrangement is available.
+- [Produits énergétiques](https://energydune.com/fr/products/produits-energetiques/): Version française.
+
+## Selection reference
+
+- [Lubricant selection guide](https://energydune.com/guides/lubricant-selection/): SAE, ISO VG, NLGI, performance specifications, OEM approvals and enquiry details.
+- [Guide de sélection](https://energydune.com/fr/guides/lubricant-selection/): Version française.
+
+## Public machine-readable access
+
+- [MCP documentation](https://energydune-mcp.tonygu0826.workers.dev/docs): Public company and category lookup tools. Its enquiry tool prepares a draft; it does not send email.
+
+## Policies and discovery
+
+- [Privacy policy](https://energydune.com/privacy.html)
+- [Terms of use](https://energydune.com/terms.html)
+- [XML sitemap](https://energydune.com/sitemap.xml)

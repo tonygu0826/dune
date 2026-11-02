@@ -1,0 +1,31 @@
+name: Static website checks
+
+on:
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'tools/**'
+      - '**.html'
+      - '**.css'
+      - 'app.js'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'llms.txt'
+      - '.github/workflows/site-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-site.txt
+      - run: python tools/build_site.py --check
+      - run: python tools/check_seo.py
+      - run: node --check app.js
