@@ -59,8 +59,8 @@ const translations = {
     "navLabel": "Main navigation",
     "mobileNavLabel": "Mobile navigation",
     "heroAlt": "Clean precision steel gears with a ribbon of amber lubricating oil against a cool industrial background",
-    "pageTitle": "DUNE ENERGY GLOBAL — Energy & Lubricants",
-    "metaDescription": "Energy products and multi-brand lubricants for automotive, commercial and industrial applications. Contact DUNE ENERGY GLOBAL for product enquiries.",
+    "pageTitle": "Multi-brand lubricants & energy | DUNE ENERGY GLOBAL",
+    "metaDescription": "Enquire about multi-brand engine oils, industrial lubricants, transmission fluids, greases and energy products. Product specifications and supply confirmed by quotation.",
     "navBrands": "Brands",
     "productsTitle": "Our products.",
     "productsIntro": "Automotive. Commercial. Industrial.",
@@ -186,8 +186,8 @@ const translations = {
     "navLabel": "Navigation principale",
     "mobileNavLabel": "Navigation mobile",
     "heroAlt": "Engrenages en acier de précision et ruban d’huile lubrifiante ambrée sur fond industriel aux tons froids",
-    "pageTitle": "DUNE ENERGY GLOBAL — Énergie et lubrifiants",
-    "metaDescription": "Produits énergétiques et lubrifiants multimarques pour véhicules légers, poids lourds et industrie. Demandez un prix à DUNE ENERGY GLOBAL.",
+    "pageTitle": "Lubrifiants multimarques et énergie | DUNE ENERGY GLOBAL",
+    "metaDescription": "Demandez des huiles moteur, lubrifiants industriels, fluides de transmission, graisses et produits énergétiques. Spécifications et disponibilité confirmées par devis.",
     "navBrands": "Marques",
     "productsTitle": "Nos produits.",
     "productsIntro": "Automobile. Poids lourds. Industrie.",
@@ -256,11 +256,10 @@ const translations = {
   }
 };
 
-let language = 'en';
-try { language = localStorage.getItem('dune-language') === 'fr' ? 'fr' : 'en'; } catch { /* Storage is optional. */ }
+let language = document.documentElement.lang === 'fr' ? 'fr' : 'en';
 const pageParameters = new URLSearchParams(window.location.search);
 const requestedLanguage = pageParameters.get('lang');
-if (requestedLanguage === 'en' || requestedLanguage === 'fr') language = requestedLanguage;
+
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
 const form = document.querySelector('#inquiry-form');
@@ -432,13 +431,6 @@ function updateProductFilter(nextFilter = activeFilter) {
 }
 function setLanguage(nextLanguage) {
   language = nextLanguage === 'fr' ? 'fr' : 'en';
-  try {
-    const pageUrl = new URL(window.location.href);
-    if (form || pageUrl.searchParams.has('lang')) {
-      pageUrl.searchParams.set('lang', language);
-      window.history.replaceState(window.history.state, '', pageUrl);
-    }
-  } catch { /* URL updates are optional. */ }
   const t = translations[language];
   document.documentElement.lang = language;
   document.title = t[form ? 'enquiryPageTitle' : 'pageTitle'];
@@ -465,22 +457,28 @@ function setLanguage(nextLanguage) {
   document.querySelector('.hero-scroll')?.setAttribute('aria-label', t.explore);
   if (menuButton) menuButton.setAttribute('aria-label', t[mobileNav.hidden ? 'menuOpen' : 'menuClose']);
   document.querySelectorAll('[data-inquiry]').forEach(link => {
-    const target = new URL('/mail/', window.location.origin);
-    target.searchParams.set('lang', language);
+    const target = new URL(language === 'fr' ? '/fr/mail/' : '/mail/', window.location.origin);
     if (link.dataset.category) target.searchParams.set('category', link.dataset.category);
     if (link.dataset.brand) target.searchParams.set('brand', link.dataset.brand);
     link.href = target.pathname + target.search;
   });
-  document.querySelectorAll('[data-home-link]').forEach(link => { link.href = `/?lang=${language}`; });
+  document.querySelectorAll('[data-home-link]').forEach(link => { link.href = language === 'fr' ? '/fr/' : '/'; });
+  if (form) {
+    document.querySelectorAll('[data-language-link]').forEach(link => {
+      const target = new URL(link.href);
+      for (const key of ['category', 'brand']) {
+        if (pageParameters.has(key)) target.searchParams.set(key, pageParameters.get(key));
+      }
+      link.href = target.pathname + target.search;
+    });
+  }
   if (form) {
     status.textContent = '';
     form.querySelectorAll('input, textarea, select').forEach(input => input.setCustomValidity(''));
     if (!result.hidden) { inquiryText = formatInquiry(); preview.textContent = inquiryText; }
   }
   updateInquiryState();
-  try { localStorage.setItem('dune-language', language); } catch { /* Storage is optional. */ }
 }
-document.querySelector('.language-switch').addEventListener('click', () => setLanguage(language === 'en' ? 'fr' : 'en'));
 menuButton?.addEventListener('click', () => setMenu(mobileNav.hidden));
 mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
@@ -488,12 +486,17 @@ document.addEventListener('click', event => { if (mobileNav && !mobileNav.hidden
 window.matchMedia('(min-width: 681px)').addEventListener('change', event => { if (event.matches) setMenu(false); });
 
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => updateProductFilter(button.dataset.filter)));
-function redirectLegacyMailRoute() {
-  if (!form && window.location.hash === '#mail') {
-    window.location.replace(`/mail/?lang=${language}`);
-  }
+function redirectLegacyRoute() {
+  const nextLanguage = requestedLanguage === 'en' || requestedLanguage === 'fr' ? requestedLanguage : language;
+  const mailRoute = Boolean(form) || window.location.hash === '#mail';
+  if (window.location.hash !== '#mail' && nextLanguage === language && !pageParameters.has('lang')) return;
+  const target = new URL(mailRoute ? (nextLanguage === 'fr' ? '/fr/mail/' : '/mail/') : (nextLanguage === 'fr' ? '/fr/' : '/'), window.location.origin);
+  target.search = window.location.search;
+  target.searchParams.delete('lang');
+  if (window.location.hash !== '#mail') target.hash = window.location.hash;
+  if (target.href !== window.location.href) window.location.replace(target.href);
 }
-window.addEventListener('hashchange', redirectLegacyMailRoute);
+window.addEventListener('hashchange', redirectLegacyRoute);
 
 if (form) {
   const category = pageParameters.get('category');
@@ -562,4 +565,4 @@ if (form) {
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
 setLanguage(language);
-redirectLegacyMailRoute();
+redirectLegacyRoute();
