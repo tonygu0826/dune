@@ -18,11 +18,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--submit', action='store_true', help='Perform the notification after verifying the live public host proof.')
     parser.add_argument('--receipt', default='.local/seo-geo/release/indexnow-receipt.json')
+    parser.add_argument('--url', action='append', dest='selected_urls', help='Notify only this known canonical URL; repeat for multiple changed URLs')
     args = parser.parse_args()
     key = (ROOT / 'indexnow-key.txt').read_text().strip()
     assert re.fullmatch(r'[a-zA-Z0-9-]{8,128}', key), 'Invalid public host-proof format'
     routes = json.loads((ROOT / 'site/routes.json').read_text())
-    urls = [ORIGIN + item['path'] for item in routes]
+    canonical_urls = [ORIGIN + item['path'] for item in routes]
+    urls = list(dict.fromkeys(args.selected_urls or canonical_urls))
+    if not set(urls) <= set(canonical_urls):
+        parser.error('Only canonical public URLs in site/routes.json may be notified; query strings and private or external URLs are not accepted')
     assert 0 < len(urls) <= 10000 and len(urls) == len(set(urls))
     assert all(url.startswith(ORIGIN + '/') and '?' not in url and '#' not in url for url in urls)
     key_url = ORIGIN + '/indexnow-key.txt'

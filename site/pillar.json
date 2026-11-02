@@ -1,0 +1,268 @@
+{
+  "id": "lubricants",
+  "type": "pillar",
+  "slugs": {
+    "en": "lubricants",
+    "fr": "lubrifiants"
+  },
+  "related_page_ids": [
+    "passenger",
+    "commercial",
+    "industrial",
+    "driveline",
+    "grease",
+    "lubricant-selection"
+  ],
+  "source_ids": [
+    "nlgi-glossary",
+    "api-oil-categories",
+    "acea-2023",
+    "acea-2024",
+    "saemobilus-j300",
+    "saemobilus-j306-current",
+    "mobil-gear-pds",
+    "mobil-compressor-pds",
+    "mobil-hydraulics",
+    "mobil-multi-vehicle-atf",
+    "mobil-product-faq"
+  ],
+  "editorial_notes": [
+    "Draft only; no website changes or publication.",
+    "Lubricant and grease definitions were checked against the locally fetched NLGI glossary entries Lubricant, Lubricating Grease and Lubrication.",
+    "US and Canada identify buyer and delivery-destination enquiries, not confirmed shipping coverage, stock, local offices or guaranteed commercial terms.",
+    "Energy remains a separate category in the product directory; it is not presented as a lubricant type on this pillar.",
+    "All source IDs reuse the previously verified content-research/content.json source list; no source records were changed."
+  ],
+  "en": {
+    "title": "Automotive and industrial lubricants",
+    "meta_description": "Lubricants and lubricating oil for automotive and industrial applications. Explore oil and grease types, product requirements and US or Canadian enquiries.",
+    "summary": "Find the lubricant category that matches your vehicle, equipment and purchasing requirement. DUNE ENERGY GLOBAL accepts multi-brand lubricant enquiries for automotive, commercial vehicle and industrial applications, with the product reference, specification, quantity and destination forming the basis of each request.",
+    "applications": [
+      "Passenger cars",
+      "Commercial vehicles",
+      "Industrial equipment"
+    ],
+    "sections": [
+      {
+        "heading": "What are automotive and industrial lubricants?",
+        "paragraphs": [
+          "A lubricant is a material applied to surfaces to reduce friction or wear when those surfaces move relative to one another. Lubricating oil is a liquid lubricant; a lubricating grease contains a lubricating fluid held in a thickener structure. In vehicles and industrial equipment, the application determines the required product. An engine, a transmission and a compressor can need different lubricants even when a description or grade number looks similar."
+        ],
+        "source_ids": [
+          "nlgi-glossary",
+          "api-oil-categories",
+          "mobil-compressor-pds"
+        ]
+      },
+      {
+        "heading": "Which lubricant category fits the application?",
+        "paragraphs": [
+          "For engine lubrication, distinguish passenger car engine oils from heavy-duty diesel engine oils for commercial vehicles and off-highway equipment. Their performance requirements should be checked against the engine documentation.",
+          "For transmissions and automotive gears, identify the transmission or axle and its required fluid. ATF, CVT and DCT descriptions refer to different application requirements; a multi-vehicle label does not establish universal suitability.",
+          "For industrial equipment, identify hydraulic, industrial gear or compressor service. Bearing and multipurpose greases form another lubricant category. Use the relevant category page to narrow the application before asking about an individual reference."
+        ],
+        "source_ids": [
+          "api-oil-categories",
+          "acea-2023",
+          "acea-2024",
+          "mobil-multi-vehicle-atf",
+          "mobil-hydraulics",
+          "mobil-gear-pds",
+          "mobil-compressor-pds",
+          "nlgi-glossary"
+        ]
+      },
+      {
+        "heading": "Read the grade in its application context",
+        "paragraphs": [
+          "SAE engine-oil viscosity grades, automotive gear-lubricant grades, industrial ISO VG grades and NLGI grease consistency describe different classifications. None is a complete product specification. Start with the equipment requirement, then check the exact product's current technical information. The selection guide explains these grade systems and the distinction between a performance statement and a formal manufacturer approval."
+        ],
+        "source_ids": [
+          "saemobilus-j300",
+          "saemobilus-j306-current",
+          "nlgi-glossary",
+          "mobil-gear-pds"
+        ]
+      },
+      {
+        "heading": "Identify the brand and product reference",
+        "paragraphs": [
+          "If you have a preferred product, include its full name and reference rather than a brand alone. SINOPEC and Great Wall Lubricants can be identified in an enquiry. Brand names identify requested products, not authorised distribution. For technical review, request the relevant TDS/PDS; for handling and safety information, request the SDS. Keep any manufacturer approval wording specific to the documented product and grade."
+        ],
+        "source_ids": [
+          "mobil-product-faq",
+          "mobil-gear-pds"
+        ]
+      },
+      {
+        "heading": "Enquiries with a US or Canadian destination",
+        "paragraphs": [
+          "For enquiries with a US or Canadian delivery destination, provide the country, city, state or province and postal code, together with the product, quantity, packaging and requested date. These details describe your purchasing requirement. Availability, specifications, delivery arrangements and commercial terms need confirmation in the quotation for the particular request. You can describe your requirements in English or French."
+        ],
+        "source_ids": []
+      }
+    ],
+    "checklist_heading": "Start a lubricant enquiry",
+    "checklist": [
+      "Choose the category or provide an exact product reference.",
+      "Include the equipment requirement and specified grade.",
+      "State the quantity, units and preferred pack size.",
+      "Give the destination and requested date.",
+      "Identify any technical or safety documents required."
+    ],
+    "faqs": [
+      {
+        "question": "Which lubricants can I enquire about at DUNE ENERGY GLOBAL?",
+        "answer": "You can enquire about passenger car engine oils, heavy-duty diesel engine oils, hydraulic, industrial gear and compressor oils, transmission and automotive gear oils, and lubricating greases. Availability and specifications are confirmed by quotation.",
+        "source_ids": []
+      },
+      {
+        "question": "Is lubricating oil the same as lubricating grease?",
+        "answer": "No. Lubricating oil is liquid; grease contains lubricating fluid within a thickener structure. The equipment's lubrication requirement determines which product type is appropriate.",
+        "source_ids": [
+          "nlgi-glossary"
+        ]
+      },
+      {
+        "question": "Can I choose a lubricant by viscosity grade alone?",
+        "answer": "No. Check the application, performance specification and any required manufacturer approval as well as the grade. A shared grade does not establish interchangeability.",
+        "source_ids": [
+          "saemobilus-j300",
+          "saemobilus-j306-current",
+          "mobil-gear-pds"
+        ]
+      },
+      {
+        "question": "How do I request a quotation for a US or Canadian destination?",
+        "answer": "Send the product or requirement, quantity, packaging and delivery destination to info@energydune.com. Include the requested date. Supply and delivery terms require confirmation in the quotation.",
+        "source_ids": []
+      },
+      {
+        "question": "Do the brand names indicate authorised distribution?",
+        "answer": "No. SINOPEC and Great Wall Lubricants identify products customers may request. Their names do not imply authorised distribution, brand affiliation or confirmed availability of a particular product.",
+        "source_ids": []
+      }
+    ],
+    "cta": {
+      "label": "Enquire about lubricants",
+      "text": "Send your product requirements, quantity and destination to info@energydune.com.",
+      "email": "info@energydune.com"
+    }
+  },
+  "fr": {
+    "title": "Lubrifiants automobiles et industriels",
+    "meta_description": "Lubrifiants automobiles et industriels : huiles et graisses, applications et choix du produit. Demandes avec une destination aux États-Unis ou au Canada.",
+    "summary": "Identifiez la catégorie de lubrifiant adaptée à votre véhicule, à votre équipement et à votre besoin d’achat. DUNE ENERGY GLOBAL reçoit les demandes de lubrifiants multimarques pour véhicules légers, véhicules commerciaux et applications industrielles, selon la référence, la spécification, la quantité et la destination souhaitées.",
+    "applications": [
+      "Véhicules légers",
+      "Véhicules commerciaux",
+      "Équipements industriels"
+    ],
+    "sections": [
+      {
+        "heading": "Qu’est-ce qu’un lubrifiant automobile ou industriel ?",
+        "paragraphs": [
+          "Un lubrifiant est un matériau appliqué sur des surfaces pour réduire le frottement ou l’usure lors de leur mouvement relatif. Une huile lubrifiante est un lubrifiant liquide ; une graisse contient un fluide lubrifiant retenu dans une structure épaississante. Pour les véhicules et équipements industriels, l’application détermine le produit requis. Un moteur, une transmission et un compresseur peuvent demander des lubrifiants différents malgré des descriptions ou numéros de grade ressemblants."
+        ],
+        "source_ids": [
+          "nlgi-glossary",
+          "api-oil-categories",
+          "mobil-compressor-pds"
+        ]
+      },
+      {
+        "heading": "Quelle catégorie correspond à l’application ?",
+        "paragraphs": [
+          "Pour la lubrification des moteurs, distinguez les huiles pour véhicules légers des huiles moteur diesel pour poids lourds et équipements hors route. Vérifiez les exigences de performance dans la documentation du moteur.",
+          "Pour les transmissions et engrenages automobiles, identifiez la boîte ou le pont ainsi que le fluide prescrit. ATF, CVT et DCT correspondent à des exigences d’application différentes ; une mention multivéhicules ne confirme pas une adéquation universelle.",
+          "Pour les équipements industriels, précisez l’usage hydraulique, engrenages industriels ou compresseur. Les graisses pour roulements et usages multiples forment une autre catégorie de lubrifiants. Consultez la page de catégorie pertinente pour préciser l’application avant de demander une référence individuelle."
+        ],
+        "source_ids": [
+          "api-oil-categories",
+          "acea-2023",
+          "acea-2024",
+          "mobil-multi-vehicle-atf",
+          "mobil-hydraulics",
+          "mobil-gear-pds",
+          "mobil-compressor-pds",
+          "nlgi-glossary"
+        ]
+      },
+      {
+        "heading": "Lire le grade dans son contexte d’application",
+        "paragraphs": [
+          "Les grades SAE pour huiles moteur, les grades pour engrenages automobiles, les grades industriels ISO VG et la consistance NLGI des graisses décrivent des classifications différentes. Aucun ne constitue une spécification complète. Partez des exigences de l’équipement, puis vérifiez la documentation technique à jour du produit exact. Le guide de sélection explique ces systèmes et distingue une déclaration de performance d’une homologation formelle du constructeur."
+        ],
+        "source_ids": [
+          "saemobilus-j300",
+          "saemobilus-j306-current",
+          "nlgi-glossary",
+          "mobil-gear-pds"
+        ]
+      },
+      {
+        "heading": "Identifier la marque et la référence",
+        "paragraphs": [
+          "Si vous souhaitez un produit précis, indiquez son nom complet et sa référence plutôt que la marque seule. Vous pouvez mentionner SINOPEC ou Great Wall Lubricants dans votre demande. Les marques identifient les produits demandés et n’impliquent pas de distribution agréée. Demandez la fiche technique TDS/PDS pour l’examen du produit, et la FDS/SDS pour les informations de manipulation et de sécurité. Conservez les termes d’homologation propres au produit et au grade documentés."
+        ],
+        "source_ids": [
+          "mobil-product-faq",
+          "mobil-gear-pds"
+        ]
+      },
+      {
+        "heading": "Demandes avec une destination aux États-Unis ou au Canada",
+        "paragraphs": [
+          "Pour une demande avec une destination de livraison aux États-Unis ou au Canada, précisez le pays, la ville, l’État ou la province et le code postal, avec le produit, la quantité, l’emballage et la date souhaitée. Ces éléments décrivent votre besoin d’achat. La disponibilité, les spécifications, les modalités de livraison et les conditions commerciales doivent être confirmées par le devis correspondant. Vous pouvez décrire vos besoins en anglais ou en français."
+        ],
+        "source_ids": []
+      }
+    ],
+    "checklist_heading": "Préparer une demande de lubrifiant",
+    "checklist": [
+      "Choisissez la catégorie ou indiquez une référence exacte.",
+      "Ajoutez les exigences de l’équipement et le grade prescrit.",
+      "Précisez la quantité, les unités et le format souhaité.",
+      "Indiquez la destination et la date demandée.",
+      "Identifiez les documents techniques ou de sécurité nécessaires."
+    ],
+    "faqs": [
+      {
+        "question": "Quels lubrifiants puis-je demander à DUNE ENERGY GLOBAL ?",
+        "answer": "Vous pouvez demander des huiles moteur pour véhicules légers ou poids lourds, des huiles hydrauliques, d’engrenages industriels ou de compresseurs, des huiles de transmission et d’engrenages automobiles, ainsi que des graisses. Disponibilité et spécifications sont confirmées par devis.",
+        "source_ids": []
+      },
+      {
+        "question": "Une huile lubrifiante est-elle une graisse ?",
+        "answer": "Non. L’huile lubrifiante est liquide ; la graisse contient un fluide lubrifiant retenu dans une structure épaississante. Les exigences de lubrification de l’équipement déterminent le type approprié.",
+        "source_ids": [
+          "nlgi-glossary"
+        ]
+      },
+      {
+        "question": "Le grade de viscosité suffit-il pour choisir un lubrifiant ?",
+        "answer": "Non. Vérifiez aussi l’application, la spécification de performance et toute homologation constructeur exigée. Un même grade ne suffit pas à établir l’interchangeabilité.",
+        "source_ids": [
+          "saemobilus-j300",
+          "saemobilus-j306-current",
+          "mobil-gear-pds"
+        ]
+      },
+      {
+        "question": "Comment demander un devis pour une destination aux États-Unis ou au Canada ?",
+        "answer": "Envoyez le produit ou les exigences, la quantité, l’emballage et la destination à info@energydune.com. Ajoutez la date souhaitée. Les conditions de fourniture et de livraison restent à confirmer par devis.",
+        "source_ids": []
+      },
+      {
+        "question": "Les marques indiquent-elles une distribution agréée ?",
+        "answer": "Non. SINOPEC et Great Wall Lubricants identifient les produits que les clients peuvent demander. Ces noms n’impliquent ni distribution agréée, ni affiliation, ni disponibilité confirmée d’un produit précis.",
+        "source_ids": []
+      }
+    ],
+    "cta": {
+      "label": "Demander un lubrifiant",
+      "text": "Envoyez les exigences du produit, la quantité et la destination à info@energydune.com.",
+      "email": "info@energydune.com"
+    }
+  }
+}

@@ -20,6 +20,16 @@
     "lastmod": null
   },
   {
+    "path": "/lubricants/",
+    "alternate": "/fr/lubrifiants/",
+    "language": "en",
+    "title": "Automotive and industrial lubricants | DUNE ENERGY GLOBAL",
+    "description": "Lubricants and lubricating oil for automotive and industrial applications. Explore oil and grease types, product requirements and US or Canadian enquiries.",
+    "file": "lubricants/index.html",
+    "kind": "WebPage",
+    "lastmod": "2026-11-02"
+  },
+  {
     "path": "/products/",
     "alternate": "/fr/products/",
     "language": "en",
@@ -128,6 +138,16 @@
     "file": "fr/mail/index.html",
     "kind": "ContactPage",
     "lastmod": null
+  },
+  {
+    "path": "/fr/lubrifiants/",
+    "alternate": "/lubricants/",
+    "language": "fr",
+    "title": "Lubrifiants automobiles et industriels | DUNE ENERGY GLOBAL",
+    "description": "Lubrifiants automobiles et industriels : huiles et graisses, applications et choix du produit. Demandes avec une destination aux États-Unis ou au Canada.",
+    "file": "fr/lubrifiants/index.html",
+    "kind": "WebPage",
+    "lastmod": "2026-11-02"
   },
   {
     "path": "/fr/products/",

@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / 'site/config.json').read_text())
 COPY = json.loads((ROOT / 'site/ui-copy.json').read_text())
 CONTENT = json.loads((ROOT / 'site/content.json').read_text())
+PILLAR = json.loads((ROOT / 'site/pillar.json').read_text())
 ORIGIN = CONFIG['origin']
 VERSION = CONFIG['cache_version']
 UPDATED = CONFIG['updated']
@@ -51,6 +52,8 @@ def mail(lang, category=None):
 
 
 def route(page, lang):
+    if page['id'] == 'lubricants':
+        return '/fr/lubrifiants/' if lang == 'fr' else '/lubricants/'
     if page['id'] == 'lubricant-selection':
         return prefix(lang) + '/guides/lubricant-selection/'
     return prefix(lang) + '/products/' + page['slugs'][lang] + '/'
@@ -144,7 +147,7 @@ def render_header(lang, other):
     return f'''<a class="skip-link" href="#main">{e(COPY[lang]['skip'])}</a>
 <header class="site-header"><div class="content-header-inner">
 <a class="brand" href="{home(lang)}" aria-label="{e(COPY[lang]['home'])}"><img class="brand-logo" src="/assets/dune-logo-light.svg?v=logo-align-1" width="520" height="180" alt="DUNE ENERGY GLOBAL"></a>
-<nav class="content-nav" aria-label="{e(COPY[lang]['navLabel'])}"><a href="{prefix(lang)}/products/">{e(ui['products'])}</a><a href="{route(GUIDE, lang)}">{e(ui['guide'])}</a><a href="{prefix(lang)}/about/">{e(ui['about'])}</a></nav>
+<nav class="content-nav" aria-label="{e(COPY[lang]['navLabel'])}"><a href="{route(PILLAR, lang)}">{'Lubrifiants' if lang == 'fr' else 'Lubricants'}</a><a href="{prefix(lang)}/products/">{e(ui['products'])}</a><a href="{route(GUIDE, lang)}">{e(ui['guide'])}</a><a href="{prefix(lang)}/about/">{e(ui['about'])}</a></nav>
 <a class="content-language" data-language-link href="{other}" hreflang="{'fr' if lang == 'en' else 'en'}" lang="{'fr' if lang == 'en' else 'en'}" aria-label="{e(ui['language'])}">{'FR' if lang == 'en' else 'EN'}</a>
 </div></header>'''
 
@@ -163,12 +166,14 @@ def cta(lang, category=None):
 
 
 def related(lang, exclude=None):
-    current = next((p for p in PAGES if p['id'] == exclude), None)
+    current = next((p for p in PAGES + [PILLAR] if p['id'] == exclude), None)
     selected = current.get('related_page_ids', []) if current else []
     candidates = [p for p in CATEGORIES if p['id'] != exclude and (not selected or p['id'] in selected)]
     cards = ''.join(f'<a class="related-card" href="{route(p, lang)}"><h3>{e(p[lang]["title"])}</h3><p>{e(p[lang]["summary"])}</p></a>' for p in candidates)
     if exclude != GUIDE['id']:
         cards += f'<a class="related-card" href="{route(GUIDE, lang)}"><h3>{e(UI[lang]["guide"])}</h3><p>{e(GUIDE[lang]["summary"])}</p></a>'
+    if exclude != PILLAR['id']:
+        cards += f'<a class="related-card" href="{route(PILLAR, lang)}"><h3>{e(PILLAR[lang]["title"])}</h3><p>{e(PILLAR[lang]["meta_description"])}</p></a>'
     return '<section class="content-section"><h2>' + e(UI[lang]['related']) + '</h2><div class="related-grid">' + cards + '</div></section>'
 
 
@@ -184,9 +189,10 @@ def render_category_or_guide(page, lang):
     text, ui = page[lang], UI[lang]
     path, other = route(page, lang), route(page, 'fr' if lang == 'en' else 'en')
     is_guide = page['id'] == 'lubricant-selection'
+    is_pillar = page['id'] == 'lubricants'
     title = text['title'] + ' | DUNE ENERGY GLOBAL'
     crumbs = [(ui['home'], home(lang))]
-    if not is_guide:
+    if not is_guide and not is_pillar:
         crumbs.append((ui['products'], prefix(lang) + '/products/'))
     crumbs.append((text['title'], path))
     body = '<p class="content-updated">' + e(ui['updated']) + '</p>'
@@ -208,14 +214,18 @@ def render_category_or_guide(page, lang):
     sources = [SOURCES[s] for s in source_ids if s in SOURCES and SOURCES[s].get('publish', True)]
     if sources:
         body += '<section class="content-section"><h2>' + e(ui['references']) + '</h2><p>' + e(ui['reference_note']) + '</p><ul class="source-list">' + ''.join(f'<li id="reference-{e(source["id"])}"><a href="{e(source["url"])}">{e(source.get("title_" + lang, source.get("title", source["id"])))}</a></li>' for source in sources) + '</ul></section>'
-    body += cta(lang, None if is_guide else page['id']) + related(lang, page['id'])
-    aside = '' if is_guide else '<aside class="content-aside"><h2>' + e(ui['summary']) + '</h2><p>' + e(text['summary']) + '</p><p>' + e(ui['specifications']) + '</p><a class="text-link" href="' + e(mail(lang, page['id'])) + '">' + e(ui['enquiry']) + '</a><p><a href="' + route(GUIDE, lang) + '">' + e(ui['guide']) + '</a></p></aside>'
+    body += cta(lang, None if is_guide or is_pillar else page['id']) + related(lang, page['id'])
+    aside = '' if is_guide or is_pillar else '<aside class="content-aside"><h2>' + e(ui['summary']) + '</h2><p>' + e(text['summary']) + '</p><p>' + e(ui['specifications']) + '</p><a class="text-link" href="' + e(mail(lang, page['id'])) + '">' + e(ui['enquiry']) + '</a><p><a href="' + route(GUIDE, lang) + '">' + e(ui['guide']) + '</a></p></aside>'
     extra = {'dateModified': UPDATED}
-    if is_guide:
+    if is_pillar:
+        extra['about'] = {'@type': 'Thing', 'name': 'Automotive and industrial lubricants'}
+        extra['audience'] = {'@type': 'BusinessAudience', 'geographicArea': [{'@type': 'Country', 'name': country} for country in CONFIG['target_enquiry_markets']]}
+        extra['mainEntity'] = {'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': p[lang]['title'], 'url': absolute(route(p, lang))} for i, p in enumerate(CATEGORIES) if p['id'] != 'energy']}
+    elif is_guide:
         extra['mainEntity'] = {'@type': 'Article', '@id': absolute(path) + '#article', 'headline': text['title'], 'description': text['summary'], 'inLanguage': lang, 'datePublished': UPDATED, 'dateModified': UPDATED, 'author': {'@id': absolute('/#organization')}, 'publisher': {'@id': absolute('/#organization')}, 'mainEntityOfPage': {'@id': absolute(path) + '#webpage'}}
     else:
         extra['mainEntity'] = {'@type': 'Service', '@id': absolute(path) + '#supply-enquiry', 'name': text['title'], 'serviceType': 'Product sales and supply enquiries', 'provider': {'@id': absolute('/#organization')}, 'description': text['summary'], 'url': absolute(mail(lang, page['id']))}
-    page_shell(path, other, lang, title, text['meta_description'], text['title'], text['summary'], body, crumbs, 'WebPage' if is_guide else 'CollectionPage', aside, extra)
+    page_shell(path, other, lang, title, text['meta_description'], text['title'], text['summary'], body, crumbs, 'WebPage' if is_guide or is_pillar else 'CollectionPage', aside, extra)
 
 
 def render_comparison(lang):
@@ -251,6 +261,8 @@ def render_about(lang):
         paragraphs = ['Transmettez la catégorie de produits, la marque ou la référence souhaitée, les spécifications, la quantité et la destination au moyen de notre page de demande. Les précisions techniques permettent de distinguer des produits aux noms ou aux grades de viscosité proches.', 'La disponibilité, les spécifications, le conditionnement et les besoins de livraison sont examinés pour chaque demande. Le site présente des informations par catégorie, sans publier de stocks en temps réel, de prix ou de délais confirmés.', 'Demandez la fiche technique (PDS/TDS), la fiche de données de sécurité (SDS/FDS) et les justificatifs d’homologation constructeur nécessaires pour le produit proposé. Une fiche de données de sécurité n’est pas une homologation de performance.']
     body = '<section class="content-section"><h2>' + e(ui['facts']) + '</h2><dl class="fact-list">' + ''.join('<div><dt>' + e(k) + '</dt><dd>' + e(v) + '</dd></div>' for k, v in pairs) + '</dl></section>'
     body += '<section class="content-section"><h2>' + e(ui['process']) + '</h2>' + ''.join('<p>' + e(p) + '</p>' for p in paragraphs) + '<p>' + e(ui['brand']) + '</p></section>'
+    destination = PILLAR[lang]['sections'][-1]
+    body += '<section class="content-section"><h2>' + e(destination['heading']) + '</h2>' + ''.join('<p>' + e(p) + '</p>' for p in destination['paragraphs']) + '</section>'
     body += cta(lang) + related(lang)
     page_shell(path, other, lang, heading, summary, heading, summary, body, [(ui['home'], home(lang)), (ui['about'], path)], 'AboutPage', extra={'mainEntity': {'@id': absolute('/#organization')}})
 
@@ -331,7 +343,7 @@ def render_existing_template(lang, is_mail=False):
             heading.text = None
             heading.append(link)
         products = body.xpath('//*[@id="products"]')[0]
-        strip = html.fragment_fromstring('<div class="resource-strip"><p>' + e(UI[lang]['resources']) + '</p><div class="resource-links"><a href="' + prefix(lang) + '/products/">' + e(UI[lang]['all_products']) + '</a><a href="' + route(GUIDE, lang) + '">' + e(UI[lang]['guide']) + '</a></div></div>')
+        strip = html.fragment_fromstring('<div class="resource-strip"><p>' + e(UI[lang]['resources']) + '</p><div class="resource-links"><a href="' + route(PILLAR, lang) + '">' + ('Lubrifiants' if lang == 'fr' else 'Lubricants') + '</a><a href="' + prefix(lang) + '/products/">' + e(UI[lang]['all_products']) + '</a><a href="' + route(GUIDE, lang) + '">' + e(UI[lang]['guide']) + '</a></div></div>')
         products.append(strip)
         about = body.xpath('//*[contains(concat(" ",normalize-space(@class)," ")," about-copy ")]')[0]
         about.append(html.fragment_fromstring('<a class="text-link" href="' + prefix(lang) + '/about/">' + e(UI[lang]['about']) + ' <span aria-hidden="true">↗</span></a>'))
@@ -387,6 +399,7 @@ def render_discovery():
     bots = ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Meta-WebIndexer', 'facebookexternalhit']
     OUTPUTS['robots.txt'] = '# Public pages may be crawled by search engines and user-requested AI retrieval.\n' + '\n'.join('User-agent: ' + bot for bot in bots) + '\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ' + absolute('/sitemap.xml') + '\n'
     lines = ['# DUNE ENERGY GLOBAL', '', '> Energy products and multi-brand lubricants for automotive, commercial vehicle and industrial applications. Official website: https://energydune.com/.', '', 'DUNE ENERGY GLOBAL INC. is the legal company name. Contact: info@energydune.com. Availability and specifications are confirmed by quotation. SINOPEC and Great Wall Lubricants identify requested products; their listing does not imply authorised distribution. This website publishes category-level information, not live inventory, prices, SKU-level approvals or confirmed lead times.', '', '## Company and enquiries', '', '- [Company profile](https://energydune.com/about/): Public company identity, scope and quotation process.', '- [Send an enquiry](https://energydune.com/mail/): Direct enquiry form.', '- [French homepage](https://energydune.com/fr/): Site en français.', '- [French company profile](https://energydune.com/fr/about/): Informations sur l’entreprise.', '', '## Product information', '']
+    lines += [f'- [Automotive and industrial lubricants]({absolute(route(PILLAR, "en"))}): Lubricating oils, greases, application choices and enquiries with US or Canadian destinations; supply terms require a quotation.', f'- [Lubrifiants automobiles et industriels]({absolute(route(PILLAR, "fr"))}): Version française.']
     for p in CATEGORIES:
         lines.append(f'- [{p["en"]["title"]}]({absolute(route(p, "en"))}): {p["en"]["summary"]}')
         lines.append(f'- [{p["fr"]["title"]}]({absolute(route(p, "fr"))}): Version française.')
@@ -400,6 +413,7 @@ def build(check=False):
     for lang in LANGUAGES:
         render_existing_template(lang)
         render_existing_template(lang, True)
+        render_category_or_guide(PILLAR, lang)
         render_hub(lang)
         for page in PAGES:
             render_category_or_guide(page, lang)

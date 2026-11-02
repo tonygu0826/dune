@@ -5,7 +5,7 @@ The website publishes English and French as separate static documents. The HTML 
 ## What changed
 
 - English homepage `/` and French homepage `/fr/`, plus separate `/mail/` and `/fr/mail/` enquiry pages. Old `?lang=` links and `/#mail` remain compatible through client-side redirects on GitHub Pages.
-- Six distinct category pages in each language, an English/French product hub, a source-backed lubricant selection guide and a factual company profile. `site/routes.json` records all 26 canonical documents and their alternatives.
+- Six distinct category pages in each language, an English/French product hub, a source-backed lubricant selection guide, a factual company profile and a dedicated automotive/industrial lubricants overview. `site/routes.json` records all 28 canonical documents and their alternatives.
 - Consistent `Organization` and `WebSite` identities, document schemas and visible breadcrumbs. Category pages describe sales-enquiry services, not invented SKU-level products, inventory, prices, ratings or authorised distributorships.
 - Distinct static titles/descriptions, canonical and alternate URLs, Open Graph/Twitter sharing metadata, a custom noindex 404 and a sitemap of canonical URLs. Last-modified dates are used only where substantial content actually changed.
 - Responsive 640/1024/1536px WebP hero images replace a 2,259,934-byte PNG in the page. Original image files remain available for existing links. The large sharing image is a separate JPEG.
@@ -22,6 +22,14 @@ python tools/notify_indexnow.py --submit
 ```
 
 The first command previews the host, endpoint and URL count without submitting. The second checks the live public proof, then sends one batch to the [official IndexNow endpoint](https://www.indexnow.org/documentation). It does not require a Webmaster account. HTTP 200 confirms receipt, while 202 means receipt with host-proof validation pending; neither confirms crawling or indexing. The receipt is written under `.local/` and must not be published. Do not include private URLs, visitor details, enquiry payloads or query strings. Avoid repeated unchanged notifications; respect 429 rate limits and back off rather than retrying continuously.
+
+For a small update, repeat `--url https://energydune.com/known-canonical-path/` to notify only changed URLs. The tool rejects URLs outside the generated canonical route list.
+
+## US/Canada lubricant and AI-search focus
+
+The owner selected the United States and Canada as target customer markets, English/French as the website languages, and both ordinary search and web-grounded AI answers as visibility goals. `/lubricants/` and `/fr/lubrifiants/` explain automotive/industrial lubricant types, purchasing requirements and destination-specific enquiry details. `/products/` remains the directory including the separate energy category, and the selection guide explains technical terminology. Navigation connects these roles without creating duplicate city or country pages.
+
+The pillar's structured audience describes the intended US/Canadian buyer, not a company address or a verified delivery territory. Supply, shipping arrangements and commercial terms still require an individual quotation. Main keyword visibility and AI recommendations have not been measured or guaranteed. The repeatable observation method and query matrix are documented in `docs/AI-SEARCH-MEASUREMENT.md`.
 
 ## Verify ownership and start measuring
 

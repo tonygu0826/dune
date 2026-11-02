@@ -14,6 +14,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/mail/" />
   </url>
   <url>
+    <loc>https://energydune.com/lubricants/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/lubricants/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/fr/lubrifiants/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/lubricants/" />
+  </url>
+  <url>
     <loc>https://energydune.com/products/</loc>
     <lastmod>2026-11-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/products/" />
@@ -88,6 +95,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/mail/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/fr/mail/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/mail/" />
+  </url>
+  <url>
+    <loc>https://energydune.com/fr/lubrifiants/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://energydune.com/lubricants/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://energydune.com/fr/lubrifiants/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://energydune.com/lubricants/" />
   </url>
   <url>
     <loc>https://energydune.com/fr/products/</loc>

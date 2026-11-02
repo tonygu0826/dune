@@ -42,7 +42,7 @@ python3 -m http.server 8000 --bind 0.0.0.0 --directory /workspace/dune
 
 ## 发布
 
-公开抓取配置：根目录 `robots.txt` 明确允许 Meta-WebIndexer、facebookexternalhit，并保持其他爬虫的默认公开访问；其中声明 `https://energydune.com/sitemap.xml`。站点地图列出 26 个规范页面：首页、询盘页、分类总览、六类产品详情、选型指南、公司介绍的双语版本及四个法律页面，均提供双向语言替代链接；产品、品牌、公司简介、联系信息和法律正文在原始 HTML 中可读。每种语言使用独立规范地址，不把页面片段或查询参数加入 sitemap。允许抓取并不保证任何平台收录、排名或引用。
+公开抓取配置：根目录 `robots.txt` 明确允许 Meta-WebIndexer、facebookexternalhit，并保持其他爬虫的默认公开访问；其中声明 `https://energydune.com/sitemap.xml`。站点地图列出 28 个规范页面：首页、询盘页、润滑油专题、分类总览、六类产品详情、选型指南、公司介绍的双语版本及四个法律页面，均提供双向语言替代链接；产品、品牌、公司简介、联系信息和法律正文在原始 HTML 中可读。每种语言使用独立规范地址，不把页面片段或查询参数加入 sitemap。允许抓取并不保证任何平台收录、排名或引用。
 
 GitHub Pages 从远端 `gh-pages` 分支根目录发布，必须保留该分支已有的 `CNAME`（`energydune.com`）和 `.nojekyll`。发布前先读取最新远端提交，以其为父提交，明确选择网站文件；不要上传 `.local/`、询盘导出、测试结果或 `.git/`。不要以本地初始 `work` 分支强推覆盖线上分支。
 
@@ -71,3 +71,5 @@ node --check app.js
 ```
 
 修改 `site/` 内容源再构建；不要手改生成后的 HTML 或 `app.js`。生成结果保持静态发布，后端发信与 MCP 工具实现不受构建器影响。
+
+美国与加拿大为目前明确的目标客户市场。英文 `/lubricants/` 和法文 `/fr/lubrifiants/` 作为汽车及工业润滑油专题，与分类目录和选型指南互链。目标包括普通搜索与联网AI引用；可重复的查询观察方法见 [docs/AI-SEARCH-MEASUREMENT.md](docs/AI-SEARCH-MEASUREMENT.md)，不把技术部署或单次AI回答等同于稳定排名。
