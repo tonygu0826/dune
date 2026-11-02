@@ -177,10 +177,13 @@ def related(lang, exclude=None):
     return '<section class="content-section"><h2>' + e(UI[lang]['related']) + '</h2><div class="related-grid">' + cards + '</div></section>'
 
 
-def page_shell(path, other, lang, title, description, heading, summary, body, crumbs, kind='WebPage', aside='', extra=None):
+def page_shell(path, other, lang, title, description, heading, summary, body, crumbs, kind='WebPage', aside='', extra=None, heading_cta=False):
     data = schema(path, lang, title, description, kind, crumbs, extra)
     document = f'<!doctype html>\n<html lang="{lang}">\n' + head(path, other, lang, title, description, data) + f'\n<body class="content-page">\n' + render_header(lang, other)
-    document += '<main class="content-main" id="main">' + breadcrumb(crumbs, lang) + f'<header class="content-heading"><p class="eyebrow">DUNE ENERGY GLOBAL</p><h1>{e(heading)}</h1><p class="content-summary">{e(summary)}</p></header>'
+    document += '<main class="content-main" id="main">' + breadcrumb(crumbs, lang) + f'<header class="content-heading"><p class="eyebrow">DUNE ENERGY GLOBAL</p><h1>{e(heading)}</h1><p class="content-summary">{e(summary)}</p>'
+    if heading_cta:
+        document += f'<a class="button button-dark" href="{mail(lang)}">{e(COPY[lang]["startConversation"])} <span aria-hidden="true">↗</span></a>'
+    document += '</header>'
     document += '<div class="content-layout"><article class="content-article">' + body + '</article>' + aside + '</div></main>' + footer(lang) + '</body></html>'
     register(path, other, lang, title, description, document, kind)
 
@@ -225,7 +228,7 @@ def render_category_or_guide(page, lang):
         extra['mainEntity'] = {'@type': 'Article', '@id': absolute(path) + '#article', 'headline': text['title'], 'description': text['summary'], 'inLanguage': lang, 'datePublished': UPDATED, 'dateModified': UPDATED, 'author': {'@id': absolute('/#organization')}, 'publisher': {'@id': absolute('/#organization')}, 'mainEntityOfPage': {'@id': absolute(path) + '#webpage'}}
     else:
         extra['mainEntity'] = {'@type': 'Service', '@id': absolute(path) + '#supply-enquiry', 'name': text['title'], 'serviceType': 'Product sales and supply enquiries', 'provider': {'@id': absolute('/#organization')}, 'description': text['summary'], 'url': absolute(mail(lang, page['id']))}
-    page_shell(path, other, lang, title, text['meta_description'], text['title'], text['summary'], body, crumbs, 'WebPage' if is_guide or is_pillar else 'CollectionPage', aside, extra)
+    page_shell(path, other, lang, title, text['meta_description'], text['title'], text['summary'], body, crumbs, 'WebPage' if is_guide or is_pillar else 'CollectionPage', aside, extra, heading_cta=is_pillar)
 
 
 def render_comparison(lang):
