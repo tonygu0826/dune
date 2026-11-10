@@ -1,0 +1,194 @@
+/* The enquiry form is a document page; shared field and result styles come from styles.css. */
+.mail-page {
+  min-height: 100dvh;
+  background: var(--paper);
+}
+
+.mail-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: min(1120px, calc(100% - 64px));
+  min-height: 90px;
+  margin-inline: auto;
+}
+
+.mail-header .brand {
+  margin-right: auto;
+}
+
+.mail-header .brand-logo {
+  width: 244px;
+  height: auto;
+}
+
+.mail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mail-back > span[aria-hidden] {
+  color: var(--accent-light);
+  font-size: 18px;
+}
+
+.mail-back:hover {
+  color: var(--accent-light);
+}
+
+.mail-main {
+  width: min(840px, calc(100% - 48px));
+  margin-inline: auto;
+  padding-block: 44px 32px;
+}
+
+.mail-panel {
+  min-width: 0;
+  padding: 36px 40px 40px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  background: var(--surface);
+  scroll-margin-top: 24px;
+}
+
+.mail-heading {
+  margin-bottom: 25px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mail-heading > .eyebrow {
+  color: var(--accent-ink);
+  font-size: 10px;
+}
+
+.mail-heading h1 {
+  margin: 11px 0 10px;
+  font-size: clamp(29px, 3.4vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.mail-description {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.mail-recipient {
+  margin: 0;
+  color: var(--accent-ink);
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.mail-noscript {
+  margin: 0 0 24px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  font-size: 13px;
+}
+
+.mail-panel button:disabled {
+  cursor: wait;
+  opacity: .62;
+}
+
+.mail-panel .inquiry-result,
+.mail-panel #inquiry-result-title {
+  scroll-margin-top: 28px;
+}
+
+.mail-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  width: min(840px, calc(100% - 48px));
+  margin-inline: auto;
+  padding-bottom: 28px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.mail-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+.mail-footer a:hover {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .mail-header-inner {
+    flex-wrap: wrap;
+    gap: 0 20px;
+    width: calc(100% - 32px);
+    min-height: 0;
+    padding-block: 8px 12px;
+  }
+
+  .mail-header .brand-logo {
+    width: 210px;
+  }
+
+  .mail-header .language-switch {
+    order: 2;
+    min-height: 40px;
+  }
+
+  .mail-back {
+    order: 3;
+    flex-basis: 100%;
+    min-height: 30px;
+    padding-left: 10px;
+    font-size: 11px;
+  }
+
+  .mail-main {
+    width: calc(100% - 24px);
+    padding-block: 24px;
+  }
+
+  .mail-panel {
+    padding: 25px 20px 28px;
+  }
+
+  .mail-heading {
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+  }
+
+  .mail-footer {
+    width: calc(100% - 40px);
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 359px) {
+  .mail-header .brand-logo {
+    width: 190px;
+  }
+
+  .mail-header-inner {
+    column-gap: 12px;
+  }
+
+  .mail-panel {
+    padding-inline: 16px;
+  }
+}
