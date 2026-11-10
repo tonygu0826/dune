@@ -38,7 +38,7 @@ python3 -m http.server 8000 --bind 0.0.0.0 --directory /workspace/dune
 
 品牌名称仅作为客户意向产品的询盘选项，不表示授权经销、库存保证或合作关系。SAE、ISO VG、NLGI 与 API/ACEA/OEM 要求分开表述，具体批准和可供情况逐项报价确认。
 
-品牌区和询盘品牌快捷选项目前仅保留 SINOPEC 与 Great Wall Lubricants。SINOPEC 使用官方润滑油产品资料中的英文矢量字标（含 PERFORMANCE IN MOTION），从新加坡官网 `Resource/pdf/L-HM%20Antiwear%20Hydraulic%20Oil.pdf` 页脚提取原有路径及字体轮廓，无图片或外部字体依赖。长城润滑油使用现成的 700×381 标准上下组合图，来源 `https://www.sucai999.com/sucai/4683449.html` 的公开无水印预览，已与长城官网 `https://www.sinolube.com/images/logo.png` 的图形和标准字核对；原图直接使用，不放大生成或重绘，显示宽度最高 240px，像素密度约 2.9 倍。长城中文为商标组成，网站界面仍仅提供英文和法文。两品牌在电脑上并排，窄屏改为单列；点击标识可预填对应品牌询盘。原小尺寸 PNG 保留兼容旧缓存，新页面引用高清资源。
+首页已移除中石化 SINOPEC 与长城润滑油的 Logo 展示区及对应导航入口。品牌名称可继续作为询盘意向填写。既有品牌图片资产保留兼容历史链接，当前页面不再引用。
 
 ## 发布
 
