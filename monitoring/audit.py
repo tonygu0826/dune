@@ -198,6 +198,7 @@ class _Document(HTMLParser):
         self.lang = ""
         self.title_parts = []
         self.description = ""
+        self.description_variants = {"meta": [], "og": [], "twitter": [], "schema": []}
         self.robots = []
         self.canonicals = []
         self.hreflang = {}
@@ -220,6 +221,11 @@ class _Document(HTMLParser):
             name = attrs.get("name", "").lower()
             if name == "description":
                 self.description = attrs.get("content", "")
+                self.description_variants['meta'].append(self.description)
+            if attrs.get('property', '').lower() == 'og:description':
+                self.description_variants['og'].append(attrs.get('content', ''))
+            if name == 'twitter:description':
+                self.description_variants['twitter'].append(attrs.get('content', ''))
             if name in ("robots", "googlebot", "bingbot"):
                 self.robots.append(attrs.get("content", ""))
         if tag == "link":
@@ -296,7 +302,7 @@ def _page(resource: dict) -> dict:
     url = resource["url"]
     page = {"url": url, "status": resource.get("status"), "title": "", "description": "", "lang": "",
             "canonical": "", "hreflang": {}, "h1": [], "links": [], "schema_types": [], "visible_text_words": 0,
-            "content_hash": None, "issues": []}
+            "content_hash": None, "description_variants": {}, "issues": []}
     issues = page["issues"]
     if resource.get("status") != 200:
         issues.append(_issue("page-http", "critical", "Canonical page did not return HTTP 200", url))
@@ -316,6 +322,7 @@ def _page(resource: dict) -> dict:
                 hreflang=doc.hreflang, h1=[h["text"].strip() for h in doc.headings if h["level"] == 1],
                 links=doc.links, visible_text_words=len(text.split()),
                 content_hash=hashlib.sha256(text.encode()).hexdigest())
+    page['description_variants'] = doc.description_variants
     if not page["title"]:
         issues.append(_issue("missing-title", "warning", "Page has no document title", url))
     if not page["description"]:
@@ -339,6 +346,10 @@ def _page(resource: dict) -> dict:
             if not isinstance(value, (dict, list)):
                 raise ValueError("JSON-LD must be an object or array")
             page["schema_types"] = sorted(set(page["schema_types"]) | _types(value))
+            nodes = value if isinstance(value, list) else value.get('@graph', [value])
+            for node in nodes:
+                if isinstance(node, dict) and node.get('@id') == url + '#webpage' and isinstance(node.get('description'), str):
+                    page['description_variants']['schema'].append(node['description'])
         except (ValueError, TypeError, RecursionError):
             issues.append(_issue("invalid-jsonld", "warning", "A JSON-LD block could not be parsed; full schema eligibility is not tested", url))
     if doc.schemas and not page["schema_types"]:
@@ -454,12 +465,18 @@ def collect_site(origin: str = "https://energydune.com") -> dict:
 def compare(previous: dict | None, current: dict) -> dict:
     """Compare stable observations only; unavailable fetches are not content edits."""
     if not previous:
-        return {"baseline_available": False, "added_urls": [], "removed_urls": [], "changed_content": [], "new_issues": [], "resolved_issues": []}
+        return {"baseline_available": False, "added_urls": [], "removed_urls": [], "changed_content": [], "changed_metadata": [], "new_issues": [], "resolved_issues": []}
     before = {page["url"]: page for page in previous.get("pages", [])}
     after = {page["url"]: page for page in current.get("pages", [])}
     changed = [url for url in sorted(before.keys() & after.keys())
                if before[url].get("content_hash") and after[url].get("content_hash")
                and before[url]["content_hash"] != after[url]["content_hash"]]
+    metadata_fields = ("title", "description", "lang", "canonical", "hreflang", "schema_types")
+    def metadata_observed(page):
+        return page.get('status') == 200 and not {'html-parse', 'page-content-type'} & {issue.get('code') for issue in page.get('issues', [])}
+    metadata_changed = [url for url in sorted(before.keys() & after.keys())
+                        if metadata_observed(before[url]) and metadata_observed(after[url])
+                        and any(before[url].get(key) != after[url].get(key) for key in metadata_fields)]
     def signatures(report):
         return {(issue.get("url", ""), issue["code"], issue["severity"]): issue for issue in report.get("issues", [])}
     old_issues, new_issues = signatures(previous), signatures(current)
@@ -486,5 +503,6 @@ def compare(previous: dict | None, current: dict) -> dict:
             "added_urls": sorted(after.keys() - before.keys()) if complete else [],
             "removed_urls": sorted(before.keys() - after.keys()) if complete else [],
             "changed_content": changed,
+            "changed_metadata": metadata_changed,
             "new_issues": [new_issues[key] for key in sorted(new_issues.keys() - old_issues.keys())],
             "resolved_issues": resolved if complete else [], "page_list_comparable": complete}

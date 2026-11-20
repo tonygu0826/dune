@@ -1,0 +1,31 @@
+[
+  {
+    "id": "2026-11-20-about-snippets",
+    "title": "英法公司介绍页简洁搜索摘要",
+    "published_at": "2026-11-20T06:14:26Z",
+    "commit_url": "https://github.com/tonygu0826/dune/commit/2844fdd4ea8a034d23589c3f1d8167be580623f3",
+    "source_commit_url": "https://github.com/tonygu0826/dune/commit/453dfd26b046ceb62f8ca7ea6fbf82d681bf989d",
+    "targets": [
+      {
+        "url": "https://energydune.com/about/",
+        "language": "en",
+        "description": "About DUNE ENERGY GLOBAL: multi-brand lubricant and energy product sales, purchasing requirements and official contact details.",
+        "before_characters": 249,
+        "after_characters": 127
+      },
+      {
+        "url": "https://energydune.com/fr/about/",
+        "language": "fr",
+        "description": "DUNE ENERGY GLOBAL : vente de lubrifiants multimarques et de produits énergétiques. Découvrez l’entreprise et préparez votre demande de devis.",
+        "before_characters": 239,
+        "after_characters": 142
+      }
+    ],
+    "deployment_checks": {
+      "build_and_28_document_check": true,
+      "body_bytes_unchanged": true,
+      "canonical_and_languages_preserved": true,
+      "all_description_channels_synchronized": true
+    }
+  }
+]

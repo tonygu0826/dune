@@ -21,6 +21,18 @@ Runtime: Python 3.12; public checks have no third-party dependencies. The collec
 - Allowed/blocked/unknown URL counts for named search and AI search crawlers. This measures permission only, not actual crawler traffic or citations.
 - Page-list changes, visible-text hashes and added/resolved technical findings against the previous available valid observation. CSS-only changes, off-site authority, complete Schema.org semantics, browser speed and Core Web Vitals are not measured.
 
+## Tests, actions and applied improvements
+
+Each run now evaluates the 20 query-to-page mappings, rather than repeating an unexecuted keyword list. Tests cover the approved target, sitemap membership, HTTP, document language, self-canonical, observed index directives, Google/Bing robots permission and a real internal link from another successful page. Missing observations remain unknown; topic clues from metadata/H1 are informational and do not force exact-query text into the site. These are on-site tests, never measured rankings or citation scores.
+
+Only observed problems or concrete editorial opportunities generate actions. Each action carries evidence, a proposed change and a verification criterion; missing account access stays in the data-source status instead of being repeated as a new daily defect. The collector distinguishes metadata changes from visible-body changes. Description length is a display heuristic, not a search-engine requirement.
+
+`optimization-log.json` records applied, source-backed changes with exact publication commits and deployment checks. Every subsequent run reads actual public HTML and rechecks the expected search/Open Graph/Twitter/WebPage descriptions, canonical and language. Unexpected differences or unavailable pages become actionable findings. Passing this recheck means the implementation is present; its effect on rankings, traffic and AI citations remains unmeasured until authorized observations exist.
+
+The daily job tests and reports; it does **not** enable unattended production edits. The first applied improvement separated the two About search snippets from visible introductions, preserving exact body bytes and business facts. No content is padded to a word-count target and no product, stock, approval or delivery claims are invented.
+
+Critical technical failures, failed keyword target checks or a confirmed regression in a recorded optimization fail the run after the report is saved. Unavailable search/AI data alone does not fail the technical job or become a zero result.
+
 ## What remains unmeasured
 
 The owner previously reported successful Google verification and Bing import. Those facts do not grant API access. The scheduled report therefore marks Google impressions/clicks/positions and actual AI answers/citations **not measured**, not zero. Public crawling readiness is not a proxy for search rankings, indexing or AI recommendations.

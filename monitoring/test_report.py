@@ -22,6 +22,15 @@ class ScheduleTests(unittest.TestCase):
 
 
 class ReportTests(unittest.TestCase):
+    def test_multiple_optimization_rows_stay_together(self):
+        data = {'report_date': '2026-11-20', 'generated_at': '2026-11-20T09:00:00-05:00',
+                'technical': {'summary': {'critical': 0, 'warning': 0, 'info': 0, 'pages_expected': 28, 'pages_checked': 28, 'http_ok': 28}},
+                'changes': {'baseline_available': False}, 'search_sources': measurement_status(), 'queries': [],
+                'optimization_checks': [{'title': title, 'status': 'passed', 'checks': [], 'commit_url': 'https://github.com/tonygu0826/dune/commit/example'} for title in ('First change', 'Second change')]}
+        report = render(data)
+        self.assertLess(report.index('| Second change'), report.index('实施记录：'))
+        self.assertIn('排名、流量和 AI 引用的改善尚未测量', report)
+
     def test_failed_collection_still_saves_an_honest_report(self):
         with tempfile.TemporaryDirectory() as temp:
             with patch('sys.argv', ['run.py', '--output', temp]), patch('run.collect_site', side_effect=RuntimeError('SENSITIVE-detail')), patch.dict('os.environ', {}, clear=True):

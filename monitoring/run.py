@@ -11,6 +11,8 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from audit import collect_site, compare
+from actions import evaluate
+from optimizations import verify as verify_optimizations
 
 ROOT = Path(__file__).resolve().parent
 ZONE = ZoneInfo("America/Toronto")
@@ -52,8 +54,8 @@ def render(data):
         lines.append(f"| {label} | {safe_text(item.get('reason', item['status']))} |")
     lines += ["", "没有数据不计为零，也不推断未收录、无排名或未被 AI 推荐。Search Console 平均位置与实时搜索结果位置不同；实际统计通常有延迟。", "", "## 与上次成功保存的快照比较", ""]
     if delta["baseline_available"]:
-        for key, label in [("added_urls", "新增页面"), ("removed_urls", "移除页面"), ("changed_content", "正文变化"), ("new_issues", "新增问题"), ("resolved_issues", "已消失问题")]:
-            lines.append(f"- {label}：{len(delta[key])}")
+        for key, label in [("added_urls", "新增页面"), ("removed_urls", "移除页面"), ("changed_content", "正文变化"), ("changed_metadata", "标题／摘要等元数据变化"), ("new_issues", "新增问题"), ("resolved_issues", "已消失问题")]:
+            lines.append(f"- {label}：{len(delta.get(key, []))}")
         lines.append("\n比较对象是可用的最近快照；报告注明基线日期，缺少某天时不称为严格昨日对比。")
         lines.append(f"基线采集时间：{safe_text(data.get('baseline_checked_at', '未知'))}")
     else:
@@ -61,24 +63,39 @@ def render(data):
     lines += ["", "## 爬虫访问权限", "", "| 搜索爬虫 | 允许 / 阻止 / 未知（URL 数） |", "| --- | --- |"]
     for bot, status in site.get("crawler_access", {}).items():
         lines.append(f"| {safe_text(bot)} | {len(status['allowed'])} / {len(status['blocked'])} / {len(status['unknown'])} |")
-    lines += ["", "此处只检验 robots 规则，不证明平台实际访问、收录或引用。llms.txt 是可选辅助文件，并非搜索引擎排名要求。", "", "## 待办", ""]
-    issues = site.get("issues", [])
-    for issue in issues[:40]:
-        lines.append(f"- **{safe_text(issue['severity'])}** `{safe_text(issue['code'])}` — {safe_text(issue.get('url', ''))} {safe_text(issue['message'])}")
-    if not issues:
-        lines.append("- 本次所覆盖的技术规则未发现问题；继续观察。此结果不代表完整 SEO 体检全部通过。")
-    if len(issues) > 40:
-        lines.append(f"- 其余 {len(issues)-40} 项详见同批 JSON。")
-    lines += [
-        "- 接入 Google / Bing 的只读统计，才能报告真实曝光、点击和平均位置。",
-        "- 接入有时间、地区、联网模式和原始引用的 AI 观测，才能报告实际提及或引用。", "",
-        "## 关键词观测范围", "",
-        "优先词：`lubricants`、`lubrifiants`；采购词与 DUNE 品牌词分别记录。下列是待测清单，不是排名结果。", "",
-        "| 查询 | 语言 / 目标国家 | 状态 |", "| --- | --- | --- |",
-    ]
-    for query in data["queries"]:
-        lines.append(f"| {safe_text(query['query'])} | {query['language']} / {query['requested_country']} | 未测 |")
-    lines += ["", "本任务不修改网站、不提交索引、不发送询盘，也不自动改写内容或索取付费数据。", ""]
+    lines += ["", "此处只检验 robots 规则，不证明平台实际访问、收录或引用。llms.txt 是可选辅助文件，并非搜索引擎排名要求。", "", "## 建议与执行状态", ""]
+    plan = data.get("action_plan", {"actions": [], "keyword_tests": [], "summary": {}})
+    actions = plan["actions"]
+    status_labels = {"tested_failure": "检查确认需处理", "not_verified": "本轮无法验证", "optimization_candidate": "有依据的优化候选", "candidate": "优化候选"}
+    for action in actions[:30]:
+        lines.append(f"- **{safe_text(status_labels.get(action['status'], action['status']))}** `{safe_text(action['code'])}` — {safe_text(action['url'])}")
+        lines.append(f"  - 依据：{safe_text(action['evidence'])}")
+        lines.append(f"  - 操作：{safe_text(action['action'])}")
+        lines.append(f"  - 验证：{safe_text(action['probe'])}")
+    if not actions:
+        lines.append("本轮已执行的检查没有产生需修复事项，不添加固定待办。数据源未接入的限制单列在上面的搜索数据状态中。")
+    if len(actions) > 30:
+        lines.append(f"其余 {len(actions)-30} 项详见同批 JSON。")
+    optimizations = data.get("optimization_checks", [])
+    if optimizations:
+        lines += ["", "## 已实施优化与当前复测", "", "| 优化 | 本轮复测 | 证据 |", "| --- | --- | --- |"]
+        labels = {"passed": "通过", "failed": "发现差异，需核对", "unknown": "本轮无法验证"}
+        commit_notes = []
+        for item in optimizations:
+            target_lengths = "; ".join(f"{check['url']}：{check['description_characters']} 字符" for check in item['checks'] if check['description_characters'] is not None)
+            lines.append(f"| {safe_text(item['title'])} | {labels[item['status']]} | {safe_text(target_lengths)} |")
+            if item.get("commit_url"):
+                commit_notes.append(f"实施记录：[发布提交]({item['commit_url']})。")
+        lines += [''] + commit_notes
+        lines.append("\n复测通过只确认修改已在实际 HTML 生效；排名、流量和 AI 引用的改善尚未测量。")
+    lines += ["", "## 关键词对应页面自动测试", "",
+              "优先词：`lubricants`、`lubrifiants`；采购词与品牌词分别记录。每次自动检验目标页、语言、canonical、noindex、爬虫权限和内部入口。主题词只作为线索，不强行插入整条搜索词。", "",
+              "| 查询 | 目标页 | 站内检测 | 实际排名 / AI 引用 |", "| --- | --- | --- | --- |"]
+    labels = {"passed": "通过", "failed": "发现问题", "unknown": "无法判定"}
+    for item in plan['keyword_tests']:
+        lines.append(f"| {safe_text(item['query'])} | {safe_text(item['target_url'])} | {labels[item['on_site_status']]} | 未测 / 未测 |")
+    lines += ["", "站内测试通过不等于搜索排名或 AI 推荐。每项检查的证据、失败原因和内部入口见 JSON。", "",
+              "每日流程只读测试并生成处理建议；网站优化的发布与复测单独留存记录，不会自动编造产品事实或购买监测服务。", ""]
     return "\n".join(lines)
 
 
@@ -123,8 +140,23 @@ def main():
         "timezone": "America/Toronto", "technical": site,
         "changes": compare(previous, site), "baseline_checked_at": previous.get("checked_at") if previous else None,
         "search_sources": measurement_status(), "queries": queries,
+        "action_plan": evaluate(site, queries),
+        "optimization_checks": verify_optimizations(site, json.loads((ROOT / 'optimization-log.json').read_text()) if (ROOT / 'optimization-log.json').exists() else []),
         "delivery": {"daily_generation": "GitHub Actions", "automatic_codex_delivery": "not_configured"},
     }
+    for result in data['optimization_checks']:
+        for check in result['checks']:
+            if check['status'] == 'passed':
+                continue
+            data['action_plan']['actions'].append({
+                'id': result['id'] + ':' + check['url'], 'code': 'optimization-recheck',
+                'url': check['url'], 'priority': 'warning', 'evidence': check['reason'],
+                'action': '核对已实施优化与当前版本的差异；有意更新时同步实施记录，异常变化时修复源模板后重新验证。',
+                'probe': '重新读取原始 HTML，比较 meta／OG／Twitter／WebPage 摘要、canonical 与语言。',
+                'status': 'tested_failure' if check['status'] == 'failed' else 'not_verified',
+                'requires_change': check['status'] == 'failed',
+            })
+    data['action_plan']['summary']['actions'] = len(data['action_plan']['actions'])
     if args.private_metrics:
         from sources import collect_sources
         private = collect_sources()
@@ -146,7 +178,9 @@ def main():
             stream.write(markdown)
     print(f"Daily public report saved: {args.output / 'daily-report.md'}")
     print(f"Technical observations: {site['summary']['pages_checked']} pages; critical={site['summary']['critical']}, warning={site['summary']['warning']}. Search/AI data is not inferred.")
-    return 1 if site["summary"]["critical"] else 0
+    failed = (site["summary"]["critical"] or data['action_plan']['summary'].get('failed', 0)
+              or any(item['status'] == 'failed' for item in data['optimization_checks']))
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
