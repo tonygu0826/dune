@@ -1,0 +1,96 @@
+name: DUNE daily SEO and GEO report
+
+on:
+  pull_request:
+    paths:
+      - 'monitoring/**'
+      - '.github/workflows/daily-search-report.yml'
+  schedule:
+    # 09:00 America/Toronto: one schedule runs, the other is skipped.
+    - cron: '0 13 * * *'
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dune-daily-search-report
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Monitor regression checks (no network)
+        run: python -m unittest discover -s monitoring -p 'test_*.py' -v
+
+  timing:
+    needs: tests
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.gate.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - id: gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: python monitoring/schedule.py
+
+  report:
+    needs: timing
+    if: needs.timing.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore latest observation baseline
+        uses: actions/cache/restore@v4
+        with:
+          path: .daily-baseline
+          key: dune-daily-baseline-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: dune-daily-baseline-
+      - name: Read public website and prepare report
+        id: observe
+        continue-on-error: true
+        run: python monitoring/run.py --output daily-report --baseline .daily-baseline/daily-result.json
+      - name: Save current observation for comparison
+        if: always() && hashFiles('daily-report/daily-result.json') != ''
+        run: |
+          mkdir -p .daily-baseline
+          cp daily-report/daily-result.json .daily-baseline/daily-result.json
+      - name: Persist baseline
+        if: always() && hashFiles('daily-report/daily-result.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .daily-baseline
+          key: dune-daily-baseline-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Keep dated daily report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dune-daily-report
+          path: daily-report/
+          retention-days: 90
+          if-no-files-found: error
+      - name: Flag a failed observation or technical blocker
+        if: always() && steps.observe.outcome != 'success'
+        run: exit 1

@@ -1,0 +1,4 @@
+.daily-baseline/
+daily-report/
+private-reports/
+**/__pycache__/

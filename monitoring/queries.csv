@@ -1,0 +1,21 @@
+id,query,language,requested_country,requested_city,intent,candidate_target_path,weekly_core,measurement_status,target_status
+Q01,lubricants,en,US,New York,broad / mixed,/lubricants/,True,not_run,implemented_route
+Q02,lubrifiants,fr,CA,Montréal,broad / mixed,/fr/lubrifiants/,True,not_run,implemented_route
+Q03,lubricant supplier United States,en,US,New York,supplier enquiry,/lubricants/,True,not_run,implemented_route
+Q04,fournisseur de lubrifiants aux États-Unis,fr,US,New York,supplier enquiry,/fr/lubrifiants/,False,not_run,implemented_route
+Q05,lubricants Canada,en,CA,Toronto,country-qualified / mixed,/lubricants/,False,not_run,implemented_route
+Q06,lubrifiants Canada,fr,CA,Montréal,country-qualified / mixed,/fr/lubrifiants/,True,not_run,implemented_route
+Q07,multi brand lubricant supplier,en,US,New York,multi-brand enquiry,/lubricants/,False,not_run,implemented_route
+Q08,fournisseur de lubrifiants multimarques,fr,CA,Montréal,multi-brand enquiry,/fr/lubrifiants/,False,not_run,implemented_route
+Q09,industrial lubricants supplier United States,en,US,New York,industrial enquiry,/products/industrial-lubricants/,False,not_run,existing_route
+Q10,fournisseur de lubrifiants industriels au Canada,fr,CA,Montréal,industrial enquiry,/fr/products/lubrifiants-industriels/,False,not_run,existing_route
+Q11,passenger car engine oil supplier Canada,en,CA,Toronto,engine-oil enquiry,/products/passenger-car-engine-oils/,False,not_run,existing_route
+Q12,fournisseur d’huiles moteur pour véhicules légers au Canada,fr,CA,Montréal,engine-oil enquiry,/fr/products/huiles-moteur-vehicules-legers/,False,not_run,existing_route
+Q13,hydraulic oil ISO VG 46 supplier United States,en,US,New York,specific application enquiry,/products/industrial-lubricants/,False,not_run,existing_route
+Q14,fournisseur d’huile hydraulique ISO VG 46 aux États-Unis,fr,US,New York,specific application enquiry,/fr/products/lubrifiants-industriels/,False,not_run,existing_route
+Q15,SAE ISO VG NLGI difference,en,CA,Toronto,technical information,/guides/lubricant-selection/,False,not_run,existing_route
+Q16,différence SAE ISO VG NLGI,fr,CA,Montréal,technical information,/fr/guides/lubricant-selection/,False,not_run,existing_route
+Q17,DUNE ENERGY GLOBAL lubricants,en,US,New York,branded identity control,/about/,True,not_run,existing_route
+Q18,DUNE ENERGY GLOBAL lubrifiants,fr,CA,Montréal,branded identity control,/fr/about/,True,not_run,existing_route
+Q19,lubricants,en,CA,Toronto,broad / mixed,/lubricants/,False,not_run,implemented_route
+Q20,lubrifiants,fr,US,New York,broad / mixed,/fr/lubrifiants/,False,not_run,implemented_route
