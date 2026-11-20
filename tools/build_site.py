@@ -256,6 +256,7 @@ def render_about(lang):
     path, other = prefix(lang) + '/about/', prefix('fr' if lang == 'en' else 'en') + '/about/'
     heading = 'About DUNE ENERGY GLOBAL' if lang == 'en' else 'À propos de DUNE ENERGY GLOBAL'
     summary = COPY[lang]['aboutLead']
+    description = COPY[lang]['aboutMetaDescription']
     if lang == 'en':
         pairs = [('Legal company name', CONFIG['legal_name']), ('Business', 'Energy products and multi-brand lubricant sales'), ('Applications', 'Passenger vehicles, commercial vehicles and industrial equipment'), ('Enquiry brands shown on this website', 'SINOPEC and Great Wall Lubricants'), ('Communication', 'English and French'), ('Official email', CONFIG['email'])]
         paragraphs = ['Send your product category, preferred brand or reference, specifications, quantity and delivery destination through our enquiry page. Optional technical details help distinguish products with similar names or viscosity grades.', 'Availability, product specifications, packaging and delivery requirements are reviewed for the individual request. The website presents category-level information; it does not publish live inventory, product prices or confirmed lead times.', 'Ask for the relevant product data sheet (PDS/TDS), safety data sheet (SDS) and any required evidence of an OEM approval for the product being quoted. A safety data sheet is not a performance approval.']
@@ -267,7 +268,7 @@ def render_about(lang):
     destination = PILLAR[lang]['sections'][-1]
     body += '<section class="content-section"><h2>' + e(destination['heading']) + '</h2>' + ''.join('<p>' + e(p) + '</p>' for p in destination['paragraphs']) + '</section>'
     body += cta(lang) + related(lang)
-    page_shell(path, other, lang, heading, summary, heading, summary, body, [(ui['home'], home(lang)), (ui['about'], path)], 'AboutPage', extra={'mainEntity': {'@id': absolute('/#organization')}})
+    page_shell(path, other, lang, heading, description, heading, summary, body, [(ui['home'], home(lang)), (ui['about'], path)], 'AboutPage', extra={'mainEntity': {'@id': absolute('/#organization')}})
 
 
 def localize_template(name, lang):
@@ -412,7 +413,8 @@ def render_discovery():
 
 
 def build(check=False):
-    OUTPUTS['app.js'] = (ROOT / 'site/app.template.js').read_text().replace('__UI_TRANSLATIONS__', json.dumps(COPY, ensure_ascii=False, indent=2))
+    client_copy = {lang: {key: value for key, value in copy.items() if key != 'aboutMetaDescription'} for lang, copy in COPY.items()}
+    OUTPUTS['app.js'] = (ROOT / 'site/app.template.js').read_text().replace('__UI_TRANSLATIONS__', json.dumps(client_copy, ensure_ascii=False, indent=2))
     for lang in LANGUAGES:
         render_existing_template(lang)
         render_existing_template(lang, True)
