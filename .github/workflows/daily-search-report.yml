@@ -91,6 +91,6 @@ jobs:
           path: daily-report/
           retention-days: 90
           if-no-files-found: error
-      - name: Flag a failed observation or technical blocker
+      - name: Flag a failed observation or regression
         if: always() && steps.observe.outcome != 'success'
         run: exit 1
